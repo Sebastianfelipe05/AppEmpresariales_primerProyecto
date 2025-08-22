@@ -12,8 +12,8 @@ public class Moto extends Vehiculo {
     private int cilindraje;
     private boolean tieneSideCar;
 
-    public Moto(String nombre, String color, String placa, String combustible, int modelo, int kilometraje, int cilindraje, boolean tieneSideCar) {
-        super(nombre, color, placa, combustible, modelo, kilometraje);
+    public Moto(String nombre, String color, String placa, String combustible, int modelo, String estado, int cilindraje, boolean tieneSideCar) {
+        super(nombre, color, placa, combustible, modelo, estado);
         this.cilindraje = cilindraje;
         this.tieneSideCar = tieneSideCar;
     }

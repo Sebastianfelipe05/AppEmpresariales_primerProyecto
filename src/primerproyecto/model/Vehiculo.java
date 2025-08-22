@@ -14,15 +14,15 @@ public abstract class Vehiculo {
     private String placa;
     private String combustible;
     private int modelo;
-    private int kilometraje;
+    private String estado;
 
-    public Vehiculo(String nombre, String color, String placa, String combustible, int modelo, int kilometraje) {
+    public Vehiculo(String nombre, String color, String placa, String combustible, int modelo, String estado) {
         this.nombre = nombre;
         this.color = color;
         this.placa = placa;
         this.combustible = combustible;
         this.modelo = modelo;
-        this.kilometraje = kilometraje;
+        this.estado = estado;
     }
 
     public String getNombre() {
@@ -65,17 +65,17 @@ public abstract class Vehiculo {
         this.modelo = modelo;
     }
 
-    public int getKilometraje() {
-        return kilometraje;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setKilometraje(int kilometraje) {
-        this.kilometraje = kilometraje;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "nombre=" + nombre + ", color=" + color + ", placa=" + placa + ", combustible=" + combustible + ", modelo=" + modelo + ", kilometraje=" + kilometraje + '}';
+        return "Vehiculo{" + "nombre=" + nombre + ", color=" + color + ", placa=" + placa + ", combustible=" + combustible + ", modelo=" + modelo + ", estado =" + estado + '}';
     }
     
     

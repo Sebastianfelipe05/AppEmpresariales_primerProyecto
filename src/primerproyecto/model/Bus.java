@@ -13,8 +13,8 @@ public class Bus extends Vehiculo {
     private boolean tienebano;
     private boolean tieneSegundoPiso;
 
-    public Bus(String nombre, String color, String placa, String combustible, int modelo, int kilometraje, int cantidadTelelvisores, boolean tieneBano, boolean tieneSegundoPiso) {
-        super(nombre, color, placa, combustible, modelo, kilometraje);
+    public Bus(String nombre, String color, String placa, String combustible, int modelo, String estado, int cantidadTelelvisores, boolean tieneBano, boolean tieneSegundoPiso) {
+        super(nombre, color, placa, combustible, modelo, estado);
         this.cantidadTelevisores = cantidadTelelvisores;
         this.tienebano = tieneBano;
         this.tieneSegundoPiso = tieneSegundoPiso;

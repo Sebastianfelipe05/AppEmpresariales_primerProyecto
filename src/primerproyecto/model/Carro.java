@@ -12,8 +12,8 @@ public class Carro extends Vehiculo{
     private int numeroPuertas;
     private boolean tieneAireAcondicionado;
 
-    public Carro(String nombre, String color, String placa, String combustible, int modelo, int kilometraje, int numeroPuertas, boolean tieneAireAcondicionado) {
-        super(nombre, color, placa, combustible, modelo, kilometraje);
+    public Carro(String nombre, String color, String placa, String combustible, int modelo, String estado, int numeroPuertas, boolean tieneAireAcondicionado) {
+        super(nombre, color, placa, combustible, modelo, estado);
         this.numeroPuertas = numeroPuertas;
         this.tieneAireAcondicionado = tieneAireAcondicionado;
     }
