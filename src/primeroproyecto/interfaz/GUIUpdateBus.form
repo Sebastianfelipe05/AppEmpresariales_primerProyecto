@@ -27,21 +27,22 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="41" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="txtBuscarUpdateBus" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="txtBuscarUpdateBus" min="-2" pref="375" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,59 +79,50 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="anioB" min="-2" max="-2" attributes="0"/>
-                      <Component id="combustibleB" min="-2" max="-2" attributes="0"/>
-                      <Component id="placaB" min="-2" max="-2" attributes="0"/>
-                      <Component id="colorB" min="-2" max="-2" attributes="0"/>
-                      <Component id="marcaB" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="estadoB" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="modeloB" min="-2" max="-2" attributes="0"/>
+                          <Component id="combustibleB" min="-2" max="-2" attributes="0"/>
+                          <Component id="placaB" min="-2" max="-2" attributes="0"/>
+                          <Component id="anioB" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="modeloB" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="estadoB" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="Banio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TV" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="segundoPiso" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="colorB" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="marcaB" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="cbColor" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtMarcaC" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="cbCombustibleB" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPlacaB" min="-2" pref="165" max="-2" attributes="0"/>
-                                      <Component id="jSpinner1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtModelo" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="cbBanio" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtTVB" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
-                                      <Component id="cbPisoB" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
-                              </Group>
+                          <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="cbCombustibleB" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPlacaB" min="-2" pref="165" max="-2" attributes="0"/>
+                              <Component id="jSpinner1" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtModelo" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
+                              <Component id="jComboBox1" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbBanio" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtTVB" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
+                              <Component id="cbPisoB" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton2" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbColor" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="txtMarcaC" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="TV" min="-2" max="-2" attributes="0"/>
-                      <Component id="Banio" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                          <Component id="segundoPiso" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -138,15 +130,25 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="marcaB" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtMarcaC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="marcaB" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtMarcaC" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="colorB" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="colorB" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cbColor" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
