@@ -9,5 +9,5 @@ package primerproyecto.model;
  * @author User
  */
 public class Conductor {
-    // LLenar esta mierda.
+    
 }
