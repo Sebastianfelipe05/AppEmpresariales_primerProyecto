@@ -37,7 +37,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         archivo = new javax.swing.JMenu();
         carro = new javax.swing.JMenu();
         addCarro = new javax.swing.JMenuItem();
-        moto = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         ayuda = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -59,9 +58,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         carro.add(addCarro);
 
         jMenuBar1.add(carro);
-
-        moto.setText("Moto");
-        jMenuBar1.add(moto);
 
         jMenu1.setText("Bus");
         jMenuBar1.add(jMenu1);
@@ -135,6 +131,5 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenu moto;
     // End of variables declaration//GEN-END:variables
 }
