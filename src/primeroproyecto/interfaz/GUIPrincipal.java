@@ -35,9 +35,18 @@ public class GUIPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         archivo = new javax.swing.JMenu();
-        carro = new javax.swing.JMenu();
+        search = new javax.swing.JMenu();
         addCarro = new javax.swing.JMenuItem();
+        searchCarro = new javax.swing.JMenuItem();
+        updateCarro = new javax.swing.JMenuItem();
+        deleteCarro = new javax.swing.JMenuItem();
+        listarCarro = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        addBus = new javax.swing.JMenuItem();
+        searchBus = new javax.swing.JMenuItem();
+        updateBus = new javax.swing.JMenuItem();
+        deleteBus = new javax.swing.JMenuItem();
+        listarBus = new javax.swing.JMenuItem();
         ayuda = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -50,14 +59,82 @@ public class GUIPrincipal extends javax.swing.JFrame {
         archivo.setText("Archivo");
         jMenuBar1.add(archivo);
 
-        carro.setText("Carro");
+        search.setText("Carro");
 
         addCarro.setText("Add carro");
-        carro.add(addCarro);
+        search.add(addCarro);
 
-        jMenuBar1.add(carro);
+        searchCarro.setText("Search carro");
+        searchCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCarroActionPerformed(evt);
+            }
+        });
+        search.add(searchCarro);
+
+        updateCarro.setText("Update carro");
+        updateCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateCarroActionPerformed(evt);
+            }
+        });
+        search.add(updateCarro);
+
+        deleteCarro.setText("Delete Carro");
+        deleteCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCarroActionPerformed(evt);
+            }
+        });
+        search.add(deleteCarro);
+
+        listarCarro.setText("Listar Carro");
+        listarCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarCarroActionPerformed(evt);
+            }
+        });
+        search.add(listarCarro);
+
+        jMenuBar1.add(search);
 
         jMenu1.setText("Bus");
+
+        addBus.setText("Add Bus");
+        jMenu1.add(addBus);
+
+        searchBus.setText("Search Bus");
+        searchBus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBusActionPerformed(evt);
+            }
+        });
+        jMenu1.add(searchBus);
+
+        updateBus.setText("Update Bus");
+        updateBus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBusActionPerformed(evt);
+            }
+        });
+        jMenu1.add(updateBus);
+
+        deleteBus.setText("Delete Bus");
+        deleteBus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBusActionPerformed(evt);
+            }
+        });
+        jMenu1.add(deleteBus);
+
+        listarBus.setText("Listar Bus");
+        listarBus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarBusActionPerformed(evt);
+            }
+        });
+        jMenu1.add(listarBus);
+
         jMenuBar1.add(jMenu1);
 
         ayuda.setText("Ayuda");
@@ -93,6 +170,38 @@ public class GUIPrincipal extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this, "Desarrollado por Sebastian Solano, Juan David Resyes y Julio Suarez");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void searchCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCarroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchCarroActionPerformed
+
+    private void updateCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCarroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateCarroActionPerformed
+
+    private void deleteCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCarroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteCarroActionPerformed
+
+    private void listarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarCarroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listarCarroActionPerformed
+
+    private void searchBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchBusActionPerformed
+
+    private void updateBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateBusActionPerformed
+
+    private void deleteBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteBusActionPerformed
+
+    private void listarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listarBusActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -119,13 +228,22 @@ public class GUIPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem addBus;
     private javax.swing.JMenuItem addCarro;
     private javax.swing.JMenu archivo;
     private javax.swing.JMenu ayuda;
-    private javax.swing.JMenu carro;
+    private javax.swing.JMenuItem deleteBus;
+    private javax.swing.JMenuItem deleteCarro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem listarBus;
+    private javax.swing.JMenuItem listarCarro;
+    private javax.swing.JMenu search;
+    private javax.swing.JMenuItem searchBus;
+    private javax.swing.JMenuItem searchCarro;
+    private javax.swing.JMenuItem updateBus;
+    private javax.swing.JMenuItem updateCarro;
     // End of variables declaration//GEN-END:variables
 }

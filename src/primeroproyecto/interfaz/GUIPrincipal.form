@@ -9,7 +9,7 @@
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="carro">
+        <Menu class="javax.swing.JMenu" name="search">
           <Properties>
             <Property name="text" type="java.lang.String" value="Carro"/>
           </Properties>
@@ -19,12 +19,83 @@
                 <Property name="text" type="java.lang.String" value="Add carro"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="searchCarro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Search carro"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchCarroActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="updateCarro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Update carro"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateCarroActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deleteCarro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Carro"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteCarroActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="listarCarro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar Carro"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarCarroActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bus"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="addBus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Bus"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="searchBus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Search Bus"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBusActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="updateBus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Update Bus"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateBusActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deleteBus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Bus"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteBusActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="listarBus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar Bus"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarBusActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="ayuda">
           <Properties>

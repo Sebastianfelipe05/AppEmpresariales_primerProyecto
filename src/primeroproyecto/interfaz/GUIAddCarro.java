@@ -8,14 +8,14 @@ package primeroproyecto.interfaz;
  *
  * @author Sebastian
  */
-public class GUIAddVehiculo extends javax.swing.JFrame {
+public class GUIAddCarro extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIAddVehiculo.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIAddCarro.class.getName());
 
     /**
      * Creates new form GUIAddVehiculo
      */
-    public GUIAddVehiculo() {
+    public GUIAddCarro() {
         initComponents();
     }
 
@@ -57,7 +57,7 @@ public class GUIAddVehiculo extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         color.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
         color.setForeground(new java.awt.Color(51, 51, 255));
@@ -77,7 +77,7 @@ public class GUIAddVehiculo extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("ADD VEHICULO");
+        jLabel4.setText("ADD CARRO");
 
         cbColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
 
@@ -140,9 +140,6 @@ public class GUIAddVehiculo extends javax.swing.JFrame {
                                 .addComponent(btnGuardar)
                                 .addGap(10, 10, 10)))
                         .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
-                                .addComponent(btnSalir)
-                                .addGap(37, 37, 37))
                             .addGroup(colorLayout.createSequentialGroup()
                                 .addGap(94, 94, 94)
                                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +147,11 @@ public class GUIAddVehiculo extends javax.swing.JFrame {
                                     .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(spModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(cbCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSalir)
+                                .addGap(42, 42, 42))))))
         );
         colorLayout.setVerticalGroup(
             colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,14 +182,11 @@ public class GUIAddVehiculo extends javax.swing.JFrame {
                 .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(estado)
                     .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
-                        .addComponent(btnGuardar)
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorLayout.createSequentialGroup()
-                        .addComponent(btnSalir)
-                        .addGap(43, 43, 43))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(colorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnSalir))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,7 +240,7 @@ public class GUIAddVehiculo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIAddVehiculo().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GUIAddCarro().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
