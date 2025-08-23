@@ -9,28 +9,30 @@ package primerproyecto.model;
  * @author User
  */
 public abstract class Vehiculo {
-    private String nombre;
+    private String marca;
     private String color;
     private String placa;
     private String combustible;
-    private int modelo;
+    private String modelo;
+    private int anio;
     private String estado;
 
-    public Vehiculo(String nombre, String color, String placa, String combustible, int modelo, String estado) {
-        this.nombre = nombre;
+    public Vehiculo(String marca, String color, String placa, String combustible, String modelo, int anio, String estado) {
+        this.marca = marca;
         this.color = color;
         this.placa = placa;
         this.combustible = combustible;
         this.modelo = modelo;
+        this.anio = anio;
         this.estado = estado;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public String getColor() {
@@ -57,12 +59,20 @@ public abstract class Vehiculo {
         this.combustible = combustible;
     }
 
-    public int getModelo() {
+    public String getModelo() {
         return modelo;
     }
 
-    public void setModelo(int modelo) {
+    public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
     public String getEstado() {
@@ -75,8 +85,10 @@ public abstract class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "nombre=" + nombre + ", color=" + color + ", placa=" + placa + ", combustible=" + combustible + ", modelo=" + modelo + ", estado =" + estado + '}';
+        return "Vehiculo{" + "marca=" + marca + ", color=" + color + ", placa=" + placa + ", combustible=" + combustible + ", modelo=" + modelo + ", anio=" + anio + ", estado=" + estado + '}';
     }
+
+   
     
     
     

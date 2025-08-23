@@ -13,11 +13,8 @@ public class Bus extends Vehiculo {
     private boolean tienebano;
     private boolean tieneSegundoPiso;
 
-    public Bus(String nombre, String color, String placa, String combustible, int modelo, String estado, int cantidadTelelvisores, boolean tieneBano, boolean tieneSegundoPiso) {
-        super(nombre, color, placa, combustible, modelo, estado);
-        this.cantidadTelevisores = cantidadTelelvisores;
-        this.tienebano = tieneBano;
-        this.tieneSegundoPiso = tieneSegundoPiso;
+    public Bus(String marca, String color, String placa, String combustible, String modelo, int anio, String estado) {
+        super(marca, color, placa, combustible, modelo, anio, estado);
     }
 
     public int getCantidadTelevisores() {
@@ -48,5 +45,7 @@ public class Bus extends Vehiculo {
     public String toString() {
         return "Bus{" + "cantidadTelevisores=" + cantidadTelevisores + ", tienebano=" + tienebano + ", tieneSegundoPiso=" + tieneSegundoPiso + '}';
     }
+
+    
     
 }
