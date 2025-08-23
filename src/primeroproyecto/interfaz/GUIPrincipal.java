@@ -4,7 +4,9 @@
  */
 package primeroproyecto.interfaz;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import primerproyecto.service.ServicioVehiculo;
 
 /**
  *
@@ -19,8 +21,8 @@ public class GUIPrincipal extends javax.swing.JFrame {
      */
     public GUIPrincipal() {
         initComponents();
-
-
+        ServicioVehiculo barbosa = new ServicioVehiculo();
+        
     }
 
     /**
@@ -62,6 +64,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         search.setText("Carro");
 
         addCarro.setText("Add carro");
+        addCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCarroActionPerformed(evt);
+            }
+        });
         search.add(addCarro);
 
         searchCarro.setText("Search carro");
@@ -101,6 +108,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Bus");
 
         addBus.setText("Add Bus");
+        addBus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBusActionPerformed(evt);
+            }
+        });
         jMenu1.add(addBus);
 
         searchBus.setText("Search Bus");
@@ -201,6 +213,28 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void listarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_listarBusActionPerformed
+
+    private void addCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCarroActionPerformed
+        // TODO add your handling code here:
+        GUIAddCarro panel = new GUIAddCarro(); // tu JPanel
+        JFrame frame = new JFrame("Agregar Carro");
+        frame.setContentPane(panel); 
+        frame.pack(); 
+        frame.setLocationRelativeTo(null); // centrar
+        frame.setVisible(true);
+        
+    }//GEN-LAST:event_addCarroActionPerformed
+
+    private void addBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBusActionPerformed
+        // TODO add your handling code here:
+        GUIAddBus panel = new GUIAddBus(); // tu JPanel
+        JFrame frame = new JFrame("Agregar Carro");
+        frame.setContentPane(panel); 
+        frame.pack(); 
+        frame.setLocationRelativeTo(null); // centrar
+        frame.setVisible(true);
+        
+    }//GEN-LAST:event_addBusActionPerformed
 
     /**
      * @param args the command line arguments
