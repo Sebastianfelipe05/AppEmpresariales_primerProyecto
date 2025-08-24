@@ -5,6 +5,7 @@
 package primeroproyecto.interfaz;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import primerproyecto.model.Carro;
@@ -301,7 +302,11 @@ public class GUIAddCarro extends javax.swing.JPanel {
         tieneAireAcondicionado = boxAire.getSelectedItem().toString().equals("Si") ? true : false;
         Carro mcqueen = new Carro(marca, color, placa, combustible, modelo, anio, estado, numeroPuertas, tieneAireAcondicionado);
         barbosa.addVehiculo(mcqueen);
-
+        if (barbosa.addVehiculo(mcqueen)) {
+            JOptionPane.showMessageDialog(this, "Carro añadido exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: No se pudo añadir el Carro", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

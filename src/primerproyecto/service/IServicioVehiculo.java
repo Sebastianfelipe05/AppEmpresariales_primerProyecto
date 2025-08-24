@@ -12,10 +12,10 @@ import primerproyecto.model.Vehiculo;
  * @author User
  */
 public interface IServicioVehiculo {
-    void addVehiculo(Vehiculo v);
+    boolean addVehiculo(Vehiculo v);
     Vehiculo searchVehiculo(String placa);
-    ArrayList<Vehiculo> readVehiculo();
+    ArrayList<Vehiculo> readVehiculos();
     boolean updateVehiculo(Vehiculo v);
-    void deleteVehiculo(String placa);
+    boolean deleteVehiculo(Vehiculo v);
 }
 

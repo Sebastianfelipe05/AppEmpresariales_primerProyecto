@@ -15,7 +15,6 @@
       </Properties>
     </Component>
   </NonVisualComponents>
-
   <Properties>
     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -28,7 +27,6 @@
       <Color id="Default Cursor"/>
     </Property>
   </Properties>
-
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -45,22 +43,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="24" max="32767" attributes="0"/>
-
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="38" max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,7 +84,6 @@
                   <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="71" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -157,7 +150,6 @@
                                                   <Component id="boxCantidadTV" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="boxSegundoPiso" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
-
                                           </Group>
                                       </Group>
                                   </Group>
@@ -165,20 +157,16 @@
                           </Group>
                       </Group>
                   </Group>
-
                   <EmptySpace max="32767" attributes="0"/>
-
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-
                   <EmptySpace pref="50" max="32767" attributes="0"/>
                   <Component id="txtAddBus" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="marcaBUS" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtMarca" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -186,63 +174,47 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2BUS" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="boxColor" alignment="3" min="-2" max="-2" attributes="0"/>
-
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="JLabel2BUS" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="txtPlaca" alignment="3" min="-2" max="-2" attributes="0"/>
-
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4BUS" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="boxCombustible" alignment="3" min="-2" max="-2" attributes="0"/>
-
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="anio" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="boxAnio" alignment="3" min="-2" max="-2" attributes="0"/>
-
                   </Group>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="txtModelo" alignment="3" min="-2" max="-2" attributes="0"/>
-
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="estadoBUS" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="boxEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="boxBanio" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="Banio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cantTV" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="boxCantidadTV" alignment="3" min="-2" max="-2" attributes="0"/>
-
                   </Group>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="sPiso" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       <Component id="boxSegundoPiso" alignment="3" min="-2" max="-2" attributes="0"/>
-
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -302,9 +274,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMarcaActionPerformed"/>
           </Events>
         </Component>
-
         <Component class="javax.swing.JComboBox" name="boxColor">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="6">
@@ -318,19 +288,15 @@
             </Property>
           </Properties>
           <Events>
-
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxColorActionPerformed"/>
-
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-
         <Component class="javax.swing.JTextField" name="txtPlaca">
         </Component>
         <Component class="javax.swing.JComboBox" name="boxCombustible">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -345,9 +311,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-
         <Component class="javax.swing.JSpinner" name="boxAnio">
-
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel type="list">
@@ -372,9 +336,7 @@
             </Property>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JComboBox" name="boxEstado">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -408,9 +370,7 @@
             <Property name="text" type="java.lang.String" value="&#xbf;Tiene Ba&#xf1;o?"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JComboBox" name="boxBanio">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -420,9 +380,7 @@
             </Property>
           </Properties>
           <Events>
-
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxBanioActionPerformed"/>
-
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -433,9 +391,7 @@
             <Property name="text" type="java.lang.String" value="Cantidad de Televisores"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JComboBox" name="boxCantidadTV">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -446,9 +402,7 @@
             </Property>
           </Properties>
           <Events>
-
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxCantidadTVActionPerformed"/>
-
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -459,9 +413,7 @@
             <Property name="text" type="java.lang.String" value="&#xbf;Tiene Segundo piso?"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JComboBox" name="boxSegundoPiso">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -479,9 +431,7 @@
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JTextField" name="txtModelo">
-
         </Component>
       </SubComponents>
     </Container>

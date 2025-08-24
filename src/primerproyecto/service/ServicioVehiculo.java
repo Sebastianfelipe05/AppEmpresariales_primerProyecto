@@ -13,8 +13,10 @@ public class ServicioVehiculo implements IServicioVehiculo {
     private ArrayList<Vehiculo> vehiculos = new ArrayList<>();
 
     @Override
-    public void addVehiculo(Vehiculo v) {
+    public boolean addVehiculo(Vehiculo v) {
+        if(v == null) return false;
         vehiculos.add(v);
+        return true;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class ServicioVehiculo implements IServicioVehiculo {
     }
 
     @Override
-    public ArrayList<Vehiculo> readVehiculo() {
+    public ArrayList<Vehiculo> readVehiculos() {
         return vehiculos; // devuelvo la lista
     }
 
@@ -46,10 +48,11 @@ public class ServicioVehiculo implements IServicioVehiculo {
     }
 
     @Override
-    public void deleteVehiculo(String placa) {
-        Vehiculo v = searchVehiculo(placa);
+    public boolean deleteVehiculo(Vehiculo v) {
         if (v != null) {
             vehiculos.remove(v);
+            return true;
         }
+        return false;
     }
 }

@@ -4,18 +4,28 @@
  */
 package primeroproyecto.interfaz;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import primerproyecto.model.Bus;
+import primerproyecto.model.Carro;
+import primerproyecto.model.Vehiculo;
+import primerproyecto.service.ServicioVehiculo;
+
 /**
  *
  * @author Sebastian
  */
 public class GUIListBus extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListBus.class.getName());
 
     /**
      * Creates new form GUIListBus
      */
-    public GUIListBus() {
+    private ServicioVehiculo barbosa;
+
+    public GUIListBus(ServicioVehiculo barbosa) {
         initComponents();
     }
 
@@ -121,10 +131,39 @@ public class GUIListBus extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
+        try {
+            List<Vehiculo> listaVehiculos = barbosa.readVehiculos();
+            DefaultTableModel modelo = (DefaultTableModel) jTCBus.getModel();
+            modelo.setRowCount(0); // Limpiar tabla
+
+            for (Vehiculo vehiculo : listaVehiculos) {
+                if (vehiculo instanceof Bus) {
+                    Bus carro = (Bus) vehiculo;
+                    modelo.addRow(new Object[]{
+                        carro.getMarca(),
+                        carro.getColor(),
+                        carro.getPlaca(),
+                        carro.getCombustible(),
+                        carro.getModelo(),
+                        carro.getAnio(),
+                        carro.getEstado(),
+                        carro.getCantidadTelevisores(),
+                        carro.isTieneBanio() ? "Sí" : "No",
+                        carro.isTieneSegundoPiso()? "Sí" : "No"
+                    });
+                }
+            }
+
+            JOptionPane.showMessageDialog(this, "Lista de carros actualizada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al listar carros: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
@@ -149,7 +188,11 @@ public class GUIListBus extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIListBus().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            
+            ServicioVehiculo a = new ServicioVehiculo();
+            new GUIListBus(a).setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

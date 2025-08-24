@@ -182,7 +182,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-    JOptionPane.showMessageDialog(this, "Desarrollado por Sebastian Solano, Juan David Resyes y Julio Suarez");
+    JOptionPane.showMessageDialog(this, "Desarrollado por Sebastian Solano, Juan David Reyes y Julio Suarez");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void searchCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCarroActionPerformed
@@ -191,14 +191,23 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void updateCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCarroActionPerformed
         // TODO add your handling code here:
+        GUIUpdateCarro updateCarroFrame = new GUIUpdateCarro(barbosa); 
+        updateCarroFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        updateCarroFrame.setVisible(true);
     }//GEN-LAST:event_updateCarroActionPerformed
 
     private void deleteCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCarroActionPerformed
         // TODO add your handling code here:
+        GUIDeleteCarro deleteCarroFrame = new GUIDeleteCarro(barbosa); 
+        deleteCarroFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        deleteCarroFrame.setVisible(true);
     }//GEN-LAST:event_deleteCarroActionPerformed
 
     private void listarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarCarroActionPerformed
         // TODO add your handling code here:
+        GUIListCarro listCarroFrame = new GUIListCarro(barbosa); 
+        listCarroFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        listCarroFrame.setVisible(true);
     }//GEN-LAST:event_listarCarroActionPerformed
 
     private void searchBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBusActionPerformed
@@ -216,10 +225,16 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void deleteBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusActionPerformed
         // TODO add your handling code here:
+        GUIDeleteBus deleteBusFrame = new GUIDeleteBus(barbosa); 
+        deleteBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        deleteBusFrame.setVisible(true);
     }//GEN-LAST:event_deleteBusActionPerformed
 
     private void listarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBusActionPerformed
         // TODO add your handling code here:
+        GUIListBus listBusFrame = new GUIListBus(barbosa); 
+        listBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        listBusFrame.setVisible(true);
     }//GEN-LAST:event_listarBusActionPerformed
 
     private void addCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCarroActionPerformed

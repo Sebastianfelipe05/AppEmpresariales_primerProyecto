@@ -4,6 +4,12 @@
  */
 package primeroproyecto.interfaz;
 
+import javax.swing.JOptionPane;
+import primerproyecto.model.Bus;
+import primerproyecto.model.Carro;
+import primerproyecto.model.Vehiculo;
+import primerproyecto.service.ServicioVehiculo;
+
 /**
  *
  * @author jdsol
@@ -15,7 +21,9 @@ public class GUIDeleteBus extends javax.swing.JFrame {
     /**
      * Creates new form GUIDeleteBus
      */
-    public GUIDeleteBus() {
+    private Bus busActual;
+    private ServicioVehiculo barbosa;
+    public GUIDeleteBus(ServicioVehiculo barbosa) {
         initComponents();
     }
 
@@ -29,15 +37,15 @@ public class GUIDeleteBus extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtDeleteBus = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         buscarBusDelete = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        txtPlacaBusDelete = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         marcaBusD = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtMarca = new javax.swing.JTextField();
+        txtAnio = new javax.swing.JTextField();
         EliminarDeleteBus = new javax.swing.JButton();
         SalirDeleteB = new javax.swing.JButton();
 
@@ -47,9 +55,10 @@ public class GUIDeleteBus extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
         jLabel1.setText("DELETE BUS");
 
-        txtDeleteBus.addActionListener(new java.awt.event.ActionListener() {
+        txtSearch.setText("Por placa");
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDeleteBusActionPerformed(evt);
+                txtSearchActionPerformed(evt);
             }
         });
 
@@ -68,7 +77,7 @@ public class GUIDeleteBus extends javax.swing.JFrame {
 
         jLabel3.setText("Año:");
 
-        jTextField1.setToolTipText("");
+        txtMarca.setToolTipText("");
 
         EliminarDeleteBus.setText("Eliminar");
         EliminarDeleteBus.addActionListener(new java.awt.event.ActionListener() {
@@ -102,9 +111,9 @@ public class GUIDeleteBus extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPlacaBusDelete)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPlaca)
+                    .addComponent(txtMarca)
+                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34))
         );
         jPanel1Layout.setVerticalGroup(
@@ -112,16 +121,16 @@ public class GUIDeleteBus extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPlacaBusDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(marcaBusD)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EliminarDeleteBus)
@@ -139,7 +148,7 @@ public class GUIDeleteBus extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtDeleteBus, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(buscarBusDelete))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -155,7 +164,7 @@ public class GUIDeleteBus extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDeleteBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarBusDelete))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,20 +174,62 @@ public class GUIDeleteBus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDeleteBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDeleteBusActionPerformed
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDeleteBusActionPerformed
+    }//GEN-LAST:event_txtSearchActionPerformed
 
     private void buscarBusDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBusDeleteActionPerformed
         // TODO add your handling code here:
+        String placa = txtSearch.getText();
+        if (placa.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor ingrese una placa para buscar.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Vehiculo v = barbosa.searchVehiculo(placa);
+        
+        if (v == null) {
+            JOptionPane.showMessageDialog(this,
+                    "No se encontró ningún vehículo con la placa " + placa,
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (v instanceof Carro) {
+            JOptionPane.showMessageDialog(this,
+                    "Error: la placa " + placa + " pertenece a un Carro, no a un Bus.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(v instanceof Bus){
+            busActual = (Bus) v;
+            txtPlaca.setText(busActual.getPlaca());
+            txtMarca.setText(busActual.getMarca());
+            txtAnio.setText(busActual.getAnio() + "");
+        }
     }//GEN-LAST:event_buscarBusDeleteActionPerformed
 
     private void EliminarDeleteBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDeleteBusActionPerformed
         // TODO add your handling code here:
+        boolean borrado = barbosa.deleteVehiculo(busActual);
+        if(borrado) {
+            JOptionPane.showMessageDialog(this,
+                    "Todo bien, Padre.");
+            return;
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: No se pudo eliminar el Bus", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_EliminarDeleteBusActionPerformed
 
     private void SalirDeleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirDeleteBActionPerformed
         // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_SalirDeleteBActionPerformed
 
     /**
@@ -203,7 +254,11 @@ public class GUIDeleteBus extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIDeleteBus().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            // Para testing independiente, crear una instancia temporal
+            ServicioVehiculo tempService = new ServicioVehiculo();
+            new GUIDeleteBus(tempService).setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -214,10 +269,10 @@ public class GUIDeleteBus extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel marcaBusD;
-    private javax.swing.JTextField txtDeleteBus;
-    private javax.swing.JTextField txtPlacaBusDelete;
+    private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtPlaca;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

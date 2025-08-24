@@ -5,12 +5,12 @@
 package primeroproyecto.interfaz;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import primerproyecto.model.Bus;
 import primerproyecto.model.Carro;
 import primerproyecto.service.ServicioVehiculo;
-
 
 /**
  *
@@ -21,12 +21,12 @@ public class GUIAddBus extends javax.swing.JPanel {
     /**
      * Creates new form GUIAddBus
      */
-
     private ServicioVehiculo barbosa;
+
     public GUIAddBus(ServicioVehiculo barbosa) {
 
         initComponents();
-        
+
     }
 
     /**
@@ -312,8 +312,7 @@ public class GUIAddBus extends javax.swing.JPanel {
         String marca, color, placa, combustible, modelo, estado;
         int cantidadTelevisores, anio;
         boolean tieneBanio, tieneSegundoPiso;
-        
-        
+
         marca = txtMarca.getText();
         color = boxColor.getSelectedItem().toString();
         placa = txtPlaca.getText();
@@ -325,7 +324,11 @@ public class GUIAddBus extends javax.swing.JPanel {
         tieneBanio = boxBanio.getSelectedItem().toString().equals("Si") ? true : false;
         tieneSegundoPiso = boxSegundoPiso.getSelectedItem().toString().equals("Si") ? true : false;
         Bus mcqueen = new Bus(marca, color, placa, combustible, modelo, anio, estado, cantidadTelevisores, tieneBanio, tieneSegundoPiso);
-        barbosa.addVehiculo(mcqueen);
+        if (barbosa.addVehiculo(mcqueen)) {
+            JOptionPane.showMessageDialog(this, "Bus añadido exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: No se pudo añadir el Bus", "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -355,7 +358,6 @@ public class GUIAddBus extends javax.swing.JPanel {
     private void boxCantidadTVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCantidadTVActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxCantidadTVActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -389,5 +391,4 @@ public class GUIAddBus extends javax.swing.JPanel {
     private javax.swing.JTextField txtPlaca;
 
     // End of variables declaration//GEN-END:variables
-
 }

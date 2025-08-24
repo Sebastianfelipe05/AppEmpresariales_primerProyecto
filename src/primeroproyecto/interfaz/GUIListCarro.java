@@ -4,18 +4,26 @@
  */
 package primeroproyecto.interfaz;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import primerproyecto.model.Carro;
+import primerproyecto.model.Vehiculo;
+import primerproyecto.service.ServicioVehiculo;
+
 /**
  *
  * @author Sebastian
  */
 public class GUIListCarro extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListCarro.class.getName());
 
     /**
      * Creates new form GUIListCarro
      */
-    public GUIListCarro() {
+    private ServicioVehiculo barbosa;
+    public GUIListCarro(ServicioVehiculo barbosa) {
         initComponents();
     }
 
@@ -70,6 +78,11 @@ public class GUIListCarro extends javax.swing.JFrame {
         });
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 255));
@@ -113,7 +126,39 @@ public class GUIListCarro extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
+        try {
+            List<Vehiculo> listaVehiculos = barbosa.readVehiculos(); 
+            DefaultTableModel modelo = (DefaultTableModel) jTCarro.getModel();
+            modelo.setRowCount(0); // Limpiar tabla
+
+            for (Vehiculo vehiculo : listaVehiculos) {
+                if (vehiculo instanceof Carro) {
+                    Carro carro = (Carro) vehiculo;
+                    modelo.addRow(new Object[]{
+                        carro.getMarca(),
+                        carro.getColor(),
+                        carro.getPlaca(),
+                        carro.getCombustible(),
+                        carro.getModelo(),
+                        carro.getAnio(),
+                        carro.getEstado(),
+                        carro.getNumeroPuertas(),
+                        carro.isTieneAireAcondicionado()? "Sí" : "No"
+                    });
+                }
+            }
+
+            JOptionPane.showMessageDialog(this, "Lista de carros actualizada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al listar carros: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,7 +182,11 @@ public class GUIListCarro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIListCarro().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            // Para testing independiente, crear una instancia temporal
+            ServicioVehiculo tempService = new ServicioVehiculo();
+            new GUIListCarro(tempService).setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
