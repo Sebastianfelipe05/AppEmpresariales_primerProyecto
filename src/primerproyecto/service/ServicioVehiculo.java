@@ -1,3 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
 package primerproyecto.service;
 
 import java.util.ArrayList;
@@ -29,6 +34,7 @@ public class ServicioVehiculo implements IServicioVehiculo {
 
     @Override
     public boolean updateVehiculo(Vehiculo v) {
+
         for (int i = 0; i < vehiculos.size(); i++) {
             Vehiculo actual = vehiculos.get(i);
             if (actual.getPlaca().equalsIgnoreCase(v.getPlaca())) {

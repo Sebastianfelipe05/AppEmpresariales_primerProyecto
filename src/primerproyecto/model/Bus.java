@@ -9,7 +9,6 @@ package primerproyecto.model;
  * @author User
  */
 public class Bus extends Vehiculo {
-
     private int cantidadTelevisores;
     private boolean tieneBanio;
     private boolean tieneSegundoPiso;
@@ -28,6 +27,7 @@ public class Bus extends Vehiculo {
     public void setCantidadTelevisores(int cantidadTelevisores) {
         this.cantidadTelevisores = cantidadTelevisores;
     }
+
 
     public boolean isTieneBanio() {
         return tieneBanio;
@@ -49,5 +49,4 @@ public class Bus extends Vehiculo {
     public String toString() {
         return "Bus{" + "cantidadTelevisores=" + cantidadTelevisores + ", tienebano=" + tieneBanio + ", tieneSegundoPiso=" + tieneSegundoPiso + '}';
     }
-
 }

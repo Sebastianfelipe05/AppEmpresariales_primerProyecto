@@ -4,11 +4,13 @@
  */
 package primeroproyecto.interfaz;
 
+
 import javax.swing.JOptionPane;
 import primerproyecto.model.Bus;
 import primerproyecto.model.Carro;
 import primerproyecto.model.Vehiculo;
 import primerproyecto.service.ServicioVehiculo;
+
 
 /**
  *
@@ -21,6 +23,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
     /**
      * Creates new form GUIUpdateCarro
      */
+
     private Carro carroActual;
     private ServicioVehiculo barbosa;
 
@@ -67,9 +70,11 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
         jPanel1.setPreferredSize(new java.awt.Dimension(444, 404));
 
+
         txtMarcaUpdate.setText("Marca:");
 
         boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
+
 
         jLabel3.setText("Color:");
 
@@ -87,6 +92,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
 
         boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
 
+
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +107,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
             }
         });
 
+
         jLabel2.setText("Año:");
 
         AireAcondicionado.setText("¿Tiene Aire Acondicionado?");
@@ -113,6 +120,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                 boxAireActionPerformed(evt);
             }
         });
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,11 +135,14 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                         .addComponent(btnCancelar)
                         .addGap(22, 22, 22))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+
                         .addComponent(jLabel8)
+
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+
                                 .addComponent(AireAcondicionado)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                                 .addComponent(boxAire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,10 +174,12 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                                             .addComponent(boxCombustible, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(boxAnio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(24, 24, 24))))
+
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMarcaUpdate)
@@ -175,6 +188,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -182,6 +196,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
+
                     .addComponent(boxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -214,6 +229,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
+
             }
         });
 
@@ -221,16 +237,19 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 204));
         jLabel1.setText("UPDATE CARRO");
 
+
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarActionPerformed(evt);
             }
         });
 
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -242,10 +261,12 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnBuscar)))
                 .addContainerGap(58, Short.MAX_VALUE))
+
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(12, 12, 12)
@@ -255,6 +276,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
+
         );
 
         pack();
@@ -338,7 +360,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    }                                             
     private void limpiarFormulario() {
         txtBuscar.setText("");
         txtMarca.setText("");
@@ -351,11 +373,13 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         boxAire.setSelectedIndex(0);
         txtNumeroPuertas.setText("");
         carroActual = null; // Limpiar la referencia
-    }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -414,9 +438,19 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
 
+
     private void boxAireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAireActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxAireActionPerformed
+
+    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModeloActionPerformed
+
+    private void cbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEstadoActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -440,6 +474,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
             ServicioVehiculo tempService = new ServicioVehiculo();
@@ -447,7 +482,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JLabel AireAcondicionado;
     private javax.swing.JComboBox<String> boxAire;
     private javax.swing.JSpinner boxAnio;
@@ -458,10 +493,13 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
+    
+
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
@@ -471,6 +509,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
     private javax.swing.JLabel txtMarcaUpdate;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNumeroPuertas;
+
     private javax.swing.JTextField txtPlaca;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }

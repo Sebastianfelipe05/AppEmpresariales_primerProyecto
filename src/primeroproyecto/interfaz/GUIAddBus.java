@@ -6,9 +6,11 @@ package primeroproyecto.interfaz;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+
 import primerproyecto.model.Bus;
 import primerproyecto.model.Carro;
 import primerproyecto.service.ServicioVehiculo;
+
 
 /**
  *
@@ -19,8 +21,10 @@ public class GUIAddBus extends javax.swing.JPanel {
     /**
      * Creates new form GUIAddBus
      */
+
     private ServicioVehiculo barbosa;
     public GUIAddBus(ServicioVehiculo barbosa) {
+
         initComponents();
         
     }
@@ -44,6 +48,7 @@ public class GUIAddBus extends javax.swing.JPanel {
         estadoBUS = new javax.swing.JLabel();
         anio = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
+
         boxColor = new javax.swing.JComboBox<>();
         txtPlaca = new javax.swing.JTextField();
         boxCombustible = new javax.swing.JComboBox<>();
@@ -60,13 +65,16 @@ public class GUIAddBus extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         txtModelo = new javax.swing.JTextField();
 
+
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("ADD CARRO");
 
+
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 255)));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 204)));
         jPanel1.setPreferredSize(new java.awt.Dimension(444, 432));
@@ -94,6 +102,7 @@ public class GUIAddBus extends javax.swing.JPanel {
             }
         });
 
+
         boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
         boxColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +115,7 @@ public class GUIAddBus extends javax.swing.JPanel {
         boxAnio.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
 
         boxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
+
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,25 +133,31 @@ public class GUIAddBus extends javax.swing.JPanel {
 
         Banio.setText("¿Tiene Baño?");
 
+
         boxBanio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
         boxBanio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxBanioActionPerformed(evt);
+
             }
         });
 
         cantTV.setText("Cantidad de Televisores");
 
+
         boxCantidadTV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         boxCantidadTV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxCantidadTVActionPerformed(evt);
+
             }
         });
 
         sPiso.setText("¿Tiene Segundo piso?");
 
+
         boxSegundoPiso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
+
 
         jLabel4.setText("Modelo");
 
@@ -155,6 +171,7 @@ public class GUIAddBus extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalir)
                 .addGap(38, 38, 38))
+
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -209,19 +226,23 @@ public class GUIAddBus extends javax.swing.JPanel {
                                                 .addComponent(boxCantidadTV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(boxSegundoPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(txtAddBus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(marcaBUS)
                     .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2BUS)
+
                     .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -246,15 +267,18 @@ public class GUIAddBus extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boxBanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                     .addComponent(Banio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cantTV)
+
                     .addComponent(boxCantidadTV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sPiso)
                     .addComponent(boxSegundoPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
@@ -267,6 +291,7 @@ public class GUIAddBus extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+
                 .addGap(30, 30, 30)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -277,11 +302,13 @@ public class GUIAddBus extends javax.swing.JPanel {
                 .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
+
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+
         String marca, color, placa, combustible, modelo, estado;
         int cantidadTelevisores, anio;
         boolean tieneBanio, tieneSegundoPiso;
@@ -299,6 +326,7 @@ public class GUIAddBus extends javax.swing.JPanel {
         tieneSegundoPiso = boxSegundoPiso.getSelectedItem().toString().equals("Si") ? true : false;
         Bus mcqueen = new Bus(marca, color, placa, combustible, modelo, anio, estado, cantidadTelevisores, tieneBanio, tieneSegundoPiso);
         barbosa.addVehiculo(mcqueen);
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -309,13 +337,16 @@ public class GUIAddBus extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
+
     private void boxColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxColorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxColorActionPerformed
 
+
     private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMarcaActionPerformed
+
 
     private void boxBanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBanioActionPerformed
         // TODO add your handling code here:
@@ -326,10 +357,12 @@ public class GUIAddBus extends javax.swing.JPanel {
     }//GEN-LAST:event_boxCantidadTVActionPerformed
 
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Banio;
     private javax.swing.JLabel JLabel2BUS;
     private javax.swing.JLabel anio;
+
     private javax.swing.JSpinner boxAnio;
     private javax.swing.JComboBox<String> boxBanio;
     private javax.swing.JComboBox<String> boxCantidadTV;
@@ -340,6 +373,7 @@ public class GUIAddBus extends javax.swing.JPanel {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel cantTV;
+
     private javax.swing.JLabel estadoBUS;
     private javax.swing.JLabel jLabel2BUS;
     private javax.swing.JLabel jLabel4;
@@ -348,10 +382,12 @@ public class GUIAddBus extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel marcaBUS;
     private javax.swing.JLabel sPiso;
+
     private javax.swing.JLabel txtAddBus;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtPlaca;
+
     // End of variables declaration//GEN-END:variables
 
 }

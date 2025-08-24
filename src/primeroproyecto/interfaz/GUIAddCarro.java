@@ -6,8 +6,10 @@ package primeroproyecto.interfaz;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+
 import primerproyecto.model.Carro;
 import primerproyecto.service.ServicioVehiculo;
+
 
 /**
  *
@@ -15,12 +17,14 @@ import primerproyecto.service.ServicioVehiculo;
  */
 public class GUIAddCarro extends javax.swing.JPanel {
 
+
     private ServicioVehiculo barbosa;
 
     /**
      * Creates new form GUIAddCarro
      */
     public GUIAddCarro(ServicioVehiculo barbosa) {
+
         initComponents();
     }
 
@@ -35,6 +39,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
 
         placa = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+
         txtNombreCarro = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
         color = new javax.swing.JLabel();
@@ -56,6 +61,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
         boxAire = new javax.swing.JComboBox<>();
         txtNumeroPuertas = new javax.swing.JTextField();
 
+
         setPreferredSize(new java.awt.Dimension(506, 500));
 
         placa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
@@ -65,7 +71,9 @@ public class GUIAddCarro extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 51, 204));
         jLabel1.setText("ADD CARRO");
 
+
         txtNombreCarro.setText("Marca:");
+
 
         txtMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,16 +83,19 @@ public class GUIAddCarro extends javax.swing.JPanel {
 
         color.setText("Color:");
 
+
         boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
         boxColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxColorActionPerformed(evt);
+
             }
         });
 
         jLabel2.setText("Placa:");
 
         Combustible.setText("Combustible:");
+
 
         boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
         boxCombustible.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +119,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
             }
         });
 
+
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +133,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
                 btnSalirActionPerformed(evt);
             }
         });
+
 
         jLabel4.setText("¿Tiene Aire Acondicionado?");
 
@@ -139,10 +152,12 @@ public class GUIAddCarro extends javax.swing.JPanel {
             }
         });
 
+
         javax.swing.GroupLayout placaLayout = new javax.swing.GroupLayout(placa);
         placa.setLayout(placaLayout);
         placaLayout.setHorizontalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addGroup(placaLayout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(jLabel1)
@@ -183,10 +198,12 @@ public class GUIAddCarro extends javax.swing.JPanel {
                             .addComponent(boxAire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
+
         );
         placaLayout.setVerticalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(placaLayout.createSequentialGroup()
+
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -208,10 +225,12 @@ public class GUIAddCarro extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
+
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AnioCarro)
+
                     .addComponent(boxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,6 +252,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
                     .addComponent(btnSalir)
                     .addComponent(btnGuardar))
                 .addGap(35, 35, 35))
+
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -240,6 +260,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+
                 .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -250,12 +271,14 @@ public class GUIAddCarro extends javax.swing.JPanel {
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
+
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMarcaActionPerformed
+
 
     private void boxColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxColorActionPerformed
         // TODO add your handling code here:
@@ -278,6 +301,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
         tieneAireAcondicionado = boxAire.getSelectedItem().toString().equals("Si") ? true : false;
         Carro mcqueen = new Carro(marca, color, placa, combustible, modelo, anio, estado, numeroPuertas, tieneAireAcondicionado);
         barbosa.addVehiculo(mcqueen);
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -287,6 +311,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
             frame.dispose(); // Cierra solo esa ventana
         }
     }//GEN-LAST:event_btnSalirActionPerformed
+
 
     private void boxAireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAireActionPerformed
         // TODO add your handling code here:
@@ -328,5 +353,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
     private javax.swing.JLabel txtNombreCarro;
     private javax.swing.JTextField txtNumeroPuertas;
     private javax.swing.JTextField txtPlaca;
+
     // End of variables declaration//GEN-END:variables
 }
