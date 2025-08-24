@@ -9,12 +9,16 @@ package primerproyecto.model;
  * @author User
  */
 public class Bus extends Vehiculo {
+
     private int cantidadTelevisores;
-    private boolean tienebano;
+    private boolean tieneBanio;
     private boolean tieneSegundoPiso;
 
-    public Bus(String marca, String color, String placa, String combustible, String modelo, int anio, String estado) {
+    public Bus(String marca, String color, String placa, String combustible, String modelo, int anio, String estado, int cantidadTelevisores, boolean tieneBanio, boolean tieneSegundoPiso) {
         super(marca, color, placa, combustible, modelo, anio, estado);
+        this.cantidadTelevisores = cantidadTelevisores;
+        this.tieneBanio = tieneBanio;
+        this.tieneSegundoPiso = tieneSegundoPiso;
     }
 
     public int getCantidadTelevisores() {
@@ -25,12 +29,12 @@ public class Bus extends Vehiculo {
         this.cantidadTelevisores = cantidadTelevisores;
     }
 
-    public boolean isTienebano() {
-        return tienebano;
+    public boolean isTieneBanio() {
+        return tieneBanio;
     }
 
-    public void setTienebano(boolean tienebano) {
-        this.tienebano = tienebano;
+    public void setTieneBanio(boolean tienebano) {
+        this.tieneBanio = tienebano;
     }
 
     public boolean isTieneSegundoPiso() {
@@ -43,9 +47,7 @@ public class Bus extends Vehiculo {
 
     @Override
     public String toString() {
-        return "Bus{" + "cantidadTelevisores=" + cantidadTelevisores + ", tienebano=" + tienebano + ", tieneSegundoPiso=" + tieneSegundoPiso + '}';
+        return "Bus{" + "cantidadTelevisores=" + cantidadTelevisores + ", tienebano=" + tieneBanio + ", tieneSegundoPiso=" + tieneSegundoPiso + '}';
     }
 
-    
-    
 }

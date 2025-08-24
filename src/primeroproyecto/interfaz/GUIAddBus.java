@@ -6,6 +6,9 @@ package primeroproyecto.interfaz;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import primerproyecto.model.Bus;
+import primerproyecto.model.Carro;
+import primerproyecto.service.ServicioVehiculo;
 
 /**
  *
@@ -16,7 +19,8 @@ public class GUIAddBus extends javax.swing.JPanel {
     /**
      * Creates new form GUIAddBus
      */
-    public GUIAddBus() {
+    private ServicioVehiculo barbosa;
+    public GUIAddBus(ServicioVehiculo barbosa) {
         initComponents();
         
     }
@@ -40,21 +44,21 @@ public class GUIAddBus extends javax.swing.JPanel {
         estadoBUS = new javax.swing.JLabel();
         anio = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
-        cbColor = new javax.swing.JComboBox<>();
-        txtPlacaBUS = new javax.swing.JTextField();
-        cbCombustible = new javax.swing.JComboBox<>();
-        spAnio = new javax.swing.JSpinner();
-        cbEstado = new javax.swing.JComboBox<>();
+        boxColor = new javax.swing.JComboBox<>();
+        txtPlaca = new javax.swing.JTextField();
+        boxCombustible = new javax.swing.JComboBox<>();
+        boxAnio = new javax.swing.JSpinner();
+        boxEstado = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         Banio = new javax.swing.JLabel();
-        cbBanio = new javax.swing.JComboBox<>();
+        boxBanio = new javax.swing.JComboBox<>();
         cantTV = new javax.swing.JLabel();
-        cbCantTv = new javax.swing.JComboBox<>();
+        boxCantidadTV = new javax.swing.JComboBox<>();
         sPiso = new javax.swing.JLabel();
-        cbPiso = new javax.swing.JComboBox<>();
+        boxSegundoPiso = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        txtModeloBus = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 255));
@@ -90,18 +94,18 @@ public class GUIAddBus extends javax.swing.JPanel {
             }
         });
 
-        cbColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
-        cbColor.addActionListener(new java.awt.event.ActionListener() {
+        boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
+        boxColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbColorActionPerformed(evt);
+                boxColorActionPerformed(evt);
             }
         });
 
-        cbCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
+        boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
 
-        spAnio.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
+        boxAnio.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
 
-        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
+        boxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,25 +123,25 @@ public class GUIAddBus extends javax.swing.JPanel {
 
         Banio.setText("¿Tiene Baño?");
 
-        cbBanio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
-        cbBanio.addActionListener(new java.awt.event.ActionListener() {
+        boxBanio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
+        boxBanio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbBanioActionPerformed(evt);
+                boxBanioActionPerformed(evt);
             }
         });
 
         cantTV.setText("Cantidad de Televisores");
 
-        cbCantTv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
-        cbCantTv.addActionListener(new java.awt.event.ActionListener() {
+        boxCantidadTV.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        boxCantidadTV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbCantTvActionPerformed(evt);
+                boxCantidadTVActionPerformed(evt);
             }
         });
 
         sPiso.setText("¿Tiene Segundo piso?");
 
-        cbPiso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
+        boxSegundoPiso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
 
         jLabel4.setText("Modelo");
 
@@ -161,7 +165,7 @@ public class GUIAddBus extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtPlacaBUS)
+                                .addComponent(txtPlaca)
                                 .addGap(77, 77, 77))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
@@ -169,11 +173,11 @@ public class GUIAddBus extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2BUS, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtModeloBus, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(144, 144, 144)
@@ -186,12 +190,12 @@ public class GUIAddBus extends javax.swing.JPanel {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel4BUS, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cbCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(boxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addComponent(anio, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(160, 160, 160)
-                                            .addComponent(spAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(boxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(estadoBUS, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,16 +204,16 @@ public class GUIAddBus extends javax.swing.JPanel {
                                                 .addComponent(jLabel4))
                                             .addGap(110, 110, 110)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbBanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbCantTv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
+                                                .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(boxBanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(boxCantidadTV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(boxSegundoPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(txtAddBus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -218,39 +222,39 @@ public class GUIAddBus extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2BUS)
-                    .addComponent(cbColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLabel2BUS)
-                    .addComponent(txtPlacaBUS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4BUS)
-                    .addComponent(cbCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(anio)
-                    .addComponent(spAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtModeloBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(estadoBUS)
-                    .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbBanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxBanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Banio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cantTV)
-                    .addComponent(cbCantTv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxCantidadTV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sPiso)
-                    .addComponent(cbPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxSegundoPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
@@ -265,16 +269,12 @@ public class GUIAddBus extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                 .addContainerGap(28, Short.MAX_VALUE))
-
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-
                 .addContainerGap(38, Short.MAX_VALUE)
-
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -282,6 +282,23 @@ public class GUIAddBus extends javax.swing.JPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        String marca, color, placa, combustible, modelo, estado;
+        int cantidadTelevisores, anio;
+        boolean tieneBanio, tieneSegundoPiso;
+        
+        
+        marca = txtMarca.getText();
+        color = boxColor.getSelectedItem().toString();
+        placa = txtPlaca.getText();
+        combustible = boxCombustible.getSelectedItem().toString();
+        modelo = txtModelo.getText();
+        anio = Integer.parseInt(boxAnio.getValue().toString());
+        estado = boxEstado.getSelectedItem().toString();
+        cantidadTelevisores = (int) boxCantidadTV.getSelectedItem();
+        tieneBanio = boxBanio.getSelectedItem().toString().equals("Si") ? true : false;
+        tieneSegundoPiso = boxSegundoPiso.getSelectedItem().toString().equals("Si") ? true : false;
+        Bus mcqueen = new Bus(marca, color, placa, combustible, modelo, anio, estado, cantidadTelevisores, tieneBanio, tieneSegundoPiso);
+        barbosa.addVehiculo(mcqueen);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -292,36 +309,37 @@ public class GUIAddBus extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void cbColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbColorActionPerformed
+    private void boxColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxColorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbColorActionPerformed
+    }//GEN-LAST:event_boxColorActionPerformed
 
     private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMarcaActionPerformed
 
-    private void cbBanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBanioActionPerformed
+    private void boxBanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBanioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbBanioActionPerformed
+    }//GEN-LAST:event_boxBanioActionPerformed
 
-    private void cbCantTvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCantTvActionPerformed
+    private void boxCantidadTVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCantidadTVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbCantTvActionPerformed
+    }//GEN-LAST:event_boxCantidadTVActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Banio;
     private javax.swing.JLabel JLabel2BUS;
     private javax.swing.JLabel anio;
+    private javax.swing.JSpinner boxAnio;
+    private javax.swing.JComboBox<String> boxBanio;
+    private javax.swing.JComboBox<String> boxCantidadTV;
+    private javax.swing.JComboBox<String> boxColor;
+    private javax.swing.JComboBox<String> boxCombustible;
+    private javax.swing.JComboBox<String> boxEstado;
+    private javax.swing.JComboBox<String> boxSegundoPiso;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel cantTV;
-    private javax.swing.JComboBox<String> cbBanio;
-    private javax.swing.JComboBox<String> cbCantTv;
-    private javax.swing.JComboBox<String> cbColor;
-    private javax.swing.JComboBox<String> cbCombustible;
-    private javax.swing.JComboBox<String> cbEstado;
-    private javax.swing.JComboBox<String> cbPiso;
     private javax.swing.JLabel estadoBUS;
     private javax.swing.JLabel jLabel2BUS;
     private javax.swing.JLabel jLabel4;
@@ -330,11 +348,10 @@ public class GUIAddBus extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel marcaBUS;
     private javax.swing.JLabel sPiso;
-    private javax.swing.JSpinner spAnio;
     private javax.swing.JLabel txtAddBus;
     private javax.swing.JTextField txtMarca;
-    private javax.swing.JTextField txtModeloBus;
-    private javax.swing.JTextField txtPlacaBUS;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
 
 }

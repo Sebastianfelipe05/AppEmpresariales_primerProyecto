@@ -19,10 +19,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form GUIPrincipal
      */
+    private ServicioVehiculo barbosa;
+
     public GUIPrincipal() {
         initComponents();
-        ServicioVehiculo barbosa = new ServicioVehiculo();
-        
+        barbosa = new ServicioVehiculo(); // instancia única
     }
 
     /**
@@ -204,6 +205,9 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void updateBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBusActionPerformed
         // TODO add your handling code here:
+        GUIUpdateBus updateBusFrame = new GUIUpdateBus(barbosa); 
+        updateBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        updateBusFrame.setVisible(true);
     }//GEN-LAST:event_updateBusActionPerformed
 
     private void deleteBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusActionPerformed
@@ -216,7 +220,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void addCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCarroActionPerformed
         // TODO add your handling code here:
-        GUIAddCarro panel = new GUIAddCarro(); // tu JPanel
+        GUIAddCarro panel = new GUIAddCarro(barbosa); // tu JPanel
         JFrame frame = new JFrame("Agregar Carro");
         frame.setContentPane(panel); 
         frame.pack(); 
@@ -227,7 +231,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void addBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBusActionPerformed
         // TODO add your handling code here:
-        GUIAddBus panel = new GUIAddBus(); // tu JPanel
+        GUIAddBus panel = new GUIAddBus(barbosa); // tu JPanel
         JFrame frame = new JFrame("Agregar Carro");
         frame.setContentPane(panel); 
         frame.pack(); 

@@ -6,6 +6,8 @@ package primeroproyecto.interfaz;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import primerproyecto.model.Carro;
+import primerproyecto.service.ServicioVehiculo;
 
 /**
  *
@@ -13,10 +15,12 @@ import javax.swing.SwingUtilities;
  */
 public class GUIAddCarro extends javax.swing.JPanel {
 
+    private ServicioVehiculo barbosa;
+
     /**
      * Creates new form GUIAddCarro
      */
-    public GUIAddCarro() {
+    public GUIAddCarro(ServicioVehiculo barbosa) {
         initComponents();
     }
 
@@ -34,24 +38,23 @@ public class GUIAddCarro extends javax.swing.JPanel {
         txtNombreCarro = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
         color = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        boxColor = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        txtPlacaCarro = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
         Combustible = new javax.swing.JLabel();
-        cbCombustibleCarro = new javax.swing.JComboBox<>();
+        boxCombustible = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtModelo = new javax.swing.JTextField();
         AnioCarro = new javax.swing.JLabel();
-        spAnioCarro = new javax.swing.JSpinner();
+        boxAnio = new javax.swing.JSpinner();
         EstadoCarro = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        boxEstado = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        txtNoPuertas = new javax.swing.JTextField();
+        boxAire = new javax.swing.JComboBox<>();
+        txtNumeroPuertas = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(506, 500));
 
@@ -72,10 +75,10 @@ public class GUIAddCarro extends javax.swing.JPanel {
 
         color.setText("Color:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
+        boxColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                boxColorActionPerformed(evt);
             }
         });
 
@@ -83,17 +86,27 @@ public class GUIAddCarro extends javax.swing.JPanel {
 
         Combustible.setText("Combustible:");
 
-        cbCombustibleCarro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
+        boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
+        boxCombustible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxCombustibleActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Modelo:");
 
         AnioCarro.setText("Año:");
 
-        spAnioCarro.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
+        boxAnio.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
 
         EstadoCarro.setText("Estado:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
+        boxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
+        boxEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxEstadoActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -113,16 +126,16 @@ public class GUIAddCarro extends javax.swing.JPanel {
 
         jLabel5.setText("Numero de Puertas");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        boxAire.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
+        boxAire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                boxAireActionPerformed(evt);
             }
         });
 
-        txtNoPuertas.addActionListener(new java.awt.event.ActionListener() {
+        txtNumeroPuertas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNoPuertasActionPerformed(evt);
+                txtNumeroPuertasActionPerformed(evt);
             }
         });
 
@@ -130,7 +143,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
         placa.setLayout(placaLayout);
         placaLayout.setHorizontalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
             .addGroup(placaLayout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(jLabel1)
@@ -156,20 +168,20 @@ public class GUIAddCarro extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPlacaCarro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbCombustibleCarro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPlaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxCombustible, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spAnioCarro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(boxAnio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(placaLayout.createSequentialGroup()
                         .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                         .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNoPuertas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(boxAire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         placaLayout.setVerticalGroup(
@@ -184,15 +196,15 @@ public class GUIAddCarro extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(color)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(txtPlacaCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Combustible)
-                    .addComponent(cbCombustibleCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -200,28 +212,27 @@ public class GUIAddCarro extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AnioCarro)
-                    .addComponent(spAnioCarro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(EstadoCarro)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxAire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(placaLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jLabel5))
                     .addGroup(placaLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(txtNoPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSalir)
                     .addComponent(btnGuardar))
                 .addGap(35, 35, 35))
-
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -246,12 +257,27 @@ public class GUIAddCarro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMarcaActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void boxColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxColorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_boxColorActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        String marca, color, placa, combustible, modelo, estado;
+        int anio, numeroPuertas;
+        boolean tieneAireAcondicionado;
+        
+        marca = txtMarca.getText();
+        color = boxColor.getSelectedItem().toString();
+        placa = txtPlaca.getText();
+        combustible = boxCombustible.getSelectedItem().toString();
+        modelo = txtModelo.getText();
+        estado = boxEstado.getSelectedItem().toString();
+        anio = Integer.parseInt(boxAnio.getValue().toString());
+        numeroPuertas = Integer.parseInt(txtNumeroPuertas.getText());
+        tieneAireAcondicionado = boxAire.getSelectedItem().toString().equals("Si") ? true : false;
+        Carro mcqueen = new Carro(marca, color, placa, combustible, modelo, anio, estado, numeroPuertas, tieneAireAcondicionado);
+        barbosa.addVehiculo(mcqueen);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -262,41 +288,45 @@ public class GUIAddCarro extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void boxAireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAireActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_boxAireActionPerformed
 
-    private void txtNoPuertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNoPuertasActionPerformed
+    private void txtNumeroPuertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroPuertasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNoPuertasActionPerformed
+    }//GEN-LAST:event_txtNumeroPuertasActionPerformed
+
+    private void boxCombustibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCombustibleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxCombustibleActionPerformed
+
+    private void boxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxEstadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnioCarro;
     private javax.swing.JLabel Combustible;
     private javax.swing.JLabel EstadoCarro;
+    private javax.swing.JComboBox<String> boxAire;
+    private javax.swing.JSpinner boxAnio;
+    private javax.swing.JComboBox<String> boxColor;
+    private javax.swing.JComboBox<String> boxCombustible;
+    private javax.swing.JComboBox<String> boxEstado;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> cbCombustibleCarro;
     private javax.swing.JLabel color;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-
     private javax.swing.JPanel placa;
-    private javax.swing.JSpinner spAnioCarro;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
-
-    private javax.swing.JTextField txtNoPuertas;
-
     private javax.swing.JLabel txtNombreCarro;
-    private javax.swing.JTextField txtPlacaCarro;
+    private javax.swing.JTextField txtNumeroPuertas;
+    private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
 }

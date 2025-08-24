@@ -56,7 +56,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -85,12 +84,12 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtMarca" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPlacaCarro" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
-                              <Component id="cbCombustibleCarro" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="boxColor" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPlaca" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
+                              <Component id="boxCombustible" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="txtModelo" alignment="1" min="-2" pref="144" max="-2" attributes="0"/>
-                              <Component id="spAnioCarro" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="boxAnio" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="boxEstado" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -100,24 +99,21 @@
                           </Group>
                           <EmptySpace pref="141" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jComboBox3" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNoPuertas" alignment="1" min="-2" pref="124" max="-2" attributes="0"/>
+                              <Component id="boxAire" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNumeroPuertas" alignment="1" min="-2" pref="124" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtMarca" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNombreCarro" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -125,17 +121,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="color" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxColor" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPlacaCarro" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPlaca" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="Combustible" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbCombustibleCarro" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxCombustible" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -145,18 +141,17 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="AnioCarro" min="-2" max="-2" attributes="0"/>
-                      <Component id="spAnioCarro" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxAnio" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="EstadoCarro" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxEstado" min="-2" max="-2" attributes="0"/>
                   </Group>
-
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox3" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxAire" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -165,16 +160,15 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtNoPuertas" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNumeroPuertas" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnSalir" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-
               </Group>
           </Group>
         </DimensionLayout>
@@ -206,7 +200,7 @@
             <Property name="text" type="java.lang.String" value="Color:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="boxColor">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="6">
@@ -220,7 +214,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxColorActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -231,14 +225,14 @@
             <Property name="text" type="java.lang.String" value="Placa:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPlacaCarro">
+        <Component class="javax.swing.JTextField" name="txtPlaca">
         </Component>
         <Component class="javax.swing.JLabel" name="Combustible">
           <Properties>
             <Property name="text" type="java.lang.String" value="Combustible:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbCombustibleCarro">
+        <Component class="javax.swing.JComboBox" name="boxCombustible">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -249,6 +243,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxCombustibleActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -265,7 +262,7 @@
             <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="spAnioCarro">
+        <Component class="javax.swing.JSpinner" name="boxAnio">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel type="list">
@@ -295,7 +292,7 @@
             <Property name="text" type="java.lang.String" value="Estado:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="boxEstado">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -304,6 +301,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxEstadoActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -324,7 +324,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
           </Events>
         </Component>
-
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xbf;Tiene Aire Acondicionado?"/>
@@ -335,7 +334,7 @@
             <Property name="text" type="java.lang.String" value="Numero de Puertas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
+        <Component class="javax.swing.JComboBox" name="boxAire">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -345,18 +344,17 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxAireActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNoPuertas">
+        <Component class="javax.swing.JTextField" name="txtNumeroPuertas">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNoPuertasActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroPuertasActionPerformed"/>
           </Events>
         </Component>
-
       </SubComponents>
     </Container>
   </SubComponents>

@@ -4,18 +4,27 @@
  */
 package primeroproyecto.interfaz;
 
+import javax.swing.JOptionPane;
+import primerproyecto.model.Bus;
+import primerproyecto.model.Carro;
+import primerproyecto.model.Vehiculo;
+import primerproyecto.service.ServicioVehiculo;
+
 /**
  *
  * @author Sebastian
  */
 public class GUIUpdateCarro extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIUpdateCarro.class.getName());
 
     /**
      * Creates new form GUIUpdateCarro
      */
-    public GUIUpdateCarro() {
+    private Carro carroActual;
+    private ServicioVehiculo barbosa;
+
+    public GUIUpdateCarro(ServicioVehiculo barbosa) {
         initComponents();
     }
 
@@ -29,46 +38,38 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-
         txtMarcaUpdate = new javax.swing.JLabel();
-
-        cbColor = new javax.swing.JComboBox<>();
+        boxColor = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-
         modelo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        spAnio = new javax.swing.JSpinner();
-
-        txtNombre = new javax.swing.JTextField();
+        boxAnio = new javax.swing.JSpinner();
+        txtMarca = new javax.swing.JTextField();
         txtPlaca = new javax.swing.JTextField();
-        cbEstado = new javax.swing.JComboBox<>();
-        cbCombustible = new javax.swing.JComboBox<>();
+        boxEstado = new javax.swing.JComboBox<>();
+        boxCombustible = new javax.swing.JComboBox<>();
         btnCancelar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
-
         txtModelo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         AireAcondicionado = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        txtNoPuertas = new javax.swing.JTextField();
-        txtBuscar = new javax.swing.JButton();
+        boxAire = new javax.swing.JComboBox<>();
+        txtNumeroPuertas = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        BuscarCarroUpdate = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
         jPanel1.setPreferredSize(new java.awt.Dimension(444, 404));
 
-
         txtMarcaUpdate.setText("Marca:");
 
-
-        cbColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
+        boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
 
         jLabel3.setText("Color:");
 
@@ -76,17 +77,15 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
 
         jLabel5.setText("Combustible");
 
-
         modelo.setText("Modelo:");
 
         jLabel7.setText("Estado:");
 
-        spAnio.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
+        boxAnio.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
 
+        boxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
 
-        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
-
-        cbCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
+        boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,18 +101,16 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
             }
         });
 
-
         jLabel2.setText("Año:");
 
         AireAcondicionado.setText("¿Tiene Aire Acondicionado?");
 
         jLabel8.setText("Numero de Puertas:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        boxAire.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
+        boxAire.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-
+                boxAireActionPerformed(evt);
             }
         });
 
@@ -121,12 +118,10 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-
                         .addComponent(btnActualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCancelar)
@@ -138,12 +133,12 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(AireAcondicionado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                                .addComponent(boxAire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -156,33 +151,30 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(0, 73, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtNoPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addComponent(txtPlaca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                                                 .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtNombre))))
+                                                .addComponent(txtMarca))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cbColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbCombustible, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(spAnio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(boxColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(boxCombustible, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(boxAnio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(24, 24, 24))))
-
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMarcaUpdate)
-
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(cbColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -190,28 +182,27 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(cbCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-
                     .addComponent(modelo)
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(spAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AireAcondicionado)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boxAire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtNoPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar)
@@ -219,10 +210,10 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        txtBuscar.setText("Buscar");
-        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -230,12 +221,11 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 204));
         jLabel1.setText("UPDATE CARRO");
 
-        BuscarCarroUpdate.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarCarroUpdateActionPerformed(evt);
+                txtBuscarActionPerformed(evt);
             }
         });
-
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -243,32 +233,28 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BuscarCarroUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtBuscar)))
+                        .addComponent(btnBuscar)))
                 .addContainerGap(58, Short.MAX_VALUE))
-
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBuscar)
-                    .addComponent(BuscarCarroUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscar)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
-
         );
 
         pack();
@@ -276,25 +262,161 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnActualizarActionPerformed
+        if (carroActual == null) {
+            JOptionPane.showMessageDialog(this,
+                    "Primero debe buscar un carro para actualizar.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
+        try {
+            // Validar campos obligatorios
+            String marca = txtMarca.getText().trim();
+            String modelo = txtModelo.getText().trim();
+            String placa = txtPlaca.getText().trim();
+            String numeroPuertasStr = txtNumeroPuertas.getText().trim();
+
+            if (marca.isEmpty() || modelo.isEmpty() || placa.isEmpty() || numeroPuertasStr.isEmpty()) {
+                JOptionPane.showMessageDialog(this,
+                        "Los campos Marca, Modelo, Placa y Número de Puertas son obligatorios.",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Validar número de puertas
+            int numeroPuertas;
+            try {
+                numeroPuertas = Integer.parseInt(numeroPuertasStr);
+                if (numeroPuertas <= 0) {
+                    throw new NumberFormatException("El número de puertas debe ser mayor a 0");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this,
+                        "El número de puertas debe ser un número válido mayor a 0.",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // Actualizar los datos del carro
+            carroActual.setMarca(marca);
+            carroActual.setColor((String) boxColor.getSelectedItem());
+            carroActual.setPlaca(placa);
+            carroActual.setCombustible((String) boxCombustible.getSelectedItem());
+            carroActual.setModelo(modelo);
+            carroActual.setAnio(Integer.parseInt(boxAnio.getValue().toString()));
+            carroActual.setEstado((String) boxEstado.getSelectedItem());
+            carroActual.setNumeroPuertas(numeroPuertas);
+            carroActual.setTieneAireAcondicionado("Si".equals(boxAire.getSelectedItem()));
+
+            // Llamar al servicio para actualizar
+            boolean actualizado = barbosa.updateVehiculo(carroActual);
+
+            if (actualizado) {
+                JOptionPane.showMessageDialog(this,
+                        "Carro actualizado exitosamente.",
+                        "Éxito",
+                        JOptionPane.INFORMATION_MESSAGE);
+                limpiarFormulario();
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "No se pudo actualizar el carro.",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error en el formato de los números.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error inesperado: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+    private void limpiarFormulario() {
+        txtBuscar.setText("");
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtPlaca.setText("");
+        boxColor.setSelectedIndex(0);
+        boxCombustible.setSelectedIndex(0);
+        boxAnio.setValue("2010");
+        boxEstado.setSelectedIndex(0);
+        boxAire.setSelectedIndex(0);
+        txtNumeroPuertas.setText("");
+        carroActual = null; // Limpiar la referencia
+    }
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        String placa = txtBuscar.getText().trim();
+
+        if (placa.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor ingrese una placa para buscar.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Vehiculo v = barbosa.searchVehiculo(placa);
+
+        if (v == null) {
+            JOptionPane.showMessageDialog(this,
+                    "No se encontró ningún vehículo con la placa " + placa,
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (v instanceof Bus) {
+            JOptionPane.showMessageDialog(this,
+                    "Error: la placa " + placa + " pertenece a un Bus, no a un Carro.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (v instanceof Carro) {
+            Carro c = (Carro) v;
+            this.carroActual = c; // Guardamos la referencia
+
+            // Llenamos los campos del formulario con los datos del carro encontrado
+            txtMarca.setText(c.getMarca());
+            boxColor.setSelectedItem(c.getColor());
+            txtPlaca.setText(c.getPlaca());
+            boxCombustible.setSelectedItem(c.getCombustible());
+            txtModelo.setText(c.getModelo());
+            boxAnio.setValue(String.valueOf(c.getAnio())); // Convertir a String para el spinner
+            boxEstado.setSelectedItem(c.getEstado());
+            txtNumeroPuertas.setText(String.valueOf(c.getNumeroPuertas()));
+            boxAire.setSelectedItem(c.isTieneAireAcondicionado() ? "Si" : "No");
+
+            JOptionPane.showMessageDialog(this,
+                    "Carro encontrado y cargado en el formulario.",
+                    "Éxito",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
 
-
-    private void BuscarCarroUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCarroUpdateActionPerformed
+    private void boxAireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAireActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BuscarCarroUpdateActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_boxAireActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,39 +440,37 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GUIUpdateCarro().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            // Para testing independiente, crear una instancia temporal
+            ServicioVehiculo tempService = new ServicioVehiculo();
+            new GUIUpdateCarro(tempService).setVisible(true);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-
     private javax.swing.JLabel AireAcondicionado;
-    private javax.swing.JTextField BuscarCarroUpdate;
-
+    private javax.swing.JComboBox<String> boxAire;
+    private javax.swing.JSpinner boxAnio;
+    private javax.swing.JComboBox<String> boxColor;
+    private javax.swing.JComboBox<String> boxCombustible;
+    private javax.swing.JComboBox<String> boxEstado;
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JComboBox<String> cbColor;
-    private javax.swing.JComboBox<String> cbCombustible;
-    private javax.swing.JComboBox<String> cbEstado;
-
-    private javax.swing.JComboBox<String> jComboBox1;
-
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel modelo;
-    private javax.swing.JSpinner spAnio;
-    private javax.swing.JButton txtBuscar;
+    private javax.swing.JTextField txtBuscar;
+    private javax.swing.JTextField txtMarca;
     private javax.swing.JLabel txtMarcaUpdate;
     private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtNoPuertas;
-
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumeroPuertas;
     private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
 }
