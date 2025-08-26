@@ -28,8 +28,9 @@ public class GUIUpdateBus extends javax.swing.JFrame {
     private ServicioVehiculo barbosa;
 
     public GUIUpdateBus(ServicioVehiculo barbosa) {
-        initComponents();
         this.barbosa = barbosa;
+        initComponents();
+        
 
     }
 
@@ -41,7 +42,6 @@ public class GUIUpdateBus extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
 
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -127,13 +127,11 @@ public class GUIUpdateBus extends javax.swing.JFrame {
 
         btnCancelar.setText("Cancelar");
 
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,12 +177,10 @@ public class GUIUpdateBus extends javax.swing.JFrame {
                             .addComponent(boxSegundoPiso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(33, Short.MAX_VALUE))
-
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(marcaBusUpdate)
@@ -232,7 +228,6 @@ public class GUIUpdateBus extends javax.swing.JFrame {
                     .addComponent(btnActualizar)
                     .addComponent(btnCancelar))
                 .addContainerGap())
-
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
@@ -240,25 +235,23 @@ public class GUIUpdateBus extends javax.swing.JFrame {
         jLabel1.setText("UPDATE BUS");
 
         btnBuscar.setText("Buscar");
-
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
+        txtBuscar.setText("Por Placa");
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarActionPerformed(evt);
             }
         });
 
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -272,12 +265,10 @@ public class GUIUpdateBus extends javax.swing.JFrame {
                         .addComponent(btnBuscar))
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
-
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1)
                 .addGap(10, 10, 10)
@@ -287,7 +278,6 @@ public class GUIUpdateBus extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
-
         );
 
         pack();
@@ -489,6 +479,5 @@ public class GUIUpdateBus extends javax.swing.JFrame {
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtPlaca;
-
     // End of variables declaration//GEN-END:variables
 }

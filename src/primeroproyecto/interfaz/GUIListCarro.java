@@ -6,6 +6,7 @@ package primeroproyecto.interfaz;
 
 import java.util.List;
 import javax.swing.JOptionPane;
+
 import javax.swing.table.DefaultTableModel;
 import primerproyecto.model.Carro;
 import primerproyecto.model.Vehiculo;
@@ -23,7 +24,9 @@ public class GUIListCarro extends javax.swing.JFrame {
      * Creates new form GUIListCarro
      */
     private ServicioVehiculo barbosa;
+
     public GUIListCarro(ServicioVehiculo barbosa) {
+        this.barbosa = barbosa;
         initComponents();
     }
 
@@ -127,32 +130,35 @@ public class GUIListCarro extends javax.swing.JFrame {
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
         try {
-            List<Vehiculo> listaVehiculos = barbosa.readVehiculos(); 
-            DefaultTableModel modelo = (DefaultTableModel) jTCarro.getModel();
-            modelo.setRowCount(0); // Limpiar tabla
+        List<Vehiculo> listaVehiculos = barbosa.readVehiculos();
 
-            for (Vehiculo vehiculo : listaVehiculos) {
-                if (vehiculo instanceof Carro) {
-                    Carro carro = (Carro) vehiculo;
-                    modelo.addRow(new Object[]{
-                        carro.getMarca(),
-                        carro.getColor(),
-                        carro.getPlaca(),
-                        carro.getCombustible(),
-                        carro.getModelo(),
-                        carro.getAnio(),
-                        carro.getEstado(),
-                        carro.getNumeroPuertas(),
-                        carro.isTieneAireAcondicionado()? "Sí" : "No"
-                    });
-                }
+        // Usar el modelo que ya tiene la tabla en el diseño
+        DefaultTableModel modelo = (DefaultTableModel) jTCarro.getModel();
+        modelo.setRowCount(0); // Limpiar tabla antes de llenar
+
+        // Llenar solo los carros
+        for (Vehiculo vehiculo : listaVehiculos) {
+            if (vehiculo instanceof Carro) {
+                Carro carro = (Carro) vehiculo;
+                modelo.addRow(new Object[]{
+                    carro.getMarca(),
+                    carro.getColor(),
+                    carro.getPlaca(),
+                    carro.getCombustible(),
+                    carro.getModelo(),
+                    carro.getAnio(),
+                    carro.getEstado(),
+                    carro.getNumeroPuertas(),
+                    carro.isTieneAireAcondicionado()
+                });
             }
-
-            JOptionPane.showMessageDialog(this, "Lista de carros actualizada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al listar carros: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+
+        JOptionPane.showMessageDialog(this, "Lista de carros actualizada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al listar carros: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -167,7 +173,7 @@ public class GUIListCarro extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

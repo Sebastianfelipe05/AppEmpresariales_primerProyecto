@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-
   <NonVisualComponents>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
@@ -11,7 +10,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -32,7 +30,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="150" max="-2" attributes="0"/>
@@ -49,14 +46,12 @@
                   <Component id="jPanel1" alignment="1" min="-2" pref="446" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="35" max="32767" attributes="0"/>
-
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -67,7 +62,6 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" pref="394" max="-2" attributes="0"/>
               <EmptySpace pref="26" max="32767" attributes="0"/>
-
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,17 +76,14 @@
             </LineBorder>
           </Border>
         </Property>
-
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[444, 404]"/>
         </Property>
-
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
@@ -155,14 +146,12 @@
                       </Group>
                   </Group>
                   <EmptySpace pref="33" max="32767" attributes="0"/>
-
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="marcaBusUpdate" min="-2" max="-2" attributes="0"/>
@@ -184,12 +173,10 @@
                           <Component id="placaBusUpdate" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="combustibleBusUpdate" min="-2" max="-2" attributes="0"/>
-
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-
                       <Component id="txtModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="modeloBusUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -224,64 +211,49 @@
                       <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-
         <Component class="javax.swing.JLabel" name="marcaBusUpdate">
-
           <Properties>
             <Property name="text" type="java.lang.String" value="Marca:"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JLabel" name="ColorBusUpdate">
-
           <Properties>
             <Property name="text" type="java.lang.String" value="Color:"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JLabel" name="placaBusUpdate">
-
           <Properties>
             <Property name="text" type="java.lang.String" value="Placa:"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JLabel" name="combustibleBusUpdate">
-
           <Properties>
             <Property name="text" type="java.lang.String" value="Combustible:"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JLabel" name="modeloBusUpdate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modelo:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="anioBusUpdate">
-
           <Properties>
             <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JLabel" name="estadoBusUpdate">
-
           <Properties>
             <Property name="text" type="java.lang.String" value="Estado:"/>
           </Properties>
         </Component>
-
         <Component class="javax.swing.JTextField" name="txtMarca">
         </Component>
         <Component class="javax.swing.JComboBox" name="boxColor">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="6">
@@ -298,11 +270,9 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-
         <Component class="javax.swing.JTextField" name="txtPlaca">
         </Component>
         <Component class="javax.swing.JComboBox" name="boxCombustible">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -317,11 +287,9 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-
         <Component class="javax.swing.JTextField" name="txtModelo">
         </Component>
         <Component class="javax.swing.JSpinner" name="boxAnio">
-
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel type="list">
@@ -344,12 +312,10 @@
                 <ListItem value="2026"/>
               </SpinnerModel>
             </Property>
-
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="boxEstado">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -362,7 +328,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-
         <Component class="javax.swing.JLabel" name="tieneBanio">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xbf;Tiene Ba&#xf1;o?"/>
@@ -382,27 +347,22 @@
                 <StringItem index="2" value="2"/>
                 <StringItem index="3" value="3"/>
                 <StringItem index="4" value="4"/>
-
               </StringArray>
             </Property>
           </Properties>
           <Events>
-
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxCantidadTVActionPerformed"/>
-
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cantidad de Televisores"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="boxBanio">
-
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
@@ -415,7 +375,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-
         <Component class="javax.swing.JComboBox" name="boxSegundoPiso">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -442,7 +401,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
-
         </Component>
       </SubComponents>
     </Container>
@@ -461,16 +419,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
-
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtBuscar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Por Placa"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarActionPerformed"/>
       </Events>
-
     </Component>
   </SubComponents>
 </Form>

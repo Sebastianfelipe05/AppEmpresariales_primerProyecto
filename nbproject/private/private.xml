@@ -3,27 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primerproyecto/service/IServicioVehiculo.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primerproyecto/service/ServicioVehiculo.java</file>
             <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primeroproyecto/interfaz/GUIPrincipal.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primeroproyecto/interfaz/GUIAddBus.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primeroproyecto/interfaz/GUIAddCarro.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primeroproyecto/interfaz/GUIUpdateCarro.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primerproyecto/model/Bus.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primeroproyecto/interfaz/GUIUpdateBus.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primerproyecto/model/Carro.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primeroproyecto/interfaz/GUIDeleteBus.java</file>
-            <file>file:/D:/Users/User/Documents/NetBeansProjects/proyecto/src/primerproyecto/model/Vehiculo.java</file>
-=======
-            <file>file:/C:/Users/jdsol/Downloads/Empresariales_proyecto/src/primeroproyecto/interfaz/GUIAddBus.java</file>
-            <file>file:/C:/Users/jdsol/Downloads/Empresariales_proyecto/src/primeroproyecto/interfaz/GUIAddCarro.java</file>
-            <file>file:/C:/Users/jdsol/Downloads/Empresariales_proyecto/src/primeroproyecto/interfaz/GUIPrincipal.java</file>
-            <file>file:/C:/Users/jdsol/Downloads/Empresariales_proyecto/src/primeroproyecto/interfaz/GUIUpdateCarro.java</file>
-            <file>file:/C:/Users/jdsol/Downloads/Empresariales_proyecto/src/primerproyecto/model/Carro.java</file>
-            <file>file:/C:/Users/jdsol/Downloads/Empresariales_proyecto/src/primeroproyecto/interfaz/GUIUpdateBus.java</file>
-            <file>file:/C:/Users/jdsol/Downloads/Empresariales_proyecto/src/primeroproyecto/interfaz/image.png</file>
->>>>>>> 4486c67811a1e9bc7cf17347f81017932e33fdab
         </group>
     </open-files>
 </project-private>

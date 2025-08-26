@@ -26,6 +26,7 @@ public class GUIListBus extends javax.swing.JFrame {
     private ServicioVehiculo barbosa;
 
     public GUIListBus(ServicioVehiculo barbosa) {
+        this.barbosa = barbosa;
         initComponents();
     }
 
@@ -148,8 +149,8 @@ public class GUIListBus extends javax.swing.JFrame {
                         carro.getAnio(),
                         carro.getEstado(),
                         carro.getCantidadTelevisores(),
-                        carro.isTieneBanio() ? "Sí" : "No",
-                        carro.isTieneSegundoPiso()? "Sí" : "No"
+                        carro.isTieneBanio(),
+                        carro.isTieneSegundoPiso()
                     });
                 }
             }

@@ -25,7 +25,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
      * Creates new form GUIAddCarro
      */
     public GUIAddCarro(ServicioVehiculo barbosa) {
-
+        this.barbosa = barbosa;
         initComponents();
     }
 
@@ -301,14 +301,24 @@ public class GUIAddCarro extends javax.swing.JPanel {
         numeroPuertas = Integer.parseInt(txtNumeroPuertas.getText());
         tieneAireAcondicionado = boxAire.getSelectedItem().toString().equals("Si") ? true : false;
         Carro mcqueen = new Carro(marca, color, placa, combustible, modelo, anio, estado, numeroPuertas, tieneAireAcondicionado);
-        barbosa.addVehiculo(mcqueen);
         if (barbosa.addVehiculo(mcqueen)) {
             JOptionPane.showMessageDialog(this, "Carro añadido exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Error: No se pudo añadir el Carro", "Error", JOptionPane.ERROR_MESSAGE);
         }
+         limpiarFormulario();
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+    private void limpiarFormulario() {
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtPlaca.setText("");
+        boxColor.setSelectedIndex(0);
+        boxCombustible.setSelectedIndex(0);
+        boxAnio.setValue("2010");
+        boxEstado.setSelectedIndex(0);
+        boxAire.setSelectedIndex(0);
+        txtNumeroPuertas.setText("");
+    }      
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);

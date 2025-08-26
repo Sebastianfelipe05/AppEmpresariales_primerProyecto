@@ -24,6 +24,7 @@ public class GUIDeleteCarro extends javax.swing.JFrame {
     private Carro carroActual;
     private ServicioVehiculo barbosa;
     public GUIDeleteCarro(ServicioVehiculo barbosa) {
+        this.barbosa = barbosa;
         initComponents();
     }
 
@@ -136,6 +137,7 @@ public class GUIDeleteCarro extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtSearch.setText("Por Placa");
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);

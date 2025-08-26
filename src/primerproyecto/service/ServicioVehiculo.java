@@ -16,7 +16,10 @@ public class ServicioVehiculo implements IServicioVehiculo {
     public boolean addVehiculo(Vehiculo v) {
         if(v == null) return false;
         vehiculos.add(v);
-        return true;
+        for(Vehiculo k : vehiculos) {
+            System.out.println(k);
+        }
+         return true;
     }
 
     @Override

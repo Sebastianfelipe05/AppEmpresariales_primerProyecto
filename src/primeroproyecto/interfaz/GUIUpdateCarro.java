@@ -28,6 +28,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
     private ServicioVehiculo barbosa;
 
     public GUIUpdateCarro(ServicioVehiculo barbosa) {
+        this.barbosa = barbosa;
         initComponents();
     }
 

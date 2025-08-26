@@ -24,7 +24,7 @@ public class GUIAddBus extends javax.swing.JPanel {
     private ServicioVehiculo barbosa;
 
     public GUIAddBus(ServicioVehiculo barbosa) {
-
+        this.barbosa = barbosa;
         initComponents();
 
     }
@@ -320,7 +320,7 @@ public class GUIAddBus extends javax.swing.JPanel {
         modelo = txtModelo.getText();
         anio = Integer.parseInt(boxAnio.getValue().toString());
         estado = boxEstado.getSelectedItem().toString();
-        cantidadTelevisores = (int) boxCantidadTV.getSelectedItem();
+        cantidadTelevisores = Integer.parseInt(boxCantidadTV.getSelectedItem().toString());
         tieneBanio = boxBanio.getSelectedItem().toString().equals("Si") ? true : false;
         tieneSegundoPiso = boxSegundoPiso.getSelectedItem().toString().equals("Si") ? true : false;
         Bus mcqueen = new Bus(marca, color, placa, combustible, modelo, anio, estado, cantidadTelevisores, tieneBanio, tieneSegundoPiso);
@@ -329,9 +329,20 @@ public class GUIAddBus extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "Error: No se pudo añadir el Bus", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
+        limpiarFormulario();
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+    private void limpiarFormulario() {
+        txtMarca.setText("");
+        txtModelo.setText("");
+        txtPlaca.setText("");
+        boxColor.setSelectedIndex(0);
+        boxCombustible.setSelectedIndex(0);
+        boxAnio.setValue("2010");
+        boxEstado.setSelectedIndex(0);
+        boxCantidadTV.setSelectedIndex(0);
+        boxBanio.setSelectedIndex(0);
+        boxSegundoPiso.setSelectedIndex(0);
+    }
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
