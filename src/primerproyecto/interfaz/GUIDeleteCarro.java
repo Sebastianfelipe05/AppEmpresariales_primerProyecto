@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package primeroproyecto.interfaz;
+package primerproyecto.interfaz;
 
 import javax.swing.JOptionPane;
 import primerproyecto.model.Bus;
@@ -14,16 +14,16 @@ import primerproyecto.service.ServicioVehiculo;
  *
  * @author jdsol
  */
-public class GUIDeleteBus extends javax.swing.JFrame {
+public class GUIDeleteCarro extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIDeleteBus.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIDeleteCarro.class.getName());
 
     /**
-     * Creates new form GUIDeleteBus
+     * Creates new form GUIDeleteCarro
      */
-    private Bus busActual;
+    private Carro carroActual;
     private ServicioVehiculo barbosa;
-    public GUIDeleteBus(ServicioVehiculo barbosa) {
+    public GUIDeleteCarro(ServicioVehiculo barbosa) {
         this.barbosa = barbosa;
         initComponents();
     }
@@ -38,59 +38,56 @@ public class GUIDeleteBus extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtSearch = new javax.swing.JTextField();
-        buscarBusDelete = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        txtPlaca = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        marcaBusD = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         txtAnio = new javax.swing.JTextField();
-        EliminarDeleteBus = new javax.swing.JButton();
-        SalirDeleteB = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel1.setText("DELETE BUS");
+        jLabel1.setText("DELETE CARRO");
 
-        txtSearch.setText("Por placa");
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 255)));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 255));
+
+        jLabel2.setText("Marca:");
+
+        jLabel3.setText("Placa: ");
+
+        txtMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
+                txtMarcaActionPerformed(evt);
             }
         });
 
-        buscarBusDelete.setText("Buscar");
-        buscarBusDelete.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("Año:");
+
+        txtAnio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarBusDeleteActionPerformed(evt);
+                txtAnioActionPerformed(evt);
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)));
-
-        jLabel2.setText("Placa:");
-
-        marcaBusD.setText("Marca:");
-
-        jLabel3.setText("Año:");
-
-        txtMarca.setToolTipText("");
-
-        EliminarDeleteBus.setText("Eliminar");
-        EliminarDeleteBus.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarDeleteBusActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        SalirDeleteB.setText("Cancelar");
-        SalirDeleteB.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalirDeleteBActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -99,74 +96,89 @@ public class GUIDeleteBus extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(EliminarDeleteBus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SalirDeleteB)
-                .addContainerGap())
+                .addGap(33, 33, 33)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(16, 16, 16))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(65, 65, 65)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(marcaBusD)
+                    .addComponent(jLabel4)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtPlaca)
-                    .addComponent(txtMarca)
-                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtAnio, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(txtMarca)))
+                .addGap(52, 52, 52))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(marcaBusD)
-                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EliminarDeleteBus)
-                    .addComponent(SalirDeleteB))
-                .addGap(16, 16, 16))
+                    .addComponent(jLabel2)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(21, 21, 21))
         );
+
+        txtSearch.setText("Por Placa");
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+
+        jButton3.setLabel("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(138, 138, 138))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(buscarBusDelete))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel1)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jButton3)
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarBusDelete))
+                    .addComponent(jButton3))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(61, Short.MAX_VALUE))
@@ -175,11 +187,30 @@ public class GUIDeleteBus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMarcaActionPerformed
+
+    private void txtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        boolean borrado = barbosa.deleteVehiculo(carroActual);
+        if(borrado) {
+            JOptionPane.showMessageDialog(this,
+                    "Todo bien, Padre.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: No se pudo eliminar el Carro", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchActionPerformed
 
-    private void buscarBusDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBusDeleteActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         String placa = txtSearch.getText();
         if (placa.isEmpty()) {
@@ -198,40 +229,29 @@ public class GUIDeleteBus extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        if (v instanceof Carro) {
+        
+        if(v instanceof Bus){
             JOptionPane.showMessageDialog(this,
                     "Error: la placa " + placa + " pertenece a un Carro, no a un Bus.",
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
             return;
+            
         }
         
-        if(v instanceof Bus){
-            busActual = (Bus) v;
-            txtPlaca.setText(busActual.getPlaca());
-            txtMarca.setText(busActual.getMarca());
-            txtAnio.setText(busActual.getAnio() + "");
+        if (v instanceof Carro) {
+            carroActual = (Carro) v;
+            txtPlaca.setText(carroActual.getPlaca());
+            txtMarca.setText(carroActual.getMarca());
+            txtAnio.setText(carroActual.getAnio() + "");
         }
-    }//GEN-LAST:event_buscarBusDeleteActionPerformed
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void EliminarDeleteBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDeleteBusActionPerformed
-        // TODO add your handling code here:
-        boolean borrado = barbosa.deleteVehiculo(busActual);
-        if(borrado) {
-            JOptionPane.showMessageDialog(this,
-                    "Todo bien, Padre.");
-            return;
-        } else {
-            JOptionPane.showMessageDialog(this, "Error: No se pudo eliminar el Bus", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-    }//GEN-LAST:event_EliminarDeleteBusActionPerformed
-
-    private void SalirDeleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirDeleteBActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_SalirDeleteBActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,19 +278,19 @@ public class GUIDeleteBus extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
             ServicioVehiculo tempService = new ServicioVehiculo();
-            new GUIDeleteBus(tempService).setVisible(true);
+            new GUIDeleteCarro(tempService).setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton EliminarDeleteBus;
-    private javax.swing.JButton SalirDeleteB;
-    private javax.swing.JButton buscarBusDelete;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel marcaBusD;
     private javax.swing.JTextField txtAnio;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtPlaca;

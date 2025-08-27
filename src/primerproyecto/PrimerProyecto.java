@@ -4,7 +4,7 @@
  */
 package primerproyecto;
 
-import primeroproyecto.interfaz.GUIPrincipal;
+import primerproyecto.interfaz.GUIPrincipal;
 
 /**
  *

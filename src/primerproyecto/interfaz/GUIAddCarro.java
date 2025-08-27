@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package primeroproyecto.interfaz;
+package primerproyecto.interfaz;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -40,7 +40,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
 
         placa = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-
         txtNombreCarro = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
         color = new javax.swing.JLabel();
@@ -62,7 +61,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
         boxAire = new javax.swing.JComboBox<>();
         txtNumeroPuertas = new javax.swing.JTextField();
 
-
         setPreferredSize(new java.awt.Dimension(506, 500));
 
         placa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
@@ -72,9 +70,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 51, 204));
         jLabel1.setText("ADD CARRO");
 
-
         txtNombreCarro.setText("Marca:");
-
 
         txtMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,19 +80,16 @@ public class GUIAddCarro extends javax.swing.JPanel {
 
         color.setText("Color:");
 
-
         boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
         boxColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxColorActionPerformed(evt);
-
             }
         });
 
         jLabel2.setText("Placa:");
 
         Combustible.setText("Combustible:");
-
 
         boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
         boxCombustible.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +113,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
             }
         });
 
-
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +126,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
                 btnSalirActionPerformed(evt);
             }
         });
-
 
         jLabel4.setText("¿Tiene Aire Acondicionado?");
 
@@ -153,12 +144,10 @@ public class GUIAddCarro extends javax.swing.JPanel {
             }
         });
 
-
         javax.swing.GroupLayout placaLayout = new javax.swing.GroupLayout(placa);
         placa.setLayout(placaLayout);
         placaLayout.setHorizontalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
             .addGroup(placaLayout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(jLabel1)
@@ -199,12 +188,10 @@ public class GUIAddCarro extends javax.swing.JPanel {
                             .addComponent(boxAire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
-
         );
         placaLayout.setVerticalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(placaLayout.createSequentialGroup()
-
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -226,12 +213,10 @@ public class GUIAddCarro extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-
                     .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AnioCarro)
-
                     .addComponent(boxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +238,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
                     .addComponent(btnSalir)
                     .addComponent(btnGuardar))
                 .addGap(35, 35, 35))
-
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -261,7 +245,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-
                 .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
@@ -272,7 +255,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
-
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -368,6 +350,5 @@ public class GUIAddCarro extends javax.swing.JPanel {
     private javax.swing.JLabel txtNombreCarro;
     private javax.swing.JTextField txtNumeroPuertas;
     private javax.swing.JTextField txtPlaca;
-
     // End of variables declaration//GEN-END:variables
 }

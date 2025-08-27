@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package primeroproyecto.interfaz;
+package primerproyecto.interfaz;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -57,7 +57,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         setTitle("ConcesionarioApp");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/primeroproyecto/interfaz/image.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/primerproyecto/interfaz/image.png"))); // NOI18N
 
         archivo.setText("Archivo");
         jMenuBar1.add(archivo);
