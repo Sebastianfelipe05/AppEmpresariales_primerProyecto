@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Bus extends Vehiculo implements ICalcularTarifa {
 
     private static final int TARIFA_BASE = 3000;
-    
+
     private ArrayList<Pasajero> pasajeros;
-    
+
     private int cantidadTelevisores;
     private boolean tieneBanio;
     private boolean tieneSegundoPiso;
@@ -56,11 +56,18 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
     public String toString() {
         return "Bus{" + "cantidadTelevisores=" + cantidadTelevisores + ", tienebano=" + tieneBanio + ", tieneSegundoPiso=" + tieneSegundoPiso + '}';
     }
-
+    
+    public void addPasajero(Pasajero pasajero) {
+        pasajeros.add(pasajero);
+    }
+    
+    public int cantPasajeros(){
+        return pasajeros.size();
+    }
+    
     @Override
-    public double calcularTarifaUnitaria(int anio) {
+    public double calcularTotal(int cantidadPasajeros, int anio) {
         int anioActual = Year.now().getValue();
-
         int diferencia = anioActual - anio;
 
         double descuento = diferencia * 0.03;
@@ -68,11 +75,7 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
             descuento = 0.30;
         }
 
-        return TARIFA_BASE * (1 - descuento);
-    }
-
-    @Override
-    public double calcularTotal(int cantidadPasajeros, int anio) {
-        return cantidadPasajeros*calcularTarifaUnitaria(anio);
+        double tarifaUnitaria = TARIFA_BASE * (1 - descuento);
+        return cantidadPasajeros * tarifaUnitaria;
     }
 }

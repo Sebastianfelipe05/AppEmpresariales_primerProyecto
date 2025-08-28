@@ -9,6 +9,5 @@ package primerproyecto.model;
  * @author User
  */
 public interface ICalcularTarifa {
-    public double calcularTarifaUnitaria(int anio); 
     public double calcularTotal(int cantidadPasajeros, int anio);
 }

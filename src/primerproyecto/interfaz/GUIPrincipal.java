@@ -56,7 +56,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         ayuda = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ConcesionarioApp");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -144,9 +144,19 @@ public class GUIPrincipal extends javax.swing.JFrame {
         jMenu1.add(listarBus);
 
         jMenuSearchBus.setText("SearchBus");
+        jMenuSearchBus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSearchBusActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuSearchBus);
 
         jMenuAddPasajero.setText("AddPasajero");
+        jMenuAddPasajero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAddPasajeroActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuAddPasajero);
 
         jMenuBar1.add(jMenu1);
@@ -256,7 +266,24 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void jMenuSearchCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSearchCarroActionPerformed
         // TODO add your handling code here:
+        GUISearchCarro searchCarroFrame = new GUISearchCarro(barbosa);
+        searchCarroFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        searchCarroFrame.setVisible(true);
     }//GEN-LAST:event_jMenuSearchCarroActionPerformed
+
+    private void jMenuSearchBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSearchBusActionPerformed
+        // TODO add your handling code here:
+        GUISearchBus searchBusFrame = new GUISearchBus(barbosa);
+        searchBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        searchBusFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuSearchBusActionPerformed
+
+    private void jMenuAddPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAddPasajeroActionPerformed
+        // TODO add your handling code here:
+        GUIAddPasajero addPasajeroFrame = new GUIAddPasajero(barbosa);
+        addPasajeroFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        addPasajeroFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuAddPasajeroActionPerformed
 
     /**
      * @param args the command line arguments

@@ -12,7 +12,7 @@ public class Pasajero {
     private String nombre;
     private int edad;
     
-    Pasajero(String nombre, int edad) { // 👈 constructor con paquete default
+    public Pasajero(String nombre, int edad) { // 👈 constructor con paquete default
         this.nombre = nombre;
         this.edad = edad;
     }
