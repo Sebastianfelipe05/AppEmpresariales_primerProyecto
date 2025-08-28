@@ -45,11 +45,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
         updateCarro = new javax.swing.JMenuItem();
         deleteCarro = new javax.swing.JMenuItem();
         listarCarro = new javax.swing.JMenuItem();
+        jMenuSearchCarro = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         addBus = new javax.swing.JMenuItem();
         updateBus = new javax.swing.JMenuItem();
         deleteBus = new javax.swing.JMenuItem();
         listarBus = new javax.swing.JMenuItem();
+        jMenuSearchBus = new javax.swing.JMenuItem();
+        jMenuAddPasajero = new javax.swing.JMenuItem();
         ayuda = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -96,6 +99,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
         });
         search.add(listarCarro);
 
+        jMenuSearchCarro.setText("SearchCarro");
+        jMenuSearchCarro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSearchCarroActionPerformed(evt);
+            }
+        });
+        search.add(jMenuSearchCarro);
+
         jMenuBar1.add(search);
 
         jMenu1.setText("Bus");
@@ -131,6 +142,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(listarBus);
+
+        jMenuSearchBus.setText("SearchBus");
+        jMenu1.add(jMenuSearchBus);
+
+        jMenuAddPasajero.setText("AddPasajero");
+        jMenu1.add(jMenuAddPasajero);
 
         jMenuBar1.add(jMenu1);
 
@@ -237,6 +254,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
         deleteCarroFrame.setVisible(true);
     }//GEN-LAST:event_deleteCarroActionPerformed
 
+    private void jMenuSearchCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSearchCarroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuSearchCarroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -271,8 +292,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem deleteCarro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuAddPasajero;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuSearchBus;
+    private javax.swing.JMenuItem jMenuSearchCarro;
     private javax.swing.JMenuItem listarBus;
     private javax.swing.JMenuItem listarCarro;
     private javax.swing.JMenu search;
