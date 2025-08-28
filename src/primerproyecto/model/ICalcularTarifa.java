@@ -1,0 +1,14 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ */
+package primerproyecto.model;
+
+/**
+ *
+ * @author User
+ */
+public interface ICalcularTarifa {
+    public double calcularTarifaUnitaria(int anio); 
+    public double calcularTotal(int cantidadPasajeros, int anio);
+}
