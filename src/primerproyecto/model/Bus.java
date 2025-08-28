@@ -26,6 +26,7 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
         this.cantidadTelevisores = cantidadTelevisores;
         this.tieneBanio = tieneBanio;
         this.tieneSegundoPiso = tieneSegundoPiso;
+        pasajeros = new ArrayList<Pasajero>();
     }
 
     public int getCantidadTelevisores() {

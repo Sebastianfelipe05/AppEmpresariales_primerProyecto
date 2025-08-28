@@ -40,6 +40,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         archivo = new javax.swing.JMenu();
+        mostrarTraifa = new javax.swing.JMenuItem();
         search = new javax.swing.JMenu();
         addCarro = new javax.swing.JMenuItem();
         updateCarro = new javax.swing.JMenuItem();
@@ -63,6 +64,15 @@ public class GUIPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/primerproyecto/interfaz/image.png"))); // NOI18N
 
         archivo.setText("Archivo");
+
+        mostrarTraifa.setText("mostrarTarifa");
+        mostrarTraifa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarTraifaActionPerformed(evt);
+            }
+        });
+        archivo.add(mostrarTraifa);
+
         jMenuBar1.add(archivo);
 
         search.setText("Carro");
@@ -285,6 +295,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
         addPasajeroFrame.setVisible(true);
     }//GEN-LAST:event_jMenuAddPasajeroActionPerformed
 
+    private void mostrarTraifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarTraifaActionPerformed
+        // TODO add your handling code here:
+        GUIMostrarTarifa searchBusFrame = new GUIMostrarTarifa(barbosa);
+        searchBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
+        searchBusFrame.setVisible(true);
+    }//GEN-LAST:event_mostrarTraifaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -326,6 +343,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuSearchCarro;
     private javax.swing.JMenuItem listarBus;
     private javax.swing.JMenuItem listarCarro;
+    private javax.swing.JMenuItem mostrarTraifa;
     private javax.swing.JMenu search;
     private javax.swing.JMenuItem updateBus;
     private javax.swing.JMenuItem updateCarro;
