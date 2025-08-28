@@ -4,11 +4,19 @@
  */
 package primerproyecto.model;
 
+import java.time.Year;
+import java.util.ArrayList;
+
 /**
  *
  * @author User
  */
-public class Bus extends Vehiculo {
+public class Bus extends Vehiculo implements ICalcularTarifa {
+
+    private static final int TARIFA_BASE = 3000;
+    
+    private ArrayList<Pasajero> pasajeros;
+    
     private int cantidadTelevisores;
     private boolean tieneBanio;
     private boolean tieneSegundoPiso;
@@ -27,7 +35,6 @@ public class Bus extends Vehiculo {
     public void setCantidadTelevisores(int cantidadTelevisores) {
         this.cantidadTelevisores = cantidadTelevisores;
     }
-
 
     public boolean isTieneBanio() {
         return tieneBanio;
@@ -48,5 +55,24 @@ public class Bus extends Vehiculo {
     @Override
     public String toString() {
         return "Bus{" + "cantidadTelevisores=" + cantidadTelevisores + ", tienebano=" + tieneBanio + ", tieneSegundoPiso=" + tieneSegundoPiso + '}';
+    }
+
+    @Override
+    public double calcularTarifaUnitaria(int anio) {
+        int anioActual = Year.now().getValue();
+
+        int diferencia = anioActual - anio;
+
+        double descuento = diferencia * 0.03;
+        if (descuento > 0.30) {
+            descuento = 0.30;
+        }
+
+        return TARIFA_BASE * (1 - descuento);
+    }
+
+    @Override
+    public double calcularTotal(int cantidadPasajeros, int anio) {
+        return cantidadPasajeros*calcularTarifaUnitaria(anio);
     }
 }
