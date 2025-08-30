@@ -9,19 +9,49 @@ package primerproyecto.model;
  * @author User
  */
 public class Pasajero {
+
     private String nombre;
     private int edad;
-    
-    public Pasajero(String nombre, int edad) { // 👈 constructor con paquete default
-        this.nombre = nombre;
+
+    // Constructor con modificador de acceso público
+    public Pasajero(String nombre, int edad) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío");
+        }
+        if (edad < 0 || edad > 120) {
+            throw new IllegalArgumentException("La edad debe estar entre 0 y 120 años");
+        }
+
+        this.nombre = nombre.trim();
         this.edad = edad;
     }
-    
+
+    // Getters
     public String getNombre() {
         return nombre;
     }
 
     public int getEdad() {
         return edad;
+    }
+
+    // Setters (si los necesitas)
+    public void setNombre(String nombre) {
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede estar vacío");
+        }
+        this.nombre = nombre.trim();
+    }
+
+    public void setEdad(int edad) {
+        if (edad < 0 || edad > 120) {
+            throw new IllegalArgumentException("La edad debe estar entre 0 y 120 años");
+        }
+        this.edad = edad;
+    }
+
+    @Override
+    public String toString() {
+        return "Pasajero{nombre='" + nombre + "', edad=" + edad + "}";
     }
 }

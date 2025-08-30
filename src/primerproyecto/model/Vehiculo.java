@@ -9,6 +9,7 @@ package primerproyecto.model;
  * @author User
  */
 public abstract class Vehiculo {
+
     private String marca;
     private String color;
     private String placa;
@@ -16,6 +17,29 @@ public abstract class Vehiculo {
     private String modelo;
     private int anio;
     private String estado;
+
+    //POLIMORFISMO: Metodo que cada clase hija implementara de manera diferente
+    public abstract String getTipoVehiculo();
+
+    public abstract String getDetallesEspecificos();
+
+    public abstract double calcularValorComercial();
+
+    //Metodos se comporta diferente segun cada clase hija
+    public abstract String obtenerInformacionMantenimiento();
+
+    //Metodo para mostrar la info completa
+    public String getInformacionCompleta() {
+        return "=== " + getTipoVehiculo() + " ===\n"
+                + "Marca: " + marca + "\n"
+                + "Color: " + color + "\n"
+                + "Placa: " + placa + "\n"
+                + "Modelo: " + modelo + "\n"
+                + "Año: " + anio + "\n"
+                + "Estado: " + estado + "\n"
+                + getDetallesEspecificos() + "\n"
+                + "Valor Comercial: $" + String.format("%.2f", calcularValorComercial());
+    }
 
     public Vehiculo(String marca, String color, String placa, String combustible, String modelo, int anio, String estado) {
         this.marca = marca;
@@ -88,8 +112,4 @@ public abstract class Vehiculo {
         return "Vehiculo{" + "marca=" + marca + ", color=" + color + ", placa=" + placa + ", combustible=" + combustible + ", modelo=" + modelo + ", anio=" + anio + ", estado=" + estado + '}';
     }
 
-   
-    
-    
-    
 }
