@@ -25,6 +25,7 @@ public class GUISearchCarro extends javax.swing.JFrame {
     private ServicioVehiculo barbosa;
     public GUISearchCarro(ServicioVehiculo barbosa) {
         initComponents();
+        this.barbosa = barbosa;
     }
 
     /**
