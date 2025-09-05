@@ -173,7 +173,7 @@ public class GUIMostrarTarifa extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            ServicioVehiculo a = new ServicioVehiculo();
+            ServicioVehiculo a = ServicioVehiculo.getInstance();
             new GUIMostrarTarifa(a).setVisible(true);
         });
     }

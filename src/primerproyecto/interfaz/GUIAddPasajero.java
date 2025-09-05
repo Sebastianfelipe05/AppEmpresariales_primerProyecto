@@ -211,7 +211,7 @@ public class GUIAddPasajero extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            ServicioVehiculo k = new ServicioVehiculo();
+            ServicioVehiculo k = ServicioVehiculo.getInstance();
             new GUIAddPasajero(k).setVisible(true);
         });  
     }

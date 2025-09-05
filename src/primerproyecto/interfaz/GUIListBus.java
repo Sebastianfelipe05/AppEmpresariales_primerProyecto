@@ -190,7 +190,7 @@ public class GUIListBus extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             
-            ServicioVehiculo a = new ServicioVehiculo();
+            ServicioVehiculo a = ServicioVehiculo.getInstance();
             new GUIListBus(a).setVisible(true);
         });
     }

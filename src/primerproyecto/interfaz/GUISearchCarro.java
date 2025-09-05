@@ -337,7 +337,7 @@ public class GUISearchCarro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
-            ServicioVehiculo tempService = new ServicioVehiculo();
+            ServicioVehiculo tempService = ServicioVehiculo.getInstance();
             new GUISearchCarro(tempService).setVisible(true);
         });
     }

@@ -478,7 +478,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
-            ServicioVehiculo tempService = new ServicioVehiculo();
+            ServicioVehiculo tempService = ServicioVehiculo.getInstance();
             new GUIUpdateCarro(tempService).setVisible(true);
         });
     }

@@ -277,7 +277,7 @@ public class GUIDeleteCarro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
-            ServicioVehiculo tempService = new ServicioVehiculo();
+            ServicioVehiculo tempService = ServicioVehiculo.getInstance();
             new GUIDeleteCarro(tempService).setVisible(true);
         });
     }

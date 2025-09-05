@@ -24,7 +24,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     public GUIPrincipal() {
         initComponents();
-        barbosa = new ServicioVehiculo(); // instancia única
+        barbosa = ServicioVehiculo.getInstance(); // instancia única
 
     }
 
