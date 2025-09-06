@@ -200,7 +200,7 @@ public class GUIDeleteCarro extends javax.swing.JFrame {
         boolean borrado = barbosa.deleteVehiculo(carroActual);
         if(borrado) {
             JOptionPane.showMessageDialog(this,
-                    "Todo bien, Padre.");
+                    "Se elimino correctamente el vehiculo");
         } else {
             JOptionPane.showMessageDialog(this, "Error: No se pudo eliminar el Carro", "Error", JOptionPane.ERROR_MESSAGE);
         }
