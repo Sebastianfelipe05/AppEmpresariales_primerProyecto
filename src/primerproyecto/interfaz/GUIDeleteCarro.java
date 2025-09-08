@@ -22,9 +22,8 @@ public class GUIDeleteCarro extends javax.swing.JFrame {
      * Creates new form GUIDeleteCarro
      */
     private Carro carroActual;
-    private ServicioVehiculo barbosa;
-    public GUIDeleteCarro(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
+    public GUIDeleteCarro() {
         initComponents();
     }
 
@@ -276,9 +275,8 @@ public class GUIDeleteCarro extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            // Para testing independiente, crear una instancia temporal
-            ServicioVehiculo tempService = ServicioVehiculo.getInstance();
-            new GUIDeleteCarro(tempService).setVisible(true);
+
+            new GUIDeleteCarro().setVisible(true);
         });
     }
 

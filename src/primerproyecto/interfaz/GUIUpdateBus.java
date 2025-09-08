@@ -25,10 +25,9 @@ public class GUIUpdateBus extends javax.swing.JFrame {
      */
 
     private Bus busActual;
-    private ServicioVehiculo barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
-    public GUIUpdateBus(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    public GUIUpdateBus() {
         initComponents();
         
 
@@ -446,8 +445,7 @@ public class GUIUpdateBus extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
-            ServicioVehiculo tempService = ServicioVehiculo.getInstance();
-            new GUIUpdateBus(tempService).setVisible(true);
+            new GUIUpdateBus().setVisible(true);
         });
     }
 

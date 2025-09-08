@@ -25,10 +25,10 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
      */
 
     private Carro carroActual;
-    private ServicioVehiculo barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
-    public GUIUpdateCarro(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    public GUIUpdateCarro() {
+
         initComponents();
     }
 
@@ -478,8 +478,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
-            ServicioVehiculo tempService = ServicioVehiculo.getInstance();
-            new GUIUpdateCarro(tempService).setVisible(true);
+            new GUIUpdateCarro().setVisible(true);
         });
     }
 

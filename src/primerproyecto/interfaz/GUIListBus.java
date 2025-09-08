@@ -16,17 +16,24 @@ import primerproyecto.service.ServicioVehiculo;
  *
  * @author Sebastian
  */
-public class GUIListBus extends javax.swing.JFrame {
+public class GUIListBus extends javax.swing.JFrame implements ICambio {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListBus.class.getName());
 
     /**
      * Creates new form GUIListBus
      */
-    private ServicioVehiculo barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
-    public GUIListBus(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    public GUIListBus() {
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                // Aquí va tu código al cerrar
+                barbosa.deleteWindow(GUIListBus.this);
+            }
+        });
+
         initComponents();
     }
 
@@ -131,6 +138,11 @@ public class GUIListBus extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
+        cambio();
+    }//GEN-LAST:event_btnListarActionPerformed
+
+    @Override
+    public void cambio() {
         try {
             List<Vehiculo> listaVehiculos = barbosa.readVehiculos();
             DefaultTableModel modelo = (DefaultTableModel) jTCBus.getModel();
@@ -159,7 +171,7 @@ public class GUIListBus extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al listar carros: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnListarActionPerformed
+    }
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
@@ -189,9 +201,7 @@ public class GUIListBus extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            
-            ServicioVehiculo a = ServicioVehiculo.getInstance();
-            new GUIListBus(a).setVisible(true);
+            new GUIListBus().setVisible(true);
         });
     }
 
@@ -202,4 +212,5 @@ public class GUIListBus extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTCBus;
     // End of variables declaration//GEN-END:variables
+
 }

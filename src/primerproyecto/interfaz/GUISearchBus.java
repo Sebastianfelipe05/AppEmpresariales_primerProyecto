@@ -22,9 +22,8 @@ public class GUISearchBus extends javax.swing.JFrame {
      * Creates new form GUISearchCarro
      */
     private Bus busActual;
-    private ServicioVehiculo barbosa;
-    public GUISearchBus(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
+    public GUISearchBus() {
         initComponents();
     }
 
@@ -351,8 +350,7 @@ public class GUISearchBus extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
-            ServicioVehiculo tempService = ServicioVehiculo.getInstance();
-            new GUISearchBus(tempService).setVisible(true);
+            new GUISearchBus().setVisible(true);
         });
     }
 

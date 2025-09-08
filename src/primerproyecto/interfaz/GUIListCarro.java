@@ -16,17 +16,23 @@ import primerproyecto.service.ServicioVehiculo;
  *
  * @author Sebastian
  */
-public class GUIListCarro extends javax.swing.JFrame {
+public class GUIListCarro extends javax.swing.JFrame implements ICambio {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIListCarro.class.getName());
 
     /**
      * Creates new form GUIListCarro
      */
-    private ServicioVehiculo barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
-    public GUIListCarro(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    public GUIListCarro() {
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                // Aquí va tu código al cerrar
+                barbosa.deleteWindow(GUIListCarro.this);
+            }
+        });
         initComponents();
     }
 
@@ -129,37 +135,43 @@ public class GUIListCarro extends javax.swing.JFrame {
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
         // TODO add your handling code here:
-        try {
-        List<Vehiculo> listaVehiculos = barbosa.readVehiculos();
-
-        // Usar el modelo que ya tiene la tabla en el diseño
-        DefaultTableModel modelo = (DefaultTableModel) jTCarro.getModel();
-        modelo.setRowCount(0); // Limpiar tabla antes de llenar
-
-        // Llenar solo los carros
-        for (Vehiculo vehiculo : listaVehiculos) {
-            if (vehiculo instanceof Carro) {
-                Carro carro = (Carro) vehiculo;
-                modelo.addRow(new Object[]{
-                    carro.getMarca(),
-                    carro.getColor(),
-                    carro.getPlaca(),
-                    carro.getCombustible(),
-                    carro.getModelo(),
-                    carro.getAnio(),
-                    carro.getEstado(),
-                    carro.getNumeroPuertas(),
-                    carro.isTieneAireAcondicionado()
-                });
-            }
-        }
-
-        JOptionPane.showMessageDialog(this, "Lista de carros actualizada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al listar carros: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
+        cambio();
     }//GEN-LAST:event_btnListarActionPerformed
+
+    @Override
+    public void cambio() {
+        try {
+            List<Vehiculo> listaVehiculos = barbosa.readVehiculos();
+
+            // Usar el modelo que ya tiene la tabla en el diseño
+            DefaultTableModel modelo = (DefaultTableModel) jTCarro.getModel();
+            modelo.setRowCount(0); // Limpiar tabla antes de llenar
+
+            // Llenar solo los carros
+            for (Vehiculo vehiculo : listaVehiculos) {
+                if (vehiculo instanceof Carro) {
+                    Carro carro = (Carro) vehiculo;
+                    modelo.addRow(new Object[]{
+                        carro.getMarca(),
+                        carro.getColor(),
+                        carro.getPlaca(),
+                        carro.getCombustible(),
+                        carro.getModelo(),
+                        carro.getAnio(),
+                        carro.getEstado(),
+                        carro.getNumeroPuertas(),
+                        carro.isTieneAireAcondicionado()
+                    });
+                }
+            }
+
+            JOptionPane.showMessageDialog(this, "Lista de carros actualizada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al listar carros: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
@@ -190,8 +202,7 @@ public class GUIListCarro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             // Para testing independiente, crear una instancia temporal
-            ServicioVehiculo tempService = ServicioVehiculo.getInstance();
-            new GUIListCarro(tempService).setVisible(true);
+            new GUIListCarro().setVisible(true);
         });
     }
 
@@ -202,4 +213,5 @@ public class GUIListCarro extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTCarro;
     // End of variables declaration//GEN-END:variables
+
 }

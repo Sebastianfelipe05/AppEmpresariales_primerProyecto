@@ -9,12 +9,12 @@
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mostrarTraifa">
+            <MenuItem class="javax.swing.JMenuItem" name="mostrarTarifa">
               <Properties>
                 <Property name="text" type="java.lang.String" value="mostrarTarifa"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarTraifaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mostrarTarifaActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

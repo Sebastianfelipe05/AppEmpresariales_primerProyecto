@@ -19,9 +19,8 @@ public class GUIAddPasajero extends javax.swing.JFrame {
     /**
      * Creates new form GUIAddPasajero
      */
-    private ServicioVehiculo barbosa;
-    public GUIAddPasajero(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
+    public GUIAddPasajero() {
         initComponents();
     }
 
@@ -211,8 +210,7 @@ public class GUIAddPasajero extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            ServicioVehiculo k = ServicioVehiculo.getInstance();
-            new GUIAddPasajero(k).setVisible(true);
+            new GUIAddPasajero().setVisible(true);
         });  
     }
 

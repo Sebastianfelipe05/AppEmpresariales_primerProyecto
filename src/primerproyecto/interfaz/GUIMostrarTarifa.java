@@ -18,9 +18,8 @@ public class GUIMostrarTarifa extends javax.swing.JFrame {
     /**
      * Creates new form GUIMostrarTarifa
      */
-    private ServicioVehiculo barbosa;
-    public GUIMostrarTarifa(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
+    public GUIMostrarTarifa() {
         initComponents();
     }
 
@@ -173,8 +172,7 @@ public class GUIMostrarTarifa extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            ServicioVehiculo a = ServicioVehiculo.getInstance();
-            new GUIMostrarTarifa(a).setVisible(true);
+            new GUIMostrarTarifa().setVisible(true);
         });
     }
 

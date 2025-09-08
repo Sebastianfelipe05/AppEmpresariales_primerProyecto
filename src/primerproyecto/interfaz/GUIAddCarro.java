@@ -19,13 +19,12 @@ import primerproyecto.service.ServicioVehiculo;
 public class GUIAddCarro extends javax.swing.JPanel {
 
 
-    private ServicioVehiculo barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
     /**
      * Creates new form GUIAddCarro
      */
-    public GUIAddCarro(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    public GUIAddCarro() {
         initComponents();
     }
 

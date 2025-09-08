@@ -21,10 +21,9 @@ public class GUIAddBus extends javax.swing.JPanel {
     /**
      * Creates new form GUIAddBus
      */
-    private ServicioVehiculo barbosa;
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
-    public GUIAddBus(ServicioVehiculo barbosa) {
-        this.barbosa = barbosa;
+    public GUIAddBus() {
         initComponents();
 
     }

@@ -5,21 +5,39 @@
 package primerproyecto.service;
 
 import java.util.ArrayList;
+import primerproyecto.interfaz.ICambio;
 import primerproyecto.model.Vehiculo;
 
 public class ServicioVehiculo implements IServicioVehiculo {
-    
+
     // Instancia única del Singleton
     private static ServicioVehiculo instance;
-    
+
     // Lista de vehículos (estado interno)
     private ArrayList<Vehiculo> vehiculos = new ArrayList<>();
-    
+    private ArrayList<ICambio> windows = new ArrayList<>();
+
     // Constructor privado para prevenir instanciación externa
     private ServicioVehiculo() {
-        // Inicialización si es necesaria
     }
     
+    public void addWindow(ICambio window) {
+        windows.add(window);
+    }
+    
+    public void deleteWindow(ICambio window) {
+        windows.remove(window);
+    }
+    
+    private boolean windowUpdate() {
+
+        for (ICambio window : windows) {
+            window.cambio();
+        }
+
+        return true;
+    }
+
     // Método estático para obtener la instancia única
     public static ServicioVehiculo getInstance() {
         if (instance == null) {
@@ -27,17 +45,20 @@ public class ServicioVehiculo implements IServicioVehiculo {
         }
         return instance;
     }
-    
+
     @Override
     public boolean addVehiculo(Vehiculo v) {
-        if(v == null) return false;
+        if (v == null) {
+            return false;
+        }
         vehiculos.add(v);
-        for(Vehiculo k : vehiculos) {
+        for (Vehiculo k : vehiculos) {
             System.out.println(k);
         }
-         return true;
+        windowUpdate();
+        return true;
     }
-    
+
     @Override
     public Vehiculo searchVehiculo(String placa) {
         for (Vehiculo v : vehiculos) {
@@ -47,28 +68,30 @@ public class ServicioVehiculo implements IServicioVehiculo {
         }
         return null;
     }
-    
+
     @Override
     public ArrayList<Vehiculo> readVehiculos() {
         return vehiculos; // devuelvo la lista
     }
-    
+
     @Override
     public boolean updateVehiculo(Vehiculo v) {
         for (int i = 0; i < vehiculos.size(); i++) {
             Vehiculo actual = vehiculos.get(i);
             if (actual.getPlaca().equalsIgnoreCase(v.getPlaca())) {
                 vehiculos.set(i, v);
+                windowUpdate();
                 return true;
             }
         }
         return false;
     }
-    
+
     @Override
     public boolean deleteVehiculo(Vehiculo v) {
         if (v != null) {
             vehiculos.remove(v);
+            windowUpdate();
             return true;
         }
         return false;
