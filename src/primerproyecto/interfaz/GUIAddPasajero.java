@@ -46,6 +46,7 @@ public class GUIAddPasajero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
 
         txtNombrePas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
