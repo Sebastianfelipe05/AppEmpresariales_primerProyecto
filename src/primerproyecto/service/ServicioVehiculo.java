@@ -38,7 +38,6 @@ public class ServicioVehiculo implements IServicioVehiculo {
         return true;
     }
 
-    // Método estático para obtener la instancia única
     public static ServicioVehiculo getInstance() {
         if (instance == null) {
             instance = new ServicioVehiculo();
