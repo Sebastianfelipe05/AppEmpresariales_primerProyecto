@@ -5,6 +5,7 @@
 package primerproyecto.service;
 
 import java.util.ArrayList;
+import primerproyecto.model.Bus;
 import primerproyecto.model.Pasajero;
 
 /**
@@ -12,55 +13,53 @@ import primerproyecto.model.Pasajero;
  * @author User
  */
 public class ServicioPasajero implements IServicioPasajero {
-    
-    private static ServicioPasajero servicioPasajero;
-    private ArrayList<Pasajero> pasajeros;
-    
-    private ServicioPasajero () {
-    }
-    
-    public static ServicioPasajero getInstance(){
-        if(servicioPasajero == null) servicioPasajero = new ServicioPasajero();
-        
-        return servicioPasajero;
+
+    private static ServicioPasajero instance;
+
+    private ServicioPasajero() {}
+
+    public static ServicioPasajero getInstance() {
+        if (instance == null) instance = new ServicioPasajero();
+        return instance;
     }
 
+    // Agrega pasajero al bus
     @Override
-    public boolean addPasajero(Pasajero v) {
-        if(pasajeros.add(v)) return true;
-        return false;
+    public boolean addPasajero(Bus bus, Pasajero p) {
+        if (bus == null || p == null) return false;
+        bus.addPasajero(p);
+        ServicioVehiculo.getInstance().notifyObservers(); // notifica a las vistas registradas
+        return true;
     }
 
+    // Buscar pasajero en un bus por nombre
     @Override
-    public Pasajero searchPasajero(String nombre) {
-        for(Pasajero k: pasajeros) {
-            if(k.getNombre().equalsIgnoreCase(nombre)) {
-                return k;
-            }
+    public Pasajero searchPasajero(Bus bus, String nombre) {
+        if (bus == null || nombre == null) return null;
+        for (Pasajero k : bus.getPasajeros()) {
+            if (k.getNombre().equalsIgnoreCase(nombre)) return k;
         }
         return null;
     }
-        
+
     @Override
-    public ArrayList<Pasajero> readPasajero() {
-        return pasajeros;
-    }
-        
-    @Override
-    public boolean updatePasajero(Pasajero v) {
-        for (int i = 0; i < pasajeros.size(); i++) {
-            Pasajero actual = pasajeros.get(i);
-            if (actual.getNombre().equalsIgnoreCase(v.getNombre())) {
-                pasajeros.set(i, v);
-                return true;
-            }
-        }
-        return false;
+    public java.util.ArrayList<Pasajero> readPasajero(Bus bus) {
+        return bus.getPasajeros(); // devuelve la lista del bus
     }
 
     @Override
-    public boolean deletePasajero(Pasajero v) {
-        if(pasajeros.remove(v)) return true;
-        return false; 
+    public boolean updatePasajero(Bus bus, Pasajero v) {
+        if (bus == null || v == null) return false;
+        bus.updatePasajero(v);
+        ServicioVehiculo.getInstance().notifyObservers();
+        return true;
+    }
+
+    @Override
+    public boolean deletePasajero(Bus bus, Pasajero v) {
+        if (bus == null || v == null) return false;
+        bus.removePasajero(v);
+        ServicioVehiculo.getInstance().notifyObservers();
+        return true;
     }
 }

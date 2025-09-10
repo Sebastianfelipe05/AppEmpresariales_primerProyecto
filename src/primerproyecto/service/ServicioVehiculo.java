@@ -29,7 +29,7 @@ public class ServicioVehiculo implements IServicioVehiculo {
         windows.remove(window);
     }
     
-    private boolean windowUpdate() {
+    public boolean notifyObservers() {
 
         for (ICambio window : windows) {
             window.cambio();
@@ -54,7 +54,7 @@ public class ServicioVehiculo implements IServicioVehiculo {
         for (Vehiculo k : vehiculos) {
             System.out.println(k);
         }
-        windowUpdate();
+        notifyObservers();
         return true;
     }
 
@@ -79,7 +79,7 @@ public class ServicioVehiculo implements IServicioVehiculo {
             Vehiculo actual = vehiculos.get(i);
             if (actual.getPlaca().equalsIgnoreCase(v.getPlaca())) {
                 vehiculos.set(i, v);
-                windowUpdate();
+                notifyObservers();
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class ServicioVehiculo implements IServicioVehiculo {
     public boolean deleteVehiculo(Vehiculo v) {
         if (v != null) {
             vehiculos.remove(v);
-            windowUpdate();
+            notifyObservers();
             return true;
         }
         return false;

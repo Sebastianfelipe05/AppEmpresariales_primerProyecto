@@ -12,7 +12,7 @@ public class Pasajero {
 
     private String nombre;
     private int edad;
-    private Bus bus;
+    private Bus bus = null;
     
     // Constructor con modificador de acceso público
     public Pasajero(String nombre, int edad) {

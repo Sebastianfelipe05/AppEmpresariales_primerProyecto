@@ -1,6 +1,7 @@
 package primerproyecto.service;
 
 import java.util.ArrayList;
+import primerproyecto.model.Bus;
 import primerproyecto.model.Pasajero;
 
 /*
@@ -13,9 +14,9 @@ import primerproyecto.model.Pasajero;
  * @author User
  */
 public interface IServicioPasajero {
-    boolean addPasajero(Pasajero v);
-    Pasajero searchPasajero(String nombre);
-    ArrayList<Pasajero> readPasajero();
-    boolean updatePasajero(Pasajero v);
-    boolean deletePasajero(Pasajero v);
+    boolean addPasajero(Bus bus, Pasajero p);
+    Pasajero searchPasajero(Bus bus, String nombre);
+    ArrayList<Pasajero> readPasajero(Bus bus);
+    boolean updatePasajero(Bus bus, Pasajero v);
+    boolean deletePasajero(Bus bus, Pasajero v);
 }

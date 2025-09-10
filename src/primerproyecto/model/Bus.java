@@ -102,7 +102,16 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
     public void removePasajero(Pasajero pasajero) {
         pasajeros.remove(pasajero);
     }
-
+    
+    public void updatePasajero(Pasajero v) {
+        for (int i = 0; i < pasajeros.size(); i++) {
+            Pasajero actual = pasajeros.get(i);
+            if (actual.getNombre().equalsIgnoreCase(v.getNombre())) {
+                pasajeros.set(i, v);
+            }
+        }
+    }
+    
     public ArrayList<Pasajero> getPasajeros() {
         return pasajeros;
     }

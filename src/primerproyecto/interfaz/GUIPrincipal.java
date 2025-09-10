@@ -290,9 +290,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void jMenuAddPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAddPasajeroActionPerformed
         // TODO add your handling code here:
-        GUIAddPasajero addPasajeroFrame = new GUIAddPasajero();
-        addPasajeroFrame.setLocationRelativeTo(this); // centrar respecto al principal
-        addPasajeroFrame.setVisible(true);
+        GUIAddPasaje addPasajeroFrame = new GUIAddPasaje();
+        JFrame frame = new JFrame("Agregar Carro");
+        frame.setContentPane(addPasajeroFrame); 
+        frame.pack(); 
+        frame.setLocationRelativeTo(null); // centrar
+        frame.setVisible(true);
     }//GEN-LAST:event_jMenuAddPasajeroActionPerformed
 
     private void mostrarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarTarifaActionPerformed
