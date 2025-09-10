@@ -99,6 +99,14 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
         pasajeros.add(pasajero);
     }
 
+    public void removePasajero(Pasajero pasajero) {
+        pasajeros.remove(pasajero);
+    }
+
+    public ArrayList<Pasajero> getPasajeros() {
+        return pasajeros;
+    }
+
     public int cantPasajeros() {
         return pasajeros.size();
     }

@@ -12,7 +12,8 @@ public class Pasajero {
 
     private String nombre;
     private int edad;
-
+    private Bus bus;
+    
     // Constructor con modificador de acceso público
     public Pasajero(String nombre, int edad) {
         if (nombre == null || nombre.trim().isEmpty()) {
@@ -49,9 +50,18 @@ public class Pasajero {
         }
         this.edad = edad;
     }
+    
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
 
     @Override
     public String toString() {
-        return "Pasajero{nombre='" + nombre + "', edad=" + edad + "}";
+        return "Pasajero{" + "nombre=" + nombre + ", edad=" + edad + ", bus=" + bus + '}';
     }
+    
 }
