@@ -5,7 +5,9 @@
 package primerproyecto.interfaz;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import primerproyecto.model.Bus;
 import primerproyecto.model.Pasajero;
 
 import primerproyecto.service.ServicioPasajero;
@@ -17,11 +19,12 @@ import primerproyecto.service.ServicioPasajero;
 public class GUIUpdatePasaje extends javax.swing.JPanel {
 
     private ServicioPasajero men = ServicioPasajero.getInstance();
-
+    private Bus bus;
     /**
      * Creates new form GUIAddCarro
      */
-    public GUIUpdatePasaje() {
+    public GUIUpdatePasaje(Bus bus) {
+        this.bus = bus;
         initComponents();
     }
 
@@ -35,6 +38,7 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         placa = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtNombreCarro = new javax.swing.JLabel();
@@ -43,12 +47,17 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
         txtEdad = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        JButtoUpdate = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
+        jButton1.setText("jButton1");
+
         setPreferredSize(new java.awt.Dimension(506, 500));
 
-        placa.setBackground(new java.awt.Color(204, 255, 204));
+        placa.setBackground(new java.awt.Color(255, 255, 255));
         placa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
         placa.setPreferredSize(new java.awt.Dimension(444, 432));
 
@@ -80,46 +89,67 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setText("Buscar Bus");
+
+        jTextField2.setText("Por placa");
+
+        JButtoUpdate.setText("Buscar");
+
         javax.swing.GroupLayout placaLayout = new javax.swing.GroupLayout(placa);
         placa.setLayout(placaLayout);
         placaLayout.setHorizontalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(placaLayout.createSequentialGroup()
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, placaLayout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(btnGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalir))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, placaLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreCarro)
-                            .addComponent(color))
-                        .addGap(48, 48, 48)
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, placaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(77, 77, 77))
+            .addGroup(placaLayout.createSequentialGroup()
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(placaLayout.createSequentialGroup()
+                            .addGap(77, 77, 77)
+                            .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(placaLayout.createSequentialGroup()
+                                    .addComponent(color)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(placaLayout.createSequentialGroup()
+                                    .addComponent(txtNombreCarro)
+                                    .addGap(39, 39, 39)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(placaLayout.createSequentialGroup()
+                            .addGap(24, 24, 24)
+                            .addComponent(jLabel2)
+                            .addGap(27, 27, 27)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(JButtoUpdate)))
+                    .addGroup(placaLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(btnGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalir)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         placaLayout.setVerticalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(placaLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreCarro)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButtoUpdate))
                 .addGap(18, 18, 18)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreCarro, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(color)
                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(23, 23, 23)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnSalir))
@@ -131,16 +161,16 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(15, 15, 15)
                 .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(23, 23, 23)
                 .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -150,15 +180,26 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
 
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        try {
         String name = txtName.getText();
         int edad = Integer.parseInt(txtEdad.getText());
-        
-        Pasajero pasajero = new Pasajero(name, edad);
-        
-        men.updatePasajero(pasajero);
-        
-        limpiarFormulario();
+
+        // Buscar pasajero existente
+        Pasajero existente = men.searchPasajero(bus, name);
+
+        if (existente != null) {
+            // Actualizamos los datos del pasajero
+            existente.setEdad(edad);
+
+            men.updatePasajero(bus, existente);
+            JOptionPane.showMessageDialog(this, "Pasajero actualizado con éxito");
+            limpiarFormulario();
+        } else {
+            JOptionPane.showMessageDialog(this, "Pasajero no encontrado");
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "La edad debe ser un número válido");
+    }
     }//GEN-LAST:event_btnGuardarActionPerformed
     private void limpiarFormulario() {
         txtName.setText("");
@@ -174,11 +215,15 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButtoUpdate;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel color;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel placa;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtName;

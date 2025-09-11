@@ -7,10 +7,11 @@ package primerproyecto.interfaz;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import primerproyecto.model.Bus;
 
 import primerproyecto.model.Carro;
-import primerproyecto.service.ServicioVehiculo;
-
+import primerproyecto.model.Pasajero;
+import primerproyecto.service.ServicioPasajero;
 
 /**
  *
@@ -18,13 +19,14 @@ import primerproyecto.service.ServicioVehiculo;
  */
 public class GUISearchPasaje extends javax.swing.JPanel {
 
-
-    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
+    private ServicioPasajero men = ServicioPasajero.getInstance();
+    private Bus bus;
 
     /**
      * Creates new form GUIAddCarro
      */
-    public GUISearchPasaje() {
+    public GUISearchPasaje(Bus bus) {
+        this.bus = bus;
         initComponents();
     }
 
@@ -38,21 +40,24 @@ public class GUISearchPasaje extends javax.swing.JPanel {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         placa = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtNombreCarro = new javax.swing.JLabel();
-        txtAddPasajero = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
+        txtName = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
-        Buscar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTxtEdad = new javax.swing.JTextField();
+        jBtnSearchPasa = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jTextField1.setText("jTextField1");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         setPreferredSize(new java.awt.Dimension(506, 500));
 
-        placa.setBackground(new java.awt.Color(204, 255, 204));
+        placa.setBackground(new java.awt.Color(255, 255, 255));
         placa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
         placa.setPreferredSize(new java.awt.Dimension(444, 432));
 
@@ -60,18 +65,11 @@ public class GUISearchPasaje extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 51, 204));
         jLabel1.setText("SEARCH PASAJERO");
 
-        txtNombreCarro.setText("Nombre");
+        txtNombreCarro.setText("Lista de pasajeros");
 
-        txtAddPasajero.addActionListener(new java.awt.event.ActionListener() {
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddPasajeroActionPerformed(evt);
-            }
-        });
-
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
 
@@ -82,70 +80,114 @@ public class GUISearchPasaje extends javax.swing.JPanel {
             }
         });
 
-        Buscar.setText("Buscar");
-        Buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarActionPerformed(evt);
+        jLabel2.setText("Buscar bus");
+
+        jBtnSearchPasa.setText("Por placa");
+
+        jTable1.setForeground(new java.awt.Color(153, 153, 255));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nombre", "Edad"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-
-        jLabel2.setText("Edad");
-
-        jTxtEdad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtEdadActionPerformed(evt);
-            }
-        });
+        jTable1.setAutoscrolls(false);
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout placaLayout = new javax.swing.GroupLayout(placa);
         placa.setLayout(placaLayout);
         placaLayout.setHorizontalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(placaLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(placaLayout.createSequentialGroup()
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(placaLayout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(jLabel1))
-                            .addGroup(placaLayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(btnGuardar)
-                                .addGap(47, 47, 47)
-                                .addComponent(btnSalir)))
-                        .addGap(0, 54, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 19, Short.MAX_VALUE))
                     .addGroup(placaLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreCarro)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTxtEdad)
-                            .addComponent(txtAddPasajero, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                        .addComponent(txtNombreCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(placaLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Buscar)))
-                .addContainerGap())
+                        .addComponent(jBtnSearchPasa)
+                        .addGap(27, 27, 27))))
+            .addGroup(placaLayout.createSequentialGroup()
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(placaLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabel1))
+                    .addGroup(placaLayout.createSequentialGroup()
+                        .addGap(184, 184, 184)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         placaLayout.setVerticalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(placaLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreCarro)
-                    .addComponent(txtAddPasajero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Buscar))
                 .addGap(18, 18, 18)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(20, 20, 20)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnSalir))
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jBtnSearchPasa))
+                .addGap(18, 18, 18)
+                .addComponent(txtNombreCarro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btnSalir)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -154,30 +196,26 @@ public class GUISearchPasaje extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddPasajeroActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddPasajeroActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-       
-         limpiarFormulario();
-    }//GEN-LAST:event_btnGuardarActionPerformed
     private void limpiarFormulario() {
-            }      
+        txtName.setText("");
+
+    }
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
@@ -186,26 +224,18 @@ public class GUISearchPasaje extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BuscarActionPerformed
-
-    private void jTxtEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtEdadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtEdadActionPerformed
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Buscar;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton jBtnSearchPasa;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTxtEdad;
     private javax.swing.JPanel placa;
-    private javax.swing.JTextField txtAddPasajero;
+    private javax.swing.JTextField txtName;
     private javax.swing.JLabel txtNombreCarro;
     // End of variables declaration//GEN-END:variables
 }

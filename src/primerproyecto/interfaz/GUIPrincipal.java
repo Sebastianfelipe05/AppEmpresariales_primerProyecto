@@ -35,6 +35,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         archivo = new javax.swing.JMenu();
@@ -52,8 +56,21 @@ public class GUIPrincipal extends javax.swing.JFrame {
         listarBus = new javax.swing.JMenuItem();
         jMenuSearchBus = new javax.swing.JMenuItem();
         jMenuAddPasajero = new javax.swing.JMenuItem();
+        jMAddpasajero = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMUpdpasa = new javax.swing.JMenuItem();
+        jMDelePasa = new javax.swing.JMenuItem();
+        jMListPasajero = new javax.swing.JMenuItem();
         ayuda = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ConcesionarioApp");
@@ -168,6 +185,27 @@ public class GUIPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuAddPasajero);
 
         jMenuBar1.add(jMenu1);
+
+        jMAddpasajero.setText("Pasajero");
+
+        jMenuItem3.setText("Add pasajero");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMAddpasajero.add(jMenuItem3);
+
+        jMUpdpasa.setText("Update pasajero");
+        jMAddpasajero.add(jMUpdpasa);
+
+        jMDelePasa.setText("Delete pasajero");
+        jMAddpasajero.add(jMDelePasa);
+
+        jMListPasajero.setText("List pasajero");
+        jMAddpasajero.add(jMListPasajero);
+
+        jMenuBar1.add(jMAddpasajero);
 
         ayuda.setText("Ayuda");
 
@@ -305,6 +343,10 @@ public class GUIPrincipal extends javax.swing.JFrame {
         searchBusFrame.setVisible(true);
     }//GEN-LAST:event_mostrarTarifaActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -338,10 +380,19 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem deleteBus;
     private javax.swing.JMenuItem deleteCarro;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMAddpasajero;
+    private javax.swing.JMenuItem jMDelePasa;
+    private javax.swing.JMenuItem jMListPasajero;
+    private javax.swing.JMenuItem jMUpdpasa;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuAddPasajero;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuSearchBus;
     private javax.swing.JMenuItem jMenuSearchCarro;
     private javax.swing.JMenuItem listarBus;
