@@ -24,6 +24,7 @@ public class GUISearchBus extends javax.swing.JFrame {
     private Bus busActual;
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
     public GUISearchBus() {
+        this.setTitle("Buscar Bus");
         initComponents();
     }
 

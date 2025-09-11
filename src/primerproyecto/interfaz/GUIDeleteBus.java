@@ -24,6 +24,7 @@ public class GUIDeleteBus extends javax.swing.JFrame {
     private Bus busActual;
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
     public GUIDeleteBus() {
+        this.setTitle("Eliminar Bus");
         initComponents();
     }
 

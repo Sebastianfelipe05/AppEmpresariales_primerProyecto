@@ -199,7 +199,7 @@ public class GUIAddBus extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(txtAddBus, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,7 +292,7 @@ public class GUIAddBus extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnGuardar)
                     .addComponent(btnSalir))
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -319,10 +319,6 @@ public class GUIAddBus extends javax.swing.JPanel {
         Bus mcqueen = new Bus(marca, color, placa, combustible, modelo, anio, estado, cantidadTelevisores, tieneBanio, tieneSegundoPiso);
         if (barbosa.addVehiculo(mcqueen)) {
             JOptionPane.showMessageDialog(this, "Bus añadido exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-             JFrame frame = new JFrame("Añadir pasajeros al bus");
-            frame.setContentPane(new GUIAddPasaje(mcqueen));  // Pasamos el bus
-            frame.pack();
-        frame.setVisible(true);
         
         } else {
             JOptionPane.showMessageDialog(this, "Error: No se pudo añadir el Bus", "Error", JOptionPane.ERROR_MESSAGE);

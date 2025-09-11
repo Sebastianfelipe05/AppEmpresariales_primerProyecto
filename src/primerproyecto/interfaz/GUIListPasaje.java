@@ -17,7 +17,7 @@ import primerproyecto.service.ServicioVehiculo;
  *
  * @author jdsol
  */
-public class GUIUpdatePasaje extends javax.swing.JPanel {
+public class GUIListPasaje extends javax.swing.JPanel {
 
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
     private ServicioPasajero men = ServicioPasajero.getInstance();
@@ -25,33 +25,9 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
     /**
      * Creates new form GUIAddCarro
      */
-    public GUIUpdatePasaje() {
+    public GUIListPasaje(Bus bus) {
         initComponents();
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if (evt.getClickCount() == 2 && jTable1.getSelectedRow() != -1) {
-                    int fila = jTable1.getSelectedRow();
-                    String nombre = (String) jTable1.getValueAt(fila, 0);
-                    Integer edad = (Integer) jTable1.getValueAt(fila, 1);
-
-                    String placaBus = txtPlaca.getText();
-
-                    if (busActual != null) {
-                        for (Pasajero p : busActual.getPasajeros()) {
-                            if (p.getNombre().equals(nombre) && p.getEdad() == edad) {
-                                // abrir ventana de edición
-                                GUIEditarPasajero editor = new GUIEditarPasajero(p, () -> {
-                                    // callback para refrescar tabla
-                                    jButton1ActionPerformed(null);
-                                });
-                                editor.setVisible(true);
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        });
+        if(bus != null) cargarTabla(bus);
     }
 
     /**
@@ -257,7 +233,12 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
         // TODO add your handling code here:
         String placaBus = txtPlaca.getText();
         busActual = (Bus) barbosa.searchVehiculo(placaBus);
-
+        
+        cargarTabla(busActual);
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    public void cargarTabla(Bus bus) {
+        busActual = bus;
         if (busActual == null) {
             JOptionPane.showMessageDialog(this, "Bus no encontrado");
             return;
@@ -270,8 +251,7 @@ public class GUIUpdatePasaje extends javax.swing.JPanel {
         for (Pasajero p : busActual.getPasajeros()) {
             model.addRow(new Object[]{p.getNombre(), p.getEdad(), false});
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;

@@ -19,10 +19,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form GUIPrincipal
      */
-
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
     public GUIPrincipal() {
+        this.setTitle("Concesionario AAA");
+        setLocationRelativeTo(this);
         initComponents();
     }
 
@@ -55,7 +56,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
         deleteBus = new javax.swing.JMenuItem();
         listarBus = new javax.swing.JMenuItem();
         jMenuSearchBus = new javax.swing.JMenuItem();
-        jMenuAddPasajero = new javax.swing.JMenuItem();
         jMAddpasajero = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMUpdpasa = new javax.swing.JMenuItem();
@@ -168,21 +168,13 @@ public class GUIPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(listarBus);
 
-        jMenuSearchBus.setText("SearchBus");
+        jMenuSearchBus.setText("Search Bus");
         jMenuSearchBus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuSearchBusActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuSearchBus);
-
-        jMenuAddPasajero.setText("AddPasajero");
-        jMenuAddPasajero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuAddPasajeroActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuAddPasajero);
 
         jMenuBar1.add(jMenu1);
 
@@ -197,12 +189,27 @@ public class GUIPrincipal extends javax.swing.JFrame {
         jMAddpasajero.add(jMenuItem3);
 
         jMUpdpasa.setText("Update pasajero");
+        jMUpdpasa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMUpdpasaActionPerformed(evt);
+            }
+        });
         jMAddpasajero.add(jMUpdpasa);
 
         jMDelePasa.setText("Delete pasajero");
+        jMDelePasa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMDelePasaActionPerformed(evt);
+            }
+        });
         jMAddpasajero.add(jMDelePasa);
 
         jMListPasajero.setText("List pasajero");
+        jMListPasajero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMListPasajeroActionPerformed(evt);
+            }
+        });
         jMAddpasajero.add(jMListPasajero);
 
         jMenuBar1.add(jMAddpasajero);
@@ -237,19 +244,19 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-    JOptionPane.showMessageDialog(this, "Desarrollado por Sebastian Solano, Juan David Reyes y Julio Suarez");
+        JOptionPane.showMessageDialog(this, "Desarrollado por Sebastian Solano, Juan David Reyes y Julio Suarez");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void updateCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCarroActionPerformed
         // TODO add your handling code here:
-        GUIUpdateCarro updateCarroFrame = new GUIUpdateCarro(); 
+        GUIUpdateCarro updateCarroFrame = new GUIUpdateCarro();
         updateCarroFrame.setLocationRelativeTo(this); // centrar respecto al principal
         updateCarroFrame.setVisible(true);
     }//GEN-LAST:event_updateCarroActionPerformed
 
     private void listarCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarCarroActionPerformed
         // TODO add your handling code here:
-        GUIListCarro listCarroFrame = new GUIListCarro(); 
+        GUIListCarro listCarroFrame = new GUIListCarro();
         listCarroFrame.setLocationRelativeTo(this); // centrar respecto al principal
         listCarroFrame.setVisible(true);
         barbosa.addWindow(listCarroFrame);
@@ -258,7 +265,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private void updateBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBusActionPerformed
         // TODO add your handling code here:
 
-        GUIUpdateBus updateBusFrame = new GUIUpdateBus(); 
+        GUIUpdateBus updateBusFrame = new GUIUpdateBus();
         updateBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
         updateBusFrame.setVisible(true);
 
@@ -266,14 +273,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
     private void deleteBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBusActionPerformed
         // TODO add your handling code here:
-        GUIDeleteBus deleteBusFrame = new GUIDeleteBus(); 
+        GUIDeleteBus deleteBusFrame = new GUIDeleteBus();
         deleteBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
         deleteBusFrame.setVisible(true);
     }//GEN-LAST:event_deleteBusActionPerformed
 
     private void listarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarBusActionPerformed
         // TODO add your handling code here:
-        GUIListBus listBusFrame = new GUIListBus(); 
+        GUIListBus listBusFrame = new GUIListBus();
         listBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
         listBusFrame.setVisible(true);
         barbosa.addWindow(listBusFrame);
@@ -285,11 +292,11 @@ public class GUIPrincipal extends javax.swing.JFrame {
         GUIAddCarro panel = new GUIAddCarro(); // tu JPanel
 
         JFrame frame = new JFrame("Agregar Carro");
-        frame.setContentPane(panel); 
-        frame.pack(); 
+        frame.setContentPane(panel);
+        frame.pack();
         frame.setLocationRelativeTo(null); // centrar
         frame.setVisible(true);
-        
+
     }//GEN-LAST:event_addCarroActionPerformed
 
     private void addBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBusActionPerformed
@@ -297,12 +304,12 @@ public class GUIPrincipal extends javax.swing.JFrame {
 
         GUIAddBus panel = new GUIAddBus(); // tu JPanel
 
-        JFrame frame = new JFrame("Agregar Carro");
-        frame.setContentPane(panel); 
-        frame.pack(); 
+        JFrame frame = new JFrame("Agregar Bus");
+        frame.setContentPane(panel);
+        frame.pack();
         frame.setLocationRelativeTo(null); // centrar
         frame.setVisible(true);
-        
+
     }//GEN-LAST:event_addBusActionPerformed
 
     private void deleteCarroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCarroActionPerformed
@@ -326,26 +333,52 @@ public class GUIPrincipal extends javax.swing.JFrame {
         searchBusFrame.setVisible(true);
     }//GEN-LAST:event_jMenuSearchBusActionPerformed
 
-    private void jMenuAddPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAddPasajeroActionPerformed
-        // TODO add your handling code here:
-        GUIAddPasaje addPasajeroFrame = new GUIAddPasaje();
-        JFrame frame = new JFrame("Agregar Carro");
-        frame.setContentPane(addPasajeroFrame); 
-        frame.pack(); 
-        frame.setLocationRelativeTo(null); // centrar
-        frame.setVisible(true);
-    }//GEN-LAST:event_jMenuAddPasajeroActionPerformed
-
     private void mostrarTarifaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarTarifaActionPerformed
         // TODO add your handling code here:
-        GUIMostrarTarifa searchBusFrame = new GUIMostrarTarifa( );
+        GUIMostrarTarifa searchBusFrame = new GUIMostrarTarifa();
         searchBusFrame.setLocationRelativeTo(this); // centrar respecto al principal
         searchBusFrame.setVisible(true);
     }//GEN-LAST:event_mostrarTarifaActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
+        GUIAddPasaje addPasajeroFrame = new GUIAddPasaje();
+        JFrame frame = new JFrame("Agregar Pasajero");
+        frame.setContentPane(addPasajeroFrame);
+        frame.pack();
+        frame.setLocationRelativeTo(null); // centrar
+        frame.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMUpdpasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMUpdpasaActionPerformed
+        // TODO add your handling code here:
+        GUIUpdatePasaje addPasajeroFrame = new GUIUpdatePasaje();
+        JFrame frame = new JFrame("Actualizar Pasajero");
+        frame.setContentPane(addPasajeroFrame);
+        frame.pack();
+        frame.setLocationRelativeTo(null); // centrar
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMUpdpasaActionPerformed
+
+    private void jMDelePasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMDelePasaActionPerformed
+        // TODO add your handling code here:
+        GUIDeletePasaje addPasajeroFrame = new GUIDeletePasaje();
+        JFrame frame = new JFrame("Eliminar Pasajero");
+        frame.setContentPane(addPasajeroFrame);
+        frame.pack();
+        frame.setLocationRelativeTo(null); // centrar
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMDelePasaActionPerformed
+
+    private void jMListPasajeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMListPasajeroActionPerformed
+        // TODO add your handling code here:
+        GUIListPasaje addPasajeroFrame = new GUIListPasaje(null);
+        JFrame frame = new JFrame("Listar Pasajeros");
+        frame.setContentPane(addPasajeroFrame);
+        frame.pack();
+        frame.setLocationRelativeTo(null); // centrar
+        frame.setVisible(true);
+    }//GEN-LAST:event_jMListPasajeroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -387,7 +420,6 @@ public class GUIPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuItem jMenuAddPasajero;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;

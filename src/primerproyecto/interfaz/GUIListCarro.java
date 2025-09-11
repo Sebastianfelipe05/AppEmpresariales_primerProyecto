@@ -26,6 +26,7 @@ public class GUIListCarro extends javax.swing.JFrame implements ICambio {
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
     public GUIListCarro() {
+        this.setTitle("Listar Carro");
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e) {

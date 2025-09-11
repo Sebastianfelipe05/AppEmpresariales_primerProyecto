@@ -26,6 +26,7 @@ public class GUIListBus extends javax.swing.JFrame implements ICambio {
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
     public GUIListBus() {
+        this.setTitle("Listar Bus");
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e) {
@@ -33,8 +34,29 @@ public class GUIListBus extends javax.swing.JFrame implements ICambio {
                 barbosa.deleteWindow(GUIListBus.this);
             }
         });
-
         initComponents();
+        jTCBus.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    int fila = jTCBus.getSelectedRow();
+                    if (fila != -1) {
+                        String placa = jTCBus.getValueAt(fila, 2).toString(); // columna Placa
+                        Bus bus = (Bus) barbosa.searchVehiculo(placa);
+                        GUIListPasaje editorPanel = new GUIListPasaje(bus);
+
+                        // Envolver en JFrame
+                        javax.swing.JFrame frame = new javax.swing.JFrame("Pasajeros del bus " + bus.getPlaca());
+                        frame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                        frame.getContentPane().add(editorPanel);
+                        frame.pack();
+                        frame.setLocationRelativeTo(GUIListBus.this); // Centrar respecto a la ventana actual
+                        frame.setVisible(true);;
+                    }
+                }
+            }
+        });
+
     }
 
     /**
@@ -168,10 +190,10 @@ public class GUIListBus extends javax.swing.JFrame implements ICambio {
                 }
             }
 
-            JOptionPane.showMessageDialog(this, "Lista de carros actualizada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Lista de buses actualizada", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al listar carros: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al listar los buses: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

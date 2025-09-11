@@ -20,6 +20,7 @@ public class GUIMostrarTarifa extends javax.swing.JFrame {
      */
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
     public GUIMostrarTarifa() {
+        this.setTitle("Mostrar Tarifa");
         initComponents();
     }
 

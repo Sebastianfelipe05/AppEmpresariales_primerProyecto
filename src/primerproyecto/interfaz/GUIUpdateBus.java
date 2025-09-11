@@ -28,6 +28,7 @@ public class GUIUpdateBus extends javax.swing.JFrame {
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
     public GUIUpdateBus() {
+        this.setTitle("Actualizar Bus");
         initComponents();
         
 

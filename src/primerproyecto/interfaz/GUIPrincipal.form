@@ -128,18 +128,10 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuSearchBus">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SearchBus"/>
+                <Property name="text" type="java.lang.String" value="Search Bus"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuSearchBusActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuAddPasajero">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="AddPasajero"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuAddPasajeroActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -161,16 +153,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Update pasajero"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMUpdpasaActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMDelePasa">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete pasajero"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMDelePasaActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMListPasajero">
               <Properties>
                 <Property name="text" type="java.lang.String" value="List pasajero"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMListPasajeroActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

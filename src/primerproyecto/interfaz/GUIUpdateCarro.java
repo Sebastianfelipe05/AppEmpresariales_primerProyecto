@@ -28,7 +28,7 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
 
     public GUIUpdateCarro() {
-
+        this.setTitle("Actualizar Carro");
         initComponents();
     }
 

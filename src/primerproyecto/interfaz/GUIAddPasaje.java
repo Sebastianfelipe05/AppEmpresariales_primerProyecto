@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import primerproyecto.model.Bus;
 
-import primerproyecto.model.Carro;
 import primerproyecto.model.Pasajero;
 import primerproyecto.service.ServicioPasajero;
+import primerproyecto.service.ServicioVehiculo;
 
 /**
  *
@@ -19,19 +19,14 @@ import primerproyecto.service.ServicioPasajero;
  */
 public class GUIAddPasaje extends javax.swing.JPanel {
 
+    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
     private ServicioPasajero men = ServicioPasajero.getInstance();
 
     /**
      * Creates new form GUIAddCarro
      */
-    public Bus bus;
-    public GUIAddPasaje(Bus bus) {
-        this.bus = bus;
+    public GUIAddPasaje() {
         initComponents();
-    }
-
-    GUIAddPasaje() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -53,8 +48,7 @@ public class GUIAddPasaje extends javax.swing.JPanel {
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jBuscarBus = new javax.swing.JButton();
+        txtPlaca = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -92,16 +86,9 @@ public class GUIAddPasaje extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("Buscar Bus:");
+        jLabel2.setText("Bus");
 
-        jTextField2.setText("Por placa");
-
-        jBuscarBus.setText("Buscar");
-        jBuscarBus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBuscarBusActionPerformed(evt);
-            }
-        });
+        txtPlaca.setText("Por placa");
 
         javax.swing.GroupLayout placaLayout = new javax.swing.GroupLayout(placa);
         placa.setLayout(placaLayout);
@@ -120,35 +107,33 @@ public class GUIAddPasaje extends javax.swing.JPanel {
                             .addComponent(btnSalir))
                         .addGroup(placaLayout.createSequentialGroup()
                             .addGap(73, 73, 73)
-                            .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtNombreCarro)
-                                .addGroup(placaLayout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(color)))
-                            .addGap(37, 37, 37)
                             .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(placaLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBuscarBus)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                                .addGroup(placaLayout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(49, 49, 49)
+                                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(placaLayout.createSequentialGroup()
+                                    .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNombreCarro)
+                                        .addGroup(placaLayout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(color)))
+                                    .addGap(37, 37, 37)
+                                    .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         placaLayout.setVerticalGroup(
             placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(placaLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBuscarBus))
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(placaLayout.createSequentialGroup()
                         .addComponent(txtNombreCarro)
@@ -191,15 +176,17 @@ public class GUIAddPasaje extends javax.swing.JPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        String placa = txtPlaca.getText();
         String name = txtNombre.getText();
         int edad = Integer.parseInt(txtEdad.getText());
-        
-        Pasajero pasajero = new Pasajero(name, edad);
-        
-         bus.addPasajero(pasajero);
-         JOptionPane.showMessageDialog(this, "Pasajero añadido al bus", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
+        Pasajero pasajero = new Pasajero(name, edad);
+
+        Bus bus = (Bus) barbosa.searchVehiculo(placa);
         
+        bus.addPasajero(pasajero);
+        JOptionPane.showMessageDialog(this, "Pasajero añadido al bus", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
         limpiarFormulario();
     }//GEN-LAST:event_btnGuardarActionPerformed
     private void limpiarFormulario() {
@@ -214,23 +201,18 @@ public class GUIAddPasaje extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void jBuscarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscarBusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBuscarBusActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel color;
-    private javax.swing.JButton jBuscarBus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel placa;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JLabel txtNombreCarro;
+    private javax.swing.JTextField txtPlaca;
     // End of variables declaration//GEN-END:variables
 }
