@@ -81,9 +81,9 @@
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" pref="312" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="btnSalir" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
           </Group>
@@ -121,9 +121,8 @@
                       <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="118" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -134,17 +133,14 @@
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jTxtPasajeros" alignment="1" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtMarca" pref="197" max="32767" attributes="0"/>
-                                  <Component id="txtColor" max="32767" attributes="0"/>
-                                  <Component id="txtPlaca" max="32767" attributes="0"/>
-                                  <Component id="txtCombustible" max="32767" attributes="0"/>
-                                  <Component id="txtModelo" max="32767" attributes="0"/>
-                                  <Component id="txtAnio" max="32767" attributes="0"/>
-                                  <Component id="txtEstado" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtMarca" pref="197" max="32767" attributes="0"/>
+                              <Component id="txtColor" max="32767" attributes="0"/>
+                              <Component id="txtPlaca" max="32767" attributes="0"/>
+                              <Component id="txtCombustible" max="32767" attributes="0"/>
+                              <Component id="txtModelo" max="32767" attributes="0"/>
+                              <Component id="txtAnio" max="32767" attributes="0"/>
+                              <Component id="txtEstado" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
@@ -205,12 +201,7 @@
                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                       <Component id="boxSP" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTxtPasajeros" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -347,16 +338,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Num. de pasajeros"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTxtPasajeros">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtPasajerosActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
