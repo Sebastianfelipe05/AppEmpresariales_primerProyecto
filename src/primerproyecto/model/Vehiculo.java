@@ -18,6 +18,16 @@ public abstract class Vehiculo {
     private int anio;
     private String estado;
 
+    public Vehiculo(String marca, String color, String placa, String combustible, String modelo, int anio, String estado) {
+        this.marca = marca;
+        this.color = color;
+        this.placa = placa;
+        this.combustible = combustible;
+        this.modelo = modelo;
+        this.anio = anio;
+        this.estado = estado;
+    }
+
     //POLIMORFISMO: Metodo que cada clase hija implementara de manera diferente
     public abstract String getTipoVehiculo();
 
@@ -41,16 +51,7 @@ public abstract class Vehiculo {
                 + "Valor Comercial: $" + String.format("%.2f", calcularValorComercial());
     }
 
-    public Vehiculo(String marca, String color, String placa, String combustible, String modelo, int anio, String estado) {
-        this.marca = marca;
-        this.color = color;
-        this.placa = placa;
-        this.combustible = combustible;
-        this.modelo = modelo;
-        this.anio = anio;
-        this.estado = estado;
-    }
-
+    // Getters y Setters
     public String getMarca() {
         return marca;
     }
@@ -109,7 +110,14 @@ public abstract class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "marca=" + marca + ", color=" + color + ", placa=" + placa + ", combustible=" + combustible + ", modelo=" + modelo + ", anio=" + anio + ", estado=" + estado + '}';
+        return "Vehiculo{" +
+               "marca='" + marca + '\'' +
+               ", color='" + color + '\'' +
+               ", placa='" + placa + '\'' +
+               ", combustible='" + combustible + '\'' +
+               ", modelo='" + modelo + '\'' +
+               ", anio=" + anio +
+               ", estado='" + estado + '\'' +
+               '}';
     }
-
 }

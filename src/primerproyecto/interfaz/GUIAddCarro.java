@@ -4,10 +4,10 @@
  */
 package primerproyecto.interfaz;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-
+import javax.swing.*;
+import java.awt.*;
+import java.util.Calendar;
+import primerproyecto.interfaz.components.YearCalendarPicker;
 import primerproyecto.model.Carro;
 import primerproyecto.service.ServicioVehiculo;
 
@@ -18,14 +18,154 @@ import primerproyecto.service.ServicioVehiculo;
  */
 public class GUIAddCarro extends javax.swing.JPanel {
 
+    private final ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
+    private YearCalendarPicker yearPicker;
 
-    private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
+    // Colores del tema moderno
+    private static final Color BACKGROUND_COLOR = new Color(245, 248, 250);
+    private static final Color PRIMARY_COLOR = new Color(52, 152, 219);
+    private static final Color SUCCESS_COLOR = new Color(46, 204, 113);
+    private static final Color WARNING_COLOR = new Color(241, 196, 15);
+    private static final Color DANGER_COLOR = new Color(231, 76, 60);
 
     /**
      * Creates new form GUIAddCarro
      */
     public GUIAddCarro() {
         initComponents();
+        customizeUI();
+        makeResponsive();
+    }
+
+    private void customizeUI() {
+        setBackground(BACKGROUND_COLOR);
+
+        // Personalizar el panel principal
+        placa.setBackground(Color.WHITE);
+        placa.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(PRIMARY_COLOR, 2),
+            BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ));
+
+        // Personalizar título
+        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        jLabel1.setForeground(PRIMARY_COLOR);
+        jLabel1.setText("🚗 AGREGAR NUEVO CARRO");
+
+        // Personalizar labels
+        customizeLabel(txtNombreCarro, "🏷️ Marca:");
+        customizeLabel(color, "🎨 Color:");
+        customizeLabel(jLabel2, "🔤 Placa:");
+        customizeLabel(Combustible, "⛽ Combustible:");
+        customizeLabel(jLabel3, "📋 Modelo:");
+        customizeLabel(AnioCarro, "📅 Año:");
+        customizeLabel(EstadoCarro, "⚙️ Estado:");
+        customizeLabel(jLabel4, "❄️ ¿Tiene Aire Acondicionado?");
+        customizeLabel(jLabel5, "🚪 Número de Puertas");
+
+        // Personalizar campos de texto
+        customizeTextField(txtMarca);
+        customizeTextField(txtPlaca);
+        customizeTextField(txtModelo);
+        customizeTextField(txtNumeroPuertas);
+
+        // Personalizar ComboBoxes
+        customizeComboBox(boxColor);
+        customizeComboBox(boxCombustible);
+        customizeComboBox(boxEstado);
+        customizeComboBox(boxAire);
+
+        // Reemplazar el spinner con el calendario personalizado
+        yearPicker = new YearCalendarPicker(Calendar.getInstance().get(Calendar.YEAR));
+
+        // Personalizar botones
+        customizeButton(btnGuardar, "💾 GUARDAR CARRO", SUCCESS_COLOR);
+        customizeButton(btnSalir, "❌ CANCELAR", DANGER_COLOR);
+    }
+
+    private void makeResponsive() {
+        // Hacer que el panel se ajuste al contenedor padre
+        setLayout(new BorderLayout());
+
+        // Panel principal que se adapta al tamaño
+        JPanel mainContainer = new JPanel(new GridBagLayout());
+        mainContainer.setBackground(BACKGROUND_COLOR);
+        mainContainer.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.insets = new Insets(10, 10, 10, 10);
+
+        // Hacer que el panel interno sea responsive
+        placa.setMinimumSize(new Dimension(500, 450));
+        placa.setPreferredSize(new Dimension(600, 550));
+
+        mainContainer.add(placa, gbc);
+        add(mainContainer, BorderLayout.CENTER);
+
+        // Configurar el frame padre para ser responsive
+        SwingUtilities.invokeLater(() -> {
+            JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            if (parentFrame != null) {
+                parentFrame.setMinimumSize(new Dimension(650, 650));
+                parentFrame.setPreferredSize(new Dimension(750, 750));
+                parentFrame.pack();
+                parentFrame.setLocationRelativeTo(null);
+            }
+        });
+    }
+
+    private void customizeLabel(javax.swing.JLabel label, String text) {
+        label.setText(text);
+        label.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        label.setForeground(new Color(52, 73, 94));
+    }
+
+    private void customizeTextField(javax.swing.JTextField textField) {
+        textField.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        textField.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(189, 195, 199), 1),
+            BorderFactory.createEmptyBorder(8, 12, 8, 12)
+        ));
+        textField.setMinimumSize(new Dimension(200, 35));
+        textField.setPreferredSize(new Dimension(250, 35));
+    }
+
+    private void customizeComboBox(javax.swing.JComboBox comboBox) {
+        comboBox.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        comboBox.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(189, 195, 199), 1),
+            BorderFactory.createEmptyBorder(4, 8, 4, 8)
+        ));
+        comboBox.setMinimumSize(new Dimension(200, 35));
+        comboBox.setPreferredSize(new Dimension(250, 35));
+    }
+
+    private void customizeButton(javax.swing.JButton button, String text, Color backgroundColor) {
+        button.setText(text);
+        button.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        button.setBackground(backgroundColor);
+        button.setForeground(Color.WHITE);
+        button.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
+        button.setFocusPainted(false);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button.setMinimumSize(new Dimension(140, 45));
+        button.setPreferredSize(new Dimension(160, 45));
+
+        // Efecto hover
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            Color originalColor = backgroundColor;
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(backgroundColor.darker());
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(originalColor);
+            }
+        });
     }
 
     /**
@@ -51,7 +191,7 @@ public class GUIAddCarro extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtModelo = new javax.swing.JTextField();
         AnioCarro = new javax.swing.JLabel();
-        boxAnio = new javax.swing.JSpinner();
+        yearPickerPanel = new javax.swing.JPanel();
         EstadoCarro = new javax.swing.JLabel();
         boxEstado = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -64,278 +204,262 @@ public class GUIAddCarro extends javax.swing.JPanel {
 
         jTextField1.setText("jTextField1");
 
-        setPreferredSize(new java.awt.Dimension(506, 500));
+        placa.setBackground(Color.WHITE);
+        placa.setBorder(BorderFactory.createLineBorder(PRIMARY_COLOR, 2));
 
-        placa.setBackground(new java.awt.Color(255, 255, 255));
-        placa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
-        placa.setPreferredSize(new java.awt.Dimension(444, 432));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 204));
-        jLabel1.setText("ADD CARRO");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", Font.BOLD, 24));
+        jLabel1.setForeground(PRIMARY_COLOR);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("AGREGAR NUEVO CARRO");
 
         txtNombreCarro.setText("Marca:");
-
-        txtMarca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMarcaActionPerformed(evt);
-            }
-        });
-
         color.setText("Color:");
-
-        boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
-        boxColor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxColorActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Placa:");
-
         Combustible.setText("Combustible:");
-
-        boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
-        boxCombustible.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxCombustibleActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Modelo:");
-
         AnioCarro.setText("Año:");
-
-        boxAnio.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
-
         EstadoCarro.setText("Estado:");
-
-        boxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
-        boxEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxEstadoActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("¿Tiene Aire Acondicionado?");
+        jLabel5.setText("Número de Puertas");
 
-        jLabel5.setText("Numero de Puertas");
+        boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", "Verde", "Amarillo", "Plateado" }));
 
-        boxAire.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
-        boxAire.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxAireActionPerformed(evt);
-            }
-        });
+        boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Híbrido" }));
 
-        txtNumeroPuertas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroPuertasActionPerformed(evt);
-            }
-        });
+        // Panel para el selector de año
+        yearPickerPanel.setBackground(Color.WHITE);
+        yearPickerPanel.setLayout(new BorderLayout());
 
-        javax.swing.GroupLayout placaLayout = new javax.swing.GroupLayout(placa);
-        placa.setLayout(placaLayout);
-        placaLayout.setHorizontalGroup(
-            placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(placaLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(placaLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(AnioCarro)
-                            .addComponent(jLabel3)
-                            .addComponent(Combustible)
-                            .addComponent(jLabel2)
-                            .addComponent(color)
-                            .addComponent(txtNombreCarro)
-                            .addComponent(EstadoCarro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boxColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPlaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boxCombustible, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boxAnio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boxEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(placaLayout.createSequentialGroup()
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(placaLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel5)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boxAire, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-            .addGroup(placaLayout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        placaLayout.setVerticalGroup(
-            placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(placaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombreCarro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(color)
-                    .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Combustible)
-                    .addComponent(boxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AnioCarro)
-                    .addComponent(boxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EstadoCarro)
-                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(boxAire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(184, 184, 184))
-        );
+        boxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado", "Seminuevo" }));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/primerproyecto/interfaz/carro.jpg"))); // NOI18N
+        boxAire.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sí", "No" }));
 
-        btnGuardar.setText("Guardar");
+        btnGuardar.setText("GUARDAR");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
 
-        btnSalir.setText("Salir");
+        btnSalir.setText("SALIR");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+        // Layout responsive mejorado
+        javax.swing.GroupLayout placaLayout = new javax.swing.GroupLayout(placa);
+        placa.setLayout(placaLayout);
+        placaLayout.setHorizontalGroup(
+            placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(placaLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(placaLayout.createSequentialGroup()
+                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreCarro)
+                            .addComponent(color)
+                            .addComponent(jLabel2)
+                            .addComponent(Combustible)
+                            .addComponent(jLabel3)
+                            .addComponent(AnioCarro)
+                            .addComponent(EstadoCarro)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(30, 30, 30)
+                        .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(boxColor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPlaca)
+                            .addComponent(boxCombustible, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtModelo)
+                            .addComponent(yearPickerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(boxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(boxAire, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNumeroPuertas))))
                 .addGap(30, 30, 30))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(btnGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir)
-                .addGap(79, 79, 79))
+            .addGroup(placaLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnSalir))
-                .addGap(32, 32, 32))
+        placaLayout.setVerticalGroup(
+            placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(placaLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreCarro)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(color)
+                    .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Combustible)
+                    .addComponent(boxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(AnioCarro)
+                    .addComponent(yearPickerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EstadoCarro)
+                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(boxAire, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(placaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        // Agregar el selector de año después de la inicialización
+        SwingUtilities.invokeLater(() -> {
+            if (yearPicker != null) {
+                yearPickerPanel.add(yearPicker, BorderLayout.CENTER);
+                yearPickerPanel.revalidate();
+            }
+        });
     }// </editor-fold>//GEN-END:initComponents
 
+    // Métodos de eventos generados automáticamente - algunos no se usan pero son requeridos por NetBeans
+    @SuppressWarnings("unused")
     private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
-        // TODO add your handling code here:
+        // Evento generado automáticamente - no requiere implementación
     }//GEN-LAST:event_txtMarcaActionPerformed
 
-
+    @SuppressWarnings("unused")
     private void boxColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxColorActionPerformed
-        // TODO add your handling code here:
+        // Evento generado automáticamente - no requiere implementación
     }//GEN-LAST:event_boxColorActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-        String marca, color, placa, combustible, modelo, estado;
-        int anio, numeroPuertas;
-        boolean tieneAireAcondicionado;
-        
-        marca = txtMarca.getText();
-        color = boxColor.getSelectedItem().toString();
-        placa = txtPlaca.getText();
-        combustible = boxCombustible.getSelectedItem().toString();
-        modelo = txtModelo.getText();
-        estado = boxEstado.getSelectedItem().toString();
-        anio = Integer.parseInt(boxAnio.getValue().toString());
-        numeroPuertas = Integer.parseInt(txtNumeroPuertas.getText());
-        tieneAireAcondicionado = boxAire.getSelectedItem().toString().equals("Si") ? true : false;
-        Carro mcqueen = new Carro(marca, color, placa, combustible, modelo, anio, estado, numeroPuertas, tieneAireAcondicionado);
-        if (barbosa.addVehiculo(mcqueen)) {
-            JOptionPane.showMessageDialog(this, "Carro añadido exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(this, "Error: No se pudo añadir el Carro", "Error", JOptionPane.ERROR_MESSAGE);
+        try {
+            // Validaciones con mensajes modernos
+            if (txtMarca.getText().trim().isEmpty()) {
+                mostrarError("❌ Error de Validación", "Por favor ingresa la marca del carro");
+                txtMarca.requestFocus();
+                return;
+            }
+
+            if (txtPlaca.getText().trim().isEmpty()) {
+                mostrarError("❌ Error de Validación", "Por favor ingresa la placa del carro");
+                txtPlaca.requestFocus();
+                return;
+            }
+
+            if (txtModelo.getText().trim().isEmpty()) {
+                mostrarError("❌ Error de Validación", "Por favor ingresa el modelo del carro");
+                txtModelo.requestFocus();
+                return;
+            }
+
+            if (txtNumeroPuertas.getText().trim().isEmpty()) {
+                mostrarError("❌ Error de Validación", "Por favor ingresa el número de puertas");
+                txtNumeroPuertas.requestFocus();
+                return;
+            }
+
+            // Crear el carro con los datos del formulario
+            String marca = txtMarca.getText().trim();
+            String color = boxColor.getSelectedItem() != null ? boxColor.getSelectedItem().toString() : "Azul";
+            String placa = txtPlaca.getText().trim().toUpperCase();
+            String combustible = boxCombustible.getSelectedItem() != null ? boxCombustible.getSelectedItem().toString() : "Gasolina";
+            String modelo = txtModelo.getText().trim();
+            int anio = yearPicker.getSelectedYear(); // Usar el selector de calendario
+            String estado = boxEstado.getSelectedItem() != null ? boxEstado.getSelectedItem().toString() : "Nuevo";
+            int numeroPuertas = Integer.parseInt(txtNumeroPuertas.getText().trim());
+            boolean tieneAire = boxAire.getSelectedItem() != null && "Sí".equals(boxAire.getSelectedItem().toString());
+
+            Carro nuevoCarro = new Carro(marca, color, placa, combustible, modelo, anio, estado, numeroPuertas, tieneAire);
+
+            // Guardar el carro
+            if (barbosa.addVehiculo(nuevoCarro)) {
+                mostrarExito("✅ ¡Carro Guardado!",
+                    "El carro ha sido registrado exitosamente en el sistema.\n\n" +
+                    "🚗 Marca: " + marca + "\n" +
+                    "🔤 Placa: " + placa + "\n" +
+                    "📅 Año: " + anio);
+                limpiarFormulario();
+            } else {
+                mostrarError("❌ Error al Guardar", "No se pudo guardar el carro. Intenta nuevamente.");
+            }
+
+        } catch (NumberFormatException e) {
+            mostrarError("❌ Error de Formato", "El número de puertas debe ser un número válido");
+            txtNumeroPuertas.requestFocus();
+        } catch (Exception e) {
+            mostrarError("❌ Error Inesperado", "Ocurrió un error: " + e.getMessage());
         }
-         limpiarFormulario();
     }//GEN-LAST:event_btnGuardarActionPerformed
+
     private void limpiarFormulario() {
         txtMarca.setText("");
-        txtModelo.setText("");
         txtPlaca.setText("");
+        txtModelo.setText("");
+        txtNumeroPuertas.setText("");
         boxColor.setSelectedIndex(0);
         boxCombustible.setSelectedIndex(0);
-        boxAnio.setValue("2010");
         boxEstado.setSelectedIndex(0);
         boxAire.setSelectedIndex(0);
-        txtNumeroPuertas.setText("");
-    }      
+        yearPicker.setSelectedYear(Calendar.getInstance().get(Calendar.YEAR));
+    }
+
+    private void mostrarExito(String titulo, String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void mostrarError(String titulo, String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.ERROR_MESSAGE);
+    }
+
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
         JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(this);
         if (frame != null) {
-            frame.dispose(); // Cierra solo esa ventana
+            frame.dispose();
         }
     }//GEN-LAST:event_btnSalirActionPerformed
 
-
+    @SuppressWarnings("unused")
     private void boxAireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAireActionPerformed
-        // TODO add your handling code here:
+        // Evento generado automáticamente - no requiere implementación
     }//GEN-LAST:event_boxAireActionPerformed
 
+    @SuppressWarnings("unused")
     private void txtNumeroPuertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroPuertasActionPerformed
-        // TODO add your handling code here:
+        // Evento generado automáticamente - no requiere implementación
     }//GEN-LAST:event_txtNumeroPuertasActionPerformed
 
+    @SuppressWarnings("unused")
     private void boxCombustibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCombustibleActionPerformed
-        // TODO add your handling code here:
+        // Evento generado automáticamente - no requiere implementación
     }//GEN-LAST:event_boxCombustibleActionPerformed
 
+    @SuppressWarnings("unused")
     private void boxEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxEstadoActionPerformed
-        // TODO add your handling code here:
+        // Evento generado automáticamente - no requiere implementación
     }//GEN-LAST:event_boxEstadoActionPerformed
 
 
@@ -344,7 +468,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
     private javax.swing.JLabel Combustible;
     private javax.swing.JLabel EstadoCarro;
     private javax.swing.JComboBox<String> boxAire;
-    private javax.swing.JSpinner boxAnio;
     private javax.swing.JComboBox<String> boxColor;
     private javax.swing.JComboBox<String> boxCombustible;
     private javax.swing.JComboBox<String> boxEstado;
@@ -364,5 +487,6 @@ public class GUIAddCarro extends javax.swing.JPanel {
     private javax.swing.JLabel txtNombreCarro;
     private javax.swing.JTextField txtNumeroPuertas;
     private javax.swing.JTextField txtPlaca;
+    private javax.swing.JPanel yearPickerPanel;
     // End of variables declaration//GEN-END:variables
 }

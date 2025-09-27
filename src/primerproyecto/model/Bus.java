@@ -15,18 +15,17 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
 
     private static final int TARIFA_BASE = 3000;
 
-    private ArrayList<Pasajero> pasajeros;
-
-    private int cantidadTelevisores;
-    private boolean tieneBanio;
-    private boolean tieneSegundoPiso;
+    private final ArrayList<Pasajero> pasajeros;
+    private int cantidadTelevisores;  // Quitado final para permitir modificación
+    private boolean tieneBanio;      // Quitado final para permitir modificación
+    private boolean tieneSegundoPiso; // Quitado final para permitir modificación
 
     public Bus(String marca, String color, String placa, String combustible, String modelo, int anio, String estado, int cantidadTelevisores, boolean tieneBanio, boolean tieneSegundoPiso) {
         super(marca, color, placa, combustible, modelo, anio, estado);
         this.cantidadTelevisores = cantidadTelevisores;
         this.tieneBanio = tieneBanio;
         this.tieneSegundoPiso = tieneSegundoPiso;
-        this.pasajeros = new ArrayList<Pasajero>();
+        this.pasajeros = new ArrayList<>();
     }
 
     //POLIMORFISMO: Implementación específica para BUS
@@ -47,7 +46,7 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
     @Override
     public double calcularValorComercial() {
         double valorBase = 180000000;
-        double depreciacion = (2024 - getAnio()) * 0.06; // 6% anual
+        double depreciacion = (2025 - getAnio()) * 0.06; // 6% anual
 
         // Bonificaciones específicas del BUS
         if (tieneBanio) {
@@ -63,7 +62,7 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
 
     @Override
     public String obtenerInformacionMantenimiento() {
-        int kilometraje = (2024 - getAnio()) * 80000; // Estimado buses
+        int kilometraje = (2025 - getAnio()) * 80000; // Estimado buses
         return String.format("Revisión cada 5.000 km | Estimado: %d km | Próxima: %s",
                 kilometraje,
                 tieneBanio ? "Revisión completa" : "Mantenimiento básico");
@@ -111,13 +110,16 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
             }
         }
     }
-    
-    public ArrayList<Pasajero> getPasajeros() {
-        return pasajeros;
-    }
 
     public int cantPasajeros() {
         return pasajeros.size();
+    }
+
+    // Métodos getter y setter necesarios para la actualización
+
+
+    public ArrayList<Pasajero> getPasajeros() {
+        return pasajeros;
     }
 
     public int getCantidadTelevisores() {
@@ -132,8 +134,8 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
         return tieneBanio;
     }
 
-    public void setTieneBanio(boolean tienebanio) {
-        this.tieneBanio = tienebanio;
+    public void setTieneBanio(boolean tieneBanio) {
+        this.tieneBanio = tieneBanio;
     }
 
     public boolean isTieneSegundoPiso() {
@@ -146,7 +148,11 @@ public class Bus extends Vehiculo implements ICalcularTarifa {
 
     @Override
     public String toString() {
-        return "Bus{" + "cantidadTelevisores=" + cantidadTelevisores + ", tienebano=" + tieneBanio + ", tieneSegundoPiso=" + tieneSegundoPiso + '}';
+        return "Bus{" +
+               "cantidadTelevisores=" + cantidadTelevisores +
+               ", tieneBanio=" + tieneBanio +
+               ", tieneSegundoPiso=" + tieneSegundoPiso +
+               ", pasajeros=" + pasajeros.size() +
+               "} " + super.toString();
     }
-
 }

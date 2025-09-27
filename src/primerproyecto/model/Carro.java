@@ -19,7 +19,7 @@ public class Carro extends Vehiculo {
         this.tieneAireAcondicionado = tieneAireAcondicionado;
     }
 
-    //POLINMORFISMO
+    //POLIMORFISMO
     @Override
     public String getTipoVehiculo() {
         return "AUTOMÓVIL";
@@ -35,7 +35,7 @@ public class Carro extends Vehiculo {
     @Override
     public double calcularValorComercial() {
         double valorBase = 45000000;
-        double depreciacion = (2024 - getAnio()) * 0.08; // 8% anual
+        double depreciacion = (2025 - getAnio()) * 0.08; // 8% anual
 
         // Bonificaciones específicas del CARRO
         if (tieneAireAcondicionado) {
@@ -50,10 +50,11 @@ public class Carro extends Vehiculo {
 
     @Override
     public String obtenerInformacionMantenimiento() {
-        int kilometraje = (2024 - getAnio()) * 15000; // Estimado
+        int kilometraje = (2025 - getAnio()) * 15000; // Estimado
         return String.format("Mantenimiento cada 10.000 km | Estimado: %d km", kilometraje);
     }
 
+    // Getters y Setters
     public int getNumeroPuertas() {
         return numeroPuertas;
     }
@@ -72,7 +73,9 @@ public class Carro extends Vehiculo {
 
     @Override
     public String toString() {
-        return "Carro{" + "numeroPuertas=" + numeroPuertas + ", tieneAireAcondicionado=" + tieneAireAcondicionado + '}';
+        return "Carro{" +
+               "numeroPuertas=" + numeroPuertas +
+               ", tieneAireAcondicionado=" + tieneAireAcondicionado +
+               "} " + super.toString();
     }
-
 }

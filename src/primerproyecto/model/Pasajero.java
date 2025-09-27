@@ -14,17 +14,10 @@ public class Pasajero {
     private int edad;
     private Bus bus = null;
     
-    // Constructor con modificador de acceso público
+    // Constructor con validaciones personalizadas
     public Pasajero(String nombre, int edad) {
-        if (nombre == null || nombre.trim().isEmpty()) {
-            throw new IllegalArgumentException("El nombre no puede estar vacío");
-        }
-        if (edad < 0 || edad > 120) {
-            throw new IllegalArgumentException("La edad debe estar entre 0 y 120 años");
-        }
-
-        this.nombre = nombre.trim();
-        this.edad = edad;
+        setNombre(nombre);
+        setEdad(edad);
     }
 
     // Getters
@@ -36,7 +29,11 @@ public class Pasajero {
         return edad;
     }
 
-    // Setters (si los necesitas)
+    public Bus getBus() {
+        return bus;
+    }
+
+    // Setters con validaciones personalizadas
     public void setNombre(String nombre) {
         if (nombre == null || nombre.trim().isEmpty()) {
             throw new IllegalArgumentException("El nombre no puede estar vacío");
@@ -51,17 +48,16 @@ public class Pasajero {
         this.edad = edad;
     }
     
-    public Bus getBus() {
-        return bus;
-    }
-
     public void setBus(Bus bus) {
         this.bus = bus;
     }
 
     @Override
     public String toString() {
-        return "Pasajero{" + "nombre=" + nombre + ", edad=" + edad + ", bus=" + bus + '}';
+        return "Pasajero{" +
+               "nombre='" + nombre + '\'' +
+               ", edad=" + edad +
+               ", bus=" + (bus != null ? bus.getPlaca() : "null") +
+               '}';
     }
-    
 }

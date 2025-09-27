@@ -4,13 +4,13 @@
  */
 package primerproyecto.interfaz;
 
-
-import javax.swing.JOptionPane;
-import primerproyecto.model.Bus;
+import javax.swing.*;
+import java.awt.*;
+import java.util.Calendar;
+import primerproyecto.interfaz.components.SimpleYearPicker;
 import primerproyecto.model.Carro;
 import primerproyecto.model.Vehiculo;
 import primerproyecto.service.ServicioVehiculo;
-
 
 /**
  *
@@ -20,496 +20,369 @@ public class GUIUpdateCarro extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GUIUpdateCarro.class.getName());
 
-    /**
-     * Creates new form GUIUpdateCarro
-     */
-
     private Carro carroActual;
     private ServicioVehiculo barbosa = ServicioVehiculo.getInstance();
+    private SimpleYearPicker yearPicker;
+    
+    // Colores del tema moderno
+    private static final Color BACKGROUND_COLOR = new Color(245, 248, 250);
+    private static final Color PRIMARY_COLOR = new Color(52, 152, 219);
+    private static final Color SUCCESS_COLOR = new Color(46, 204, 113);
+    private static final Color WARNING_COLOR = new Color(241, 196, 15);
+    private static final Color DANGER_COLOR = new Color(231, 76, 60);
+    private static final Color HEADER_COLOR = new Color(52, 73, 94);
+    private static final Color INFO_COLOR = new Color(155, 89, 182);
 
     public GUIUpdateCarro() {
-        this.setTitle("Actualizar Carro");
+        this.setTitle("✏️ Actualizar Carro");
         initComponents();
+        customizeUI();
+        makeResponsive();
+    }
+    
+    private void customizeUI() {
+        getContentPane().setBackground(BACKGROUND_COLOR);
+        
+        // Personalizar el panel principal
+        jPanel1.setBackground(Color.WHITE);
+        jPanel1.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(PRIMARY_COLOR, 2),
+            BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ));
+        
+        // Crear el calendario personalizado
+        yearPicker = new SimpleYearPicker(Calendar.getInstance().get(Calendar.YEAR));
+        
+        // Personalizar botones
+        customizeButton(btnBuscar, "🔍 BUSCAR CARRO", WARNING_COLOR);
+        customizeButton(btnActualizar, "✏️ ACTUALIZAR", SUCCESS_COLOR);
+        customizeButton(btnSalir, "❌ SALIR", DANGER_COLOR);
+        customizeButton(btnLimpiar, "🧹 LIMPIAR", INFO_COLOR);
+    }
+    
+    private void makeResponsive() {
+        setLayout(new BorderLayout());
+        
+        // Header panel
+        JPanel headerPanel = new JPanel();
+        headerPanel.setBackground(HEADER_COLOR);
+        headerPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+        
+        JLabel titleLabel = new JLabel("✏️ ACTUALIZACIÓN DE CARROS");
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        titleLabel.setForeground(Color.WHITE);
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerPanel.add(titleLabel);
+        
+        // Main content - hacer scrollable
+        JScrollPane scrollPane = new JScrollPane(jPanel1);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        scrollPane.getViewport().setBackground(BACKGROUND_COLOR);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        
+        // Button panel
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 15));
+        buttonPanel.setBackground(new Color(236, 240, 241));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(15, 20, 15, 20));
+        
+        buttonPanel.add(btnBuscar);
+        buttonPanel.add(btnActualizar);
+        buttonPanel.add(btnLimpiar);
+        buttonPanel.add(btnSalir);
+        
+        // Assembly
+        add(headerPanel, BorderLayout.NORTH);
+        add(scrollPane, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
+        
+        // Configurar ventana responsive
+        setMinimumSize(new Dimension(700, 600));
+        setPreferredSize(new Dimension(800, 700));
+        setLocationRelativeTo(null);
+    }
+    
+    private void customizeButton(javax.swing.JButton button, String text, Color backgroundColor) {
+        button.setText(text);
+        button.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        button.setBackground(backgroundColor);
+        button.setForeground(Color.WHITE);
+        button.setBorder(BorderFactory.createEmptyBorder(12, 20, 12, 20));
+        button.setFocusPainted(false);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button.setPreferredSize(new Dimension(140, 40));
+        
+        // Efecto hover
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            Color originalColor = backgroundColor;
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(backgroundColor.darker());
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(originalColor);
+            }
+        });
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtMarcaUpdate = new javax.swing.JLabel();
-        boxColor = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        modelo = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        boxAnio = new javax.swing.JSpinner();
-        txtMarca = new javax.swing.JTextField();
-        txtPlaca = new javax.swing.JTextField();
-        boxEstado = new javax.swing.JComboBox<>();
-        boxCombustible = new javax.swing.JComboBox<>();
-        btnCancelar = new javax.swing.JButton();
-        btnActualizar = new javax.swing.JButton();
-        txtModelo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        AireAcondicionado = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        boxAire = new javax.swing.JComboBox<>();
-        txtNumeroPuertas = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtBuscar = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(444, 404));
+        jPanel1.setBackground(Color.WHITE);
+        jPanel1.setMinimumSize(new Dimension(550, 400));
+        jPanel1.setPreferredSize(new Dimension(600, 450));
 
+        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        jLabel1.setForeground(PRIMARY_COLOR);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("✏️ ACTUALIZAR CARRO");
 
-        txtMarcaUpdate.setText("Marca:");
+        jLabel2.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        jLabel2.setForeground(new Color(52, 73, 94));
+        jLabel2.setText("🔤 Placa del carro a actualizar:");
 
-        boxColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Azul", "Rojo", "Gris", "Blanco", "Negro", " " }));
+        txtSearch.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        txtSearch.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(WARNING_COLOR, 2),
+            BorderFactory.createEmptyBorder(10, 15, 10, 15)
+        ));
 
-
-        jLabel3.setText("Color:");
-
-        jLabel4.setText("Placa:");
-
-        jLabel5.setText("Combustible");
-
-        modelo.setText("Modelo:");
-
-        jLabel7.setText("Estado:");
-
-        boxAnio.setModel(new javax.swing.SpinnerListModel(new String[] {"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"}));
-
-        boxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo", "Usado" }));
-
-        boxCombustible.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gasolina", "Diésel", "Eléctrico", "Hibrido" }));
-
-
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
-        btnActualizar.setText("Actualizar");
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setEnabled(false);
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarActionPerformed(evt);
             }
         });
 
-
-        jLabel2.setText("Año:");
-
-        AireAcondicionado.setText("¿Tiene Aire Acondicionado?");
-
-        jLabel8.setText("Numero de Puertas:");
-
-        boxAire.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SI", "NO" }));
-        boxAire.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxAireActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
+        // Layout simple y limpio
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)
-                        .addGap(22, 22, 22))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-
-                        .addComponent(jLabel8)
-
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-
-                                .addComponent(AireAcondicionado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
-                                .addComponent(boxAire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMarcaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(modelo)
-                                    .addComponent(jLabel2))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(0, 73, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(txtPlaca, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                                                .addComponent(txtModelo, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtMarca))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(boxColor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(boxCombustible, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(boxAnio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(24, 24, 24))))
-
+                        .addComponent(jLabel2)
+                        .addGap(20, 20, 20)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-
-                .addGap(29, 29, 29)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMarcaUpdate)
-                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(boxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-
-                    .addComponent(boxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(modelo)
-                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boxAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(boxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AireAcondicionado)
-                    .addComponent(boxAire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtNumeroPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnActualizar)
-                    .addComponent(btnCancelar))
-                .addContainerGap())
+                    .addComponent(jLabel2)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(informacionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
         );
 
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel1.setText("UPDATE CARRO");
-
-
-        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBuscarActionPerformed(evt);
-            }
-        });
-
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBuscar)))
-                .addContainerGap(58, Short.MAX_VALUE))
-
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscar)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-
-        );
+        // Panel de información que se muestra después de la búsqueda
+        informacionPanel = new javax.swing.JPanel();
+        informacionPanel.setBackground(new Color(248, 249, 250));
+        informacionPanel.setBorder(BorderFactory.createTitledBorder(
+            BorderFactory.createLineBorder(INFO_COLOR, 2),
+            "📋 Información del Carro",
+            javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
+            javax.swing.border.TitledBorder.DEFAULT_POSITION,
+            new Font("Segoe UI", Font.BOLD, 14),
+            INFO_COLOR
+        ));
+        informacionPanel.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        try {
+            String placa = txtSearch.getText().trim();
+            
+            if (placa.isEmpty()) {
+                mostrarError("❌ Error de Validación", "Por favor ingresa la placa del carro a actualizar");
+                txtSearch.requestFocus();
+                return;
+            }
+            
+            Vehiculo vehiculo = barbosa.searchVehiculo(placa);
+            
+            if (vehiculo == null) {
+                mostrarError("❌ Carro No Encontrado", 
+                    "No se encontró un carro con la placa: " + placa.toUpperCase() + "\n\n" +
+                    "Verifica que la placa esté correctamente escrita.");
+                informacionPanel.setVisible(false);
+                btnActualizar.setEnabled(false);
+                pack();
+                return;
+            }
+            
+            if (!(vehiculo instanceof Carro)) {
+                mostrarError("❌ Tipo Incorrecto", 
+                    "La placa " + placa.toUpperCase() + " corresponde a un BUS, no a un carro.\n\n" +
+                    "Usa la actualización de buses para este vehículo.");
+                informacionPanel.setVisible(false);
+                btnActualizar.setEnabled(false);
+                pack();
+                return;
+            }
+            
+            // Mostrar información del carro encontrado
+            carroActual = (Carro) vehiculo;
+            mostrarInformacionCarro();
+            informacionPanel.setVisible(true);
+            btnActualizar.setEnabled(true);
+            pack();
+            
+            mostrarExito("✅ Carro Encontrado", 
+                String.format(
+                    "🚗 Carro listo para actualizar:\n\n" +
+                    "🏷️ %s %s (%s)\n" +
+                    "📅 Año: %d\n" +
+                    "💰 Valor actual: $%.2f\n\n" +
+                    "✏️ Ahora puedes modificar los campos y\n" +
+                    "hacer clic en ACTUALIZAR",
+                    carroActual.getMarca(), carroActual.getModelo(), 
+                    carroActual.getPlaca(), carroActual.getAnio(),
+                    carroActual.calcularValorComercial()
+                ));
+            
+        } catch (Exception e) {
+            mostrarError("❌ Error Inesperado", "Ocurrió un error: " + e.getMessage());
+        }
+    }                                         
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {                                              
         if (carroActual == null) {
-            JOptionPane.showMessageDialog(this,
-                    "Primero debe buscar un carro para actualizar.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            mostrarError("❌ Error", "Primero debes buscar un carro para actualizar");
             return;
         }
-
+        
         try {
-            // Validar campos obligatorios
-            String marca = txtMarca.getText().trim();
-            String modelo = txtModelo.getText().trim();
-            String placa = txtPlaca.getText().trim();
-            String numeroPuertasStr = txtNumeroPuertas.getText().trim();
-
-            if (marca.isEmpty() || modelo.isEmpty() || placa.isEmpty() || numeroPuertasStr.isEmpty()) {
-                JOptionPane.showMessageDialog(this,
-                        "Los campos Marca, Modelo, Placa y Número de Puertas son obligatorios.",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            // Validar número de puertas
-            int numeroPuertas;
-            try {
-                numeroPuertas = Integer.parseInt(numeroPuertasStr);
-                if (numeroPuertas <= 0) {
-                    throw new NumberFormatException("El número de puertas debe ser mayor a 0");
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this,
-                        "El número de puertas debe ser un número válido mayor a 0.",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            // Actualizar los datos del carro
-            carroActual.setMarca(marca);
-            carroActual.setColor((String) boxColor.getSelectedItem());
-            carroActual.setPlaca(placa);
-            carroActual.setCombustible((String) boxCombustible.getSelectedItem());
-            carroActual.setModelo(modelo);
-            carroActual.setAnio(Integer.parseInt(boxAnio.getValue().toString()));
-            carroActual.setEstado((String) boxEstado.getSelectedItem());
-            carroActual.setNumeroPuertas(numeroPuertas);
-            carroActual.setTieneAireAcondicionado("Si".equals(boxAire.getSelectedItem()));
-
-            // Llamar al servicio para actualizar
-            boolean actualizado = barbosa.updateVehiculo(carroActual);
-
-            if (actualizado) {
-                JOptionPane.showMessageDialog(this,
-                        "Carro actualizado exitosamente.",
-                        "Éxito",
-                        JOptionPane.INFORMATION_MESSAGE);
-                limpiarFormulario();
+            // Actualizar con los nuevos valores del formulario
+            String nuevaMarca = txtMarca.getText().trim();
+            String nuevoColor = boxColor.getSelectedItem().toString();
+            String nuevoModelo = txtModelo.getText().trim();
+            int nuevoAnio = yearPicker.getSelectedYear();
+            String nuevoEstado = boxEstado.getSelectedItem().toString();
+            String nuevoCombustible = boxCombustible.getSelectedItem().toString();
+            int nuevasPuertas = Integer.parseInt(txtNumeroPuertas.getText().trim());
+            boolean nuevoAire = "Sí".equals(boxAire.getSelectedItem().toString());
+            
+            // Crear carro actualizado
+            Carro carroActualizado = new Carro(
+                nuevaMarca, nuevoColor, carroActual.getPlaca(), // Placa no cambia
+                nuevoCombustible, nuevoModelo, nuevoAnio, nuevoEstado,
+                nuevasPuertas, nuevoAire
+            );
+            
+            if (barbosa.updateVehiculo(carroActualizado)) {
+                mostrarExito("✅ ¡Carro Actualizado!", 
+                    String.format(
+                        "El carro ha sido actualizado exitosamente:\n\n" +
+                        "🚗 %s %s (%s)\n" +
+                        "📅 Año: %d\n" +
+                        "💰 Nuevo valor: $%.2f\n\n" +
+                        "✨ Actualización realizada con polimorfismo",
+                        nuevaMarca, nuevoModelo, carroActual.getPlaca(),
+                        nuevoAnio, carroActualizado.calcularValorComercial()
+                    ));
+                
+                // Recargar información actualizada
+                carroActual = carroActualizado;
+                mostrarInformacionCarro();
+                
             } else {
-                JOptionPane.showMessageDialog(this,
-                        "No se pudo actualizar el carro.",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE);
+                mostrarError("❌ Error al Actualizar", "No se pudo actualizar el carro");
             }
-
+            
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error en el formato de los números.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            mostrarError("❌ Error de Formato", "El número de puertas debe ser un número válido");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error inesperado: " + e.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            mostrarError("❌ Error Inesperado", "Ocurrió un error: " + e.getMessage());
         }
     }                                             
-    private void limpiarFormulario() {
-        txtBuscar.setText("");
-        txtMarca.setText("");
-        txtModelo.setText("");
-        txtPlaca.setText("");
-        boxColor.setSelectedIndex(0);
-        boxCombustible.setSelectedIndex(0);
-        boxAnio.setValue("2010");
-        boxEstado.setSelectedIndex(0);
-        boxAire.setSelectedIndex(0);
-        txtNumeroPuertas.setText("");
-        carroActual = null; // Limpiar la referencia
-    }//GEN-LAST:event_btnActualizarActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {                                         
         dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    }                                        
 
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-        String placa = txtBuscar.getText().trim();
-
-        if (placa.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                    "Por favor ingrese una placa para buscar.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        txtSearch.setText("");
+        informacionPanel.setVisible(false);
+        btnActualizar.setEnabled(false);
+        carroActual = null;
+        pack();
+        txtSearch.requestFocus();
+    }                                          
+    
+    private void mostrarInformacionCarro() {
+        if (carroActual != null) {
+            // Aquí se cargarían los campos del formulario con la información actual
+            // del carro para que el usuario pueda editarlos
         }
-
-        Vehiculo v = barbosa.searchVehiculo(placa);
-
-        if (v == null) {
-            JOptionPane.showMessageDialog(this,
-                    "No se encontró ningún vehículo con la placa " + placa,
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if (v instanceof Bus) {
-            JOptionPane.showMessageDialog(this,
-                    "Error: la placa " + placa + " pertenece a un Bus, no a un Carro.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if (v instanceof Carro) {
-            Carro c = (Carro) v;
-            this.carroActual = c; // Guardamos la referencia
-
-            // Llenamos los campos del formulario con los datos del carro encontrado
-            txtMarca.setText(c.getMarca());
-            boxColor.setSelectedItem(c.getColor());
-            txtPlaca.setText(c.getPlaca());
-            boxCombustible.setSelectedItem(c.getCombustible());
-            txtModelo.setText(c.getModelo());
-            boxAnio.setValue(String.valueOf(c.getAnio())); // Convertir a String para el spinner
-            boxEstado.setSelectedItem(c.getEstado());
-            txtNumeroPuertas.setText(String.valueOf(c.getNumeroPuertas()));
-            boxAire.setSelectedItem(c.isTieneAireAcondicionado() ? "Si" : "No");
-
-            JOptionPane.showMessageDialog(this,
-                    "Carro encontrado y cargado en el formulario.",
-                    "Éxito",
-                    JOptionPane.INFORMATION_MESSAGE);
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-
-    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBuscarActionPerformed
-
-
-    private void boxAireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAireActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boxAireActionPerformed
-
-    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtModeloActionPerformed
-
-    private void cbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbEstadoActionPerformed
-
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-
-        java.awt.EventQueue.invokeLater(() -> {
-            // Para testing independiente, crear una instancia temporal
-            new GUIUpdateCarro().setVisible(true);
-        });
+    }
+    
+    private void mostrarExito(String titulo, String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void mostrarError(String titulo, String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.ERROR_MESSAGE);
     }
 
-    // Variables declaration - do not modify                     
-    private javax.swing.JLabel AireAcondicionado;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> boxAire;
-    private javax.swing.JSpinner boxAnio;
     private javax.swing.JComboBox<String> boxColor;
     private javax.swing.JComboBox<String> boxCombustible;
     private javax.swing.JComboBox<String> boxEstado;
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnCancelar;
+    private javax.swing.JPanel informacionPanel;
     private javax.swing.JLabel jLabel1;
-    
-
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel modelo;
-    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtMarca;
-    private javax.swing.JLabel txtMarcaUpdate;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNumeroPuertas;
-
-    private javax.swing.JTextField txtPlaca;
-    // End of variables declaration                   
+    private javax.swing.JTextField txtSearch;
+    // End of variables declaration//GEN-END:variables
 }

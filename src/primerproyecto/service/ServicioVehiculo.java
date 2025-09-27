@@ -14,8 +14,8 @@ public class ServicioVehiculo implements IServicioVehiculo {
     private static ServicioVehiculo instance;
 
     // Lista de vehículos (estado interno)
-    private ArrayList<Vehiculo> vehiculos = new ArrayList<>();
-    private ArrayList<ICambio> windows = new ArrayList<>();
+    private final ArrayList<Vehiculo> vehiculos = new ArrayList<>();
+    private final ArrayList<ICambio> windows = new ArrayList<>();
 
     // Constructor privado para prevenir instanciación externa
     private ServicioVehiculo() {
@@ -94,5 +94,86 @@ public class ServicioVehiculo implements IServicioVehiculo {
             return true;
         }
         return false;
+    }
+
+    // MÉTODOS QUE DEMUESTRAN POLIMORFISMO
+    /**
+     * Calcula el valor comercial total de todos los vehículos usando polimorfismo
+     * Cada tipo de vehículo (Carro/Bus) tiene su propia implementación del cálculo
+     */
+    public double calcularValorComercialTotal() {
+        double valorTotal = 0.0;
+        for (Vehiculo vehiculo : vehiculos) {
+            valorTotal += vehiculo.calcularValorComercial(); // LLAMADA POLIMÓRFICA
+        }
+        return valorTotal;
+    }
+
+    /**
+     * Calcula el valor promedio por tipo de vehículo usando polimorfismo
+     */
+    public String calcularValorPromedioPorTipo() {
+        double valorCarros = 0.0;
+        double valorBuses = 0.0;
+        int contadorCarros = 0;
+        int contadorBuses = 0;
+
+        for (Vehiculo vehiculo : vehiculos) {
+            double valor = vehiculo.calcularValorComercial(); // LLAMADA POLIMÓRFICA
+            if (vehiculo.getTipoVehiculo().contains("AUTOMÓVIL")) { // LLAMADA POLIMÓRFICA
+                valorCarros += valor;
+                contadorCarros++;
+            } else {
+                valorBuses += valor;
+                contadorBuses++;
+            }
+        }
+
+        StringBuilder resultado = new StringBuilder();
+        resultado.append("=== ANALISIS DE VALORES COMERCIALES ===\n");
+
+        if (contadorCarros > 0) {
+            resultado.append(String.format("Carros - Promedio: $%.2f (Total: %d vehículos)\n",
+                valorCarros / contadorCarros, contadorCarros));
+        }
+
+        if (contadorBuses > 0) {
+            resultado.append(String.format("Buses - Promedio: $%.2f (Total: %d vehículos)\n",
+                valorBuses / contadorBuses, contadorBuses));
+        }
+
+        if (!vehiculos.isEmpty()) {
+            resultado.append(String.format("Valor Total de Inventario: $%.2f",
+                calcularValorComercialTotal()));
+        } else {
+            resultado.append("No hay vehículos en el inventario");
+        }
+
+        return resultado.toString();
+    }
+
+    /**
+     * Obtiene información detallada de todos los vehículos usando polimorfismo
+     */
+    public String obtenerReporteCompleto() {
+        if (vehiculos.isEmpty()) {
+            return "No hay vehiculos registrados en el sistema.";
+        }
+
+        StringBuilder reporte = new StringBuilder();
+        reporte.append("=== REPORTE COMPLETO DE VEHICULOS ===\n\n");
+
+        for (int i = 0; i < vehiculos.size(); i++) {
+            Vehiculo vehiculo = vehiculos.get(i);
+            reporte.append(String.format("VEHICULO #%d\n", i + 1));
+            reporte.append(vehiculo.getInformacionCompleta()); // LLAMADA POLIMÓRFICA
+            reporte.append("\n");
+            reporte.append("Mantenimiento: ").append(vehiculo.obtenerInformacionMantenimiento()); // LLAMADA POLIMÓRFICA
+            reporte.append("\n");
+            reporte.append("─".repeat(50)).append("\n\n");
+        }
+
+        reporte.append(calcularValorPromedioPorTipo());
+        return reporte.toString();
     }
 }
